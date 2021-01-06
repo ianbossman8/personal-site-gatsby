@@ -3,7 +3,7 @@ const siteMetadata = {
   description: `This is my personal site and demo`,
 }
 
-const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-styled-components']
+const plugins = ['gatsby-plugin-netlify-cms', 'gatsby-plugin-typescript', 'gatsby-plugin-styled-components']
 
 module.exports = {
   siteMetadata,
