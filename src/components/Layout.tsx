@@ -9,7 +9,7 @@ const AppContainer = styled.div`
 `
 
 interface Props {
-  location: Location
+  location: Location | string
   title: string
   description: string
   children?: any

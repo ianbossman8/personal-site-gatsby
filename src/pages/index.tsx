@@ -5,9 +5,12 @@ import { useSiteQuery } from '../queries/useSiteQuery'
 
 function SiteIndex() {
   const siteMetadata = useSiteQuery()
-
+  let location = typeof window !== 'undefined' ? window.location : ''
   return (
-    <Layout location={window.location} title={siteMetadata.title} description={siteMetadata.description}>
+    <Layout
+      location={location}
+      title={siteMetadata.title}
+      description={siteMetadata.description}>
       <SEO title="hi" />
     </Layout>
   )
