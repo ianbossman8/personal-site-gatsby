@@ -13,6 +13,10 @@ function Header({ title, description }: Props) {
         <h1>{title}</h1>
         <p>{description}</p>
       </Link>
+      <Link to="/blog">
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </Link>
     </header>
   )
 }
