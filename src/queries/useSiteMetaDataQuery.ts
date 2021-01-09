@@ -9,7 +9,7 @@ type QueryResponse = {
   }
 }
 
-export const useSiteQuery = () => {
+export const useSiteMetaDataQuery = () => {
   const { site } = useStaticQuery<QueryResponse>(
     graphql`
       query SITE_METADATA_QUERY {
