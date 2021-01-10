@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { IndexPageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
@@ -7,17 +7,20 @@ import { styleTheme } from '../../styles/theme'
 import THEME from '../../constants/theme'
 
 interface Props {
-  location: string
+  location: string | undefined
   title?: string
   description?: string
-  children: any
+  children: ReactNode
 }
 
 const rootPath = '/'
 
 function Layout(props: Props) {
-  const { children, location, title, description } = props
-  const currentLocalTheme = localStorage.getItem('colourTheme')
+  const { children, location = rootPath, title, description } = props
+  const currentLocalTheme =
+    typeof localStorage !== 'undefined'
+      ? localStorage.getItem('colourTheme')
+      : THEME.LIGHT
   const [colourTheme, setColourTheme] = useState<THEME>(
     currentLocalTheme === null ? THEME.LIGHT : (currentLocalTheme as THEME)
   )
