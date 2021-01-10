@@ -1,6 +1,9 @@
+import THEME from './src/constants/theme'
+
 const siteMetadata = {
   title: 'Personal Site | Ianbossman',
-  description: `This is my personal site and demo`
+  description: 'This is my personal site and demo',
+  theme: THEME.LIGHT
 }
 
 const plugins = [

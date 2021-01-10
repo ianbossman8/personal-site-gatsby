@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-type QueryResponse = {
+type SiteQueryResponse = {
   site: {
     siteMetadata: {
       title: string
@@ -9,8 +9,8 @@ type QueryResponse = {
   }
 }
 
-export const useSiteMetaDataQuery = () => {
-  const { site } = useStaticQuery<QueryResponse>(
+export function useSiteMetaDataQuery() {
+  const { site } = useStaticQuery<SiteQueryResponse>(
     graphql`
       query SITE_METADATA_QUERY {
         site {

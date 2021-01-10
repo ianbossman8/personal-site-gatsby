@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
+import { ThemeProvider } from 'styled-components'
+import { IndexPageContainer, MainContainer } from './style'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import { styleTheme } from '../../styles/theme'
-import styled, { keyframes, ThemeProvider } from 'styled-components'
-import Header from '../Header'
-import Footer from '../Footer'
-import { IndexPageContainer } from './style'
 import THEME from '../../constants/theme'
 
 interface Props {
-  location: Location
+  location: string
   title?: string
   description?: string
   children: any
@@ -25,7 +24,7 @@ function Layout(props: Props) {
 
   useEffect(() => {
     const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
-    const localTheme = localStorage.getItem('colorTheme')
+    const localTheme = localStorage.getItem('colourTheme')
 
     if (localTheme === THEME.DARK) {
       setColourTheme(THEME.DARK)
@@ -64,19 +63,19 @@ function Layout(props: Props) {
     setColourTheme(theme)
   }
 
+  const isIndex = location === rootPath
+
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      {location.pathname === rootPath ? (
-        <IndexPageContainer>
-          <Header
-            colourTheme={colourTheme}
-            setColourTheme={handleThemeChange}
-          />
-          <main>{children}</main>
-        </IndexPageContainer>
-      ) : (
-        <div></div>
-      )}
+      <IndexPageContainer>
+        <Header
+          colourTheme={colourTheme}
+          setColourTheme={handleThemeChange}
+          isIndex={isIndex}
+        />
+        <MainContainer>{children}</MainContainer>
+        <Footer isIndex={isIndex} />
+      </IndexPageContainer>
     </ThemeProvider>
   )
 }

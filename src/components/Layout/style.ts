@@ -1,31 +1,21 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-const containerStyle = css`
+export const IndexPageContainer = styled.div`
   min-height: 100%;
   width: 100%;
   box-sizing: border-box;
-`
-
-// const changeBackgroundPosition = keyframes`
-// 0% {
-//   background-position: 0% 50%;
-// }
-// 50% {
-//   background-position: 100% 50%;
-// }
-// 100% {
-//   background-position: 0% 50%;
-// }
-// `
-
-export const IndexPageContainer = styled.div`
-  ${containerStyle};
   display: grid;
-  grid-template-rows: 1fr 20fr;
+  grid-template-rows: 1fr 20fr 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
   background-color: ${({ theme }) => theme.colours.primary};
+  padding: 1rem;
   transition: background-color 0.3s ease;
 `
 
-/* background-image: linear-gradient(45deg, #69c0ff, #fffb8f); */
-/* background-size: 400% 400%; */
-/* animation: 10s ${changeBackgroundPosition} ease infinite; */
+export const MainContainer = styled.main`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
