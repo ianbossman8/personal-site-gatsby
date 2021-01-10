@@ -1,5 +1,6 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 export const AppHeader = styled.header`
-  display: grid;
+  display: flex;
+  justify-content: center;
 `

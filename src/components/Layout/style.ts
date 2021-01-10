@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 export const IndexPageContainer = styled.div`
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  display: grid;
-  grid-template-rows: 1fr 20fr 1fr;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-items: center;
   background-color: ${({ theme }) => theme.colours.primary};
   padding: 1rem;
   transition: background-color 0.3s ease;

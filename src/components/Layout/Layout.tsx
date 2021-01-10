@@ -18,11 +18,11 @@ const rootPath = '/'
 function Layout(props: Props) {
   const { children, location = rootPath, title, description } = props
   const currentLocalTheme =
-    typeof localStorage !== 'undefined'
-      ? localStorage.getItem('colourTheme')
-      : THEME.LIGHT
+    typeof matchMedia !== 'undefined' &&
+    matchMedia('(prefers-color-scheme: dark)').matches
+
   const [colourTheme, setColourTheme] = useState<THEME>(
-    currentLocalTheme === null ? THEME.LIGHT : (currentLocalTheme as THEME)
+    currentLocalTheme ? THEME.DARK : THEME.LIGHT
   )
 
   useEffect(() => {

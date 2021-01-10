@@ -1,6 +1,7 @@
 enum FONT_SIZE {
   EL = 'el',
-  L = 'l'
+  L = 'l',
+  XS = 'xs'
 }
 
 export default FONT_SIZE
