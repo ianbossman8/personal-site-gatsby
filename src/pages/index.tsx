@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
-import SEO from '../components/SEO'
+import SEO from '../components/Seo'
 import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 import { WelcomeText } from '../styles/text'
 
