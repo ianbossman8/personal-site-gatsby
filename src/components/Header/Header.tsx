@@ -21,7 +21,6 @@ function Header(props: Props) {
     const nextTheme = colourTheme === THEME.DARK ? THEME.LIGHT : THEME.DARK
 
     setColourTheme(nextTheme)
-    localStorage.setItem('colourTheme', nextTheme)
   }
 
   return (

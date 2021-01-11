@@ -17,31 +17,27 @@ const rootPath = '/'
 
 function Layout(props: Props) {
   const { children, location = rootPath, title, description } = props
-  const currentLocalTheme =
-    typeof matchMedia !== 'undefined' &&
-    matchMedia('(prefers-color-scheme: dark)').matches
 
-  const [colourTheme, setColourTheme] = useState<THEME>(
-    currentLocalTheme ? THEME.DARK : THEME.LIGHT
-  )
+  const [colourTheme, setColourTheme] = useState<THEME>(THEME.LIGHT)
 
   useEffect(() => {
-    const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
     const localTheme = localStorage.getItem('colourTheme')
 
-    if (localTheme === THEME.DARK) {
-      setColourTheme(THEME.DARK)
-    } else if (localTheme === THEME.LIGHT) {
-      setColourTheme(THEME.LIGHT)
-    } else {
-      if (isSystemDark.matches) {
+    if (!localTheme) {
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches
+
+      if (systemTheme) {
         setColourTheme(THEME.DARK)
         localStorage.setItem('colourTheme', THEME.DARK)
       } else {
         setColourTheme(THEME.LIGHT)
         localStorage.setItem('colourTheme', THEME.LIGHT)
       }
+    } else {
+      setColourTheme(localTheme as THEME)
     }
+
+    const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
 
     function handleSystemChange(event: MediaQueryListEvent) {
       const localTheme = localStorage.getItem('colourTheme')
@@ -64,6 +60,7 @@ function Layout(props: Props) {
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
+    localStorage.setItem('colourTheme', theme)
   }
 
   const isIndex = location === rootPath
