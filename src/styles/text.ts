@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme, keyframes } from 'styled-components'
 import FONT_SIZE from '../constants/fontSize'
-import { MEDIA_QUERY_SMALL } from '../constants/styles'
+import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../constants/styles'
 
 function colourfulText(colours: DefaultTheme['colours']) {
   return `linear-gradient(to right, ${colours.main[3]}, ${colours.info[3]}, ${colours.warn[3]}, ${colours.alert[3]})`
@@ -25,6 +25,10 @@ export const H1 = styled.h1`
 
   ${MEDIA_QUERY_SMALL} {
     font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.L]};
+  }
+
+  ${MEDIA_QUERY_MEDIUM} {
+    font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.N]};
   }
 `
 
