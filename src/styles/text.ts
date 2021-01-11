@@ -23,11 +23,11 @@ export const H1 = styled.h1`
   font-weight: 400;
   font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.EL]};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_MEDIUM} {
     font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.L]};
   }
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_SMALL} {
     font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.N]};
   }
 `
