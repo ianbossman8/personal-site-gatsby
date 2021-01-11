@@ -6,6 +6,7 @@ declare module 'styled-components' {
     fontSize: {
       [FONT_SIZE.EL]: string
       [FONT_SIZE.L]: string
+      [FONT_SIZE.N]: string
       [FONT_SIZE.XS]: string
     }
     colours: {
