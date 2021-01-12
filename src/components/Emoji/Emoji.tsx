@@ -1,6 +1,6 @@
 import React from 'react'
 import { SymbolSpan } from './style'
-import FONT_SIZE from '../../constants/fontSize'
+import { FONT_SIZE } from '../../constants/font'
 
 interface Props {
   label: string

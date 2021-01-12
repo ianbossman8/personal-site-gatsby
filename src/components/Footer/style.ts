@@ -1,8 +1,12 @@
 import styled from 'styled-components'
-import { fillBackgroundText } from '../../styles/text'
+import { P } from '../../styles/text'
+import { fillBackgroundText } from '../../styles/colours'
 
 export const AppFooter = styled.footer`
   display: flex;
   text-transform: uppercase;
+`
+
+export const FooterText = styled(P)`
   ${fillBackgroundText};
 `
