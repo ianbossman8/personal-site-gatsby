@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { IndexPageContainer, MainContainer } from './style'
+import { PageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { styleTheme } from '../../styles/theme'
@@ -67,7 +67,7 @@ function Layout(props: Props) {
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      <IndexPageContainer>
+      <PageContainer>
         <Header
           colourTheme={colourTheme}
           setColourTheme={handleThemeChange}
@@ -75,7 +75,7 @@ function Layout(props: Props) {
         />
         <MainContainer>{children}</MainContainer>
         <Footer isIndex={isIndex} />
-      </IndexPageContainer>
+      </PageContainer>
     </ThemeProvider>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import { AppFooter } from './style'
-import { P } from '../../styles/text'
+import { AppFooter, FooterText } from './style'
 
 interface Props {
   isIndex: boolean
@@ -9,7 +8,7 @@ interface Props {
 function Footer(props: Props) {
   return (
     <AppFooter>
-      <P>© produced and designed by ian chan</P>
+      <FooterText>© produced and designed by ian chan</FooterText>
     </AppFooter>
   )
 }
