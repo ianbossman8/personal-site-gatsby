@@ -1,13 +1,27 @@
 import 'styled-components'
-import FONT_SIZE from '../constants/fontSize'
+import { SIZE } from '../constants/font'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    fontSize: {
-      [FONT_SIZE.EL]: string
-      [FONT_SIZE.L]: string
-      [FONT_SIZE.N]: string
-      [FONT_SIZE.XS]: string
+    font: {
+      size: {
+        [SIZE.EL]: string
+        [SIZE.L]: string
+        [SIZE.NL]: string
+        [SIZE.N]: string
+        [SIZE.S]: string
+        [SIZE.XS]: string
+      }
+      weight: {
+        [SIZE.L]: number
+        [SIZE.N]: number
+        [SIZE.S]: number
+      }
+    }
+    letterSpacing: {
+      [SIZE.L]: string
+      [SIZE.N]: string
+      [SIZE.S]: string
     }
     colours: {
       main: {
@@ -30,7 +44,16 @@ declare module 'styled-components' {
         2: string
         3: string
       }
-      primary: string
+      primary: {
+        1: string
+        2: string
+        3: string
+      }
+      secondary: {
+        1: string
+        2: string
+        3: string
+      }
     }
   }
 }

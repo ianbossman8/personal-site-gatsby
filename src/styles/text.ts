@@ -1,17 +1,7 @@
-import styled, { css, DefaultTheme, keyframes } from 'styled-components'
-import FONT_SIZE from '../constants/fontSize'
+import styled, { css, keyframes } from 'styled-components'
+import { fillBackgroundText } from './colours'
+import { SIZE } from '../constants/font'
 import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../constants/styles'
-
-function colourfulText(colours: DefaultTheme['colours']) {
-  return `linear-gradient(to right, ${colours.main[3]}, ${colours.info[3]}, ${colours.warn[3]}, ${colours.alert[3]})`
-}
-
-export const fillBackgroundText = css`
-  background: ${({ theme: { colours } }) => colourfulText(colours)};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`
 
 const textColourAnimation = keyframes`
   to {
@@ -19,29 +9,83 @@ const textColourAnimation = keyframes`
   }
 `
 
-export const H1 = styled.h1`
-  font-weight: 400;
-  font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.EL]};
+export function mainFontColour(primary: boolean) {
+  return css`
+    color: ${({ theme: { colours } }) =>
+      primary ? colours.primary[1] : colours.secondary[1]};
+  `
+}
+
+export const H1 = styled.h1<{ primary?: boolean }>`
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.N]};
+  font-size: ${({
+    theme: {
+      font: { size }
+    }
+  }) => size[SIZE.EL]};
 
   ${MEDIA_QUERY_MEDIUM} {
-    font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.L]};
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.L]};
   }
 
   ${MEDIA_QUERY_SMALL} {
-    font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.N]};
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.NL]};
   }
 `
 
-export const P = styled.p`
-  font-weight: 200;
+export const H2 = styled.h2<{ primary?: boolean }>`
+  ${({ primary = false }) => mainFontColour(primary)};
+  font-size: ${({
+    theme: {
+      font: { size }
+    }
+  }) => size[SIZE.NL]};
+  text-transform: capitalize;
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
 
   ${MEDIA_QUERY_SMALL} {
-    font-size: ${({ theme: { fontSize } }) => fontSize[FONT_SIZE.XS]};
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.S]};
+  }
+`
+
+export const P = styled.p<{ primary?: boolean }>`
+  ${({ primary = true }) => mainFontColour(primary)};
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
+
+  ${MEDIA_QUERY_SMALL} {
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.XS]};
   }
 `
 
 export const WelcomeText = styled(H1)`
-  margin: 0;
   text-align: center;
   text-transform: uppercase;
   ${fillBackgroundText}

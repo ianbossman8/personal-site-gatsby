@@ -1,13 +1,27 @@
 import { DefaultTheme } from 'styled-components'
-import FONT_SIZE from '../constants/fontSize'
+import { SIZE } from '../constants/font'
 import THEME from '../constants/theme'
 
 const commonStyle = {
-  fontSize: {
-    [FONT_SIZE.EL]: '3rem',
-    [FONT_SIZE.L]: '2rem',
-    [FONT_SIZE.N]: '1.75rem',
-    [FONT_SIZE.XS]: '0.75rem'
+  font: {
+    size: {
+      [SIZE.EL]: '3rem',
+      [SIZE.L]: '2rem',
+      [SIZE.NL]: '1.75rem',
+      [SIZE.N]: '1.5rem',
+      [SIZE.S]: '1rem',
+      [SIZE.XS]: '0.75rem'
+    },
+    weight: {
+      [SIZE.L]: 600,
+      [SIZE.N]: 400,
+      [SIZE.S]: 200
+    }
+  },
+  letterSpacing: {
+    [SIZE.L]: '6px',
+    [SIZE.N]: '4px',
+    [SIZE.S]: '2px'
   }
 }
 
@@ -34,7 +48,16 @@ const lightTheme: DefaultTheme = {
       2: '#fa541c',
       3: '#ad2102'
     },
-    primary: '#ffffff'
+    primary: {
+      1: '#ffffff',
+      2: '#f5f5f5',
+      3: '#f0f0f0'
+    },
+    secondary: {
+      1: '#000000',
+      2: '#1f1f1f',
+      3: '#434343'
+    }
   }
 }
 
@@ -61,7 +84,16 @@ const darkTheme: DefaultTheme = {
       2: '#fa541c',
       1: '#ad2102'
     },
-    primary: '#141414'
+    primary: {
+      1: '#000000',
+      2: '#1f1f1f',
+      3: '#434343'
+    },
+    secondary: {
+      1: '#ffffff',
+      2: '#f5f5f5',
+      3: '#f0f0f0'
+    }
   }
 }
 
