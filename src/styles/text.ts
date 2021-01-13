@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import { fillBackgroundText } from './colours'
-import { FONT_SIZE, FONT_WEIGHT } from '../constants/font'
+import { SIZE } from '../constants/font'
 import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../constants/styles'
 
 const textColourAnimation = keyframes`
@@ -21,19 +21,19 @@ export const H1 = styled.h1<{ primary?: boolean }>`
     theme: {
       font: { weight }
     }
-  }) => weight[FONT_WEIGHT.N]};
+  }) => weight[SIZE.N]};
   font-size: ${({
     theme: {
       font: { size }
     }
-  }) => size[FONT_SIZE.EL]};
+  }) => size[SIZE.EL]};
 
   ${MEDIA_QUERY_MEDIUM} {
     font-size: ${({
       theme: {
         font: { size }
       }
-    }) => size[FONT_SIZE.L]};
+    }) => size[SIZE.L]};
   }
 
   ${MEDIA_QUERY_SMALL} {
@@ -41,7 +41,7 @@ export const H1 = styled.h1<{ primary?: boolean }>`
       theme: {
         font: { size }
       }
-    }) => size[FONT_SIZE.NL]};
+    }) => size[SIZE.NL]};
   }
 `
 
@@ -51,20 +51,20 @@ export const H2 = styled.h2<{ primary?: boolean }>`
     theme: {
       font: { size }
     }
-  }) => size[FONT_SIZE.NL]};
+  }) => size[SIZE.NL]};
   text-transform: capitalize;
   font-weight: ${({
     theme: {
       font: { weight }
     }
-  }) => weight[FONT_WEIGHT.S]};
+  }) => weight[SIZE.S]};
 
   ${MEDIA_QUERY_SMALL} {
     font-size: ${({
       theme: {
         font: { size }
       }
-    }) => size[FONT_SIZE.S]};
+    }) => size[SIZE.S]};
   }
 `
 
@@ -74,14 +74,14 @@ export const P = styled.p<{ primary?: boolean }>`
     theme: {
       font: { weight }
     }
-  }) => weight[FONT_WEIGHT.S]};
+  }) => weight[SIZE.S]};
 
   ${MEDIA_QUERY_SMALL} {
     font-size: ${({
       theme: {
         font: { size }
       }
-    }) => size[FONT_SIZE.XS]};
+    }) => size[SIZE.XS]};
   }
 `
 

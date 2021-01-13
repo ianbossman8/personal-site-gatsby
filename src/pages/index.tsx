@@ -18,9 +18,14 @@ function SiteIndex() {
   function handleButtonlick(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
-    setModalContent((isModalOn) =>
-      !isModalOn ? (event.target as HTMLButtonElement).value : undefined
-    )
+    if ((event.target as any).nodeName === 'SPAN') {
+      console.log((event.target as any).innerHTML)
+      setModalContent((event.target as any).innerHTML)
+    } else {
+      setModalContent((isModalOn) =>
+        !isModalOn ? (event.target as HTMLButtonElement).value : undefined
+      )
+    }
   }
 
   function handleModalClose() {
@@ -36,13 +41,15 @@ function SiteIndex() {
       <WelcomeText>wagwan, this is bossman's life</WelcomeText>
       <IntroBar>
         <MainButton onClick={handleButtonlick} value="about">
-          about
+          <span>about</span>
         </MainButton>
         <MainButton onClick={handleButtonlick} value="contact">
-          contact me
+          <span>contact me</span>
         </MainButton>
         <MainButton>
-          <Link to="/">blogs</Link>
+          <span>
+            <Link to="/">blogs</Link>
+          </span>
         </MainButton>
       </IntroBar>
       {modalContent && (

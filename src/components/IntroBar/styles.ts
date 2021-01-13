@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components'
+import { MainButton } from '../../styles/buttons'
 import { MEDIA_QUERY_SMALL } from '../../constants/styles'
+import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
 
 const opacityAnimation = keyframes`
  to {
@@ -10,6 +12,18 @@ const opacityAnimation = keyframes`
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+
+  ${MainButton} {
+    border: 2px solid inherit;
+    border-image: ${({ theme: { colours } }) =>
+        colourfulBackground(colours, 'toRight')}
+      5;
+    background: transparent;
+
+    span {
+      ${fillBackgroundText};
+    }
+  }
 
   button:first-child {
     opacity: 0;

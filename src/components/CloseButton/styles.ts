@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const CloseButtonContainer = styled.div`
-  position: relative;
+  position: sticky;
+  top: 0;
   width: min-content;
   float: right;
   cursor: pointer;

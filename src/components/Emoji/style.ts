@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { FONT_SIZE } from '../../constants/font'
+import { SIZE } from '../../constants/font'
 
 interface SymbolSpanProps {
-  size: FONT_SIZE
+  size: SIZE
 }
 
 export const SymbolSpan = styled.span<SymbolSpanProps>`

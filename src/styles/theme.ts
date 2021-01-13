@@ -1,22 +1,27 @@
 import { DefaultTheme } from 'styled-components'
-import { FONT_SIZE, FONT_WEIGHT } from '../constants/font'
+import { SIZE } from '../constants/font'
 import THEME from '../constants/theme'
 
 const commonStyle = {
   font: {
     size: {
-      [FONT_SIZE.EL]: '3rem',
-      [FONT_SIZE.L]: '2rem',
-      [FONT_SIZE.NL]: '1.75rem',
-      [FONT_SIZE.N]: '1.5rem',
-      [FONT_SIZE.S]: '1rem',
-      [FONT_SIZE.XS]: '0.75rem'
+      [SIZE.EL]: '3rem',
+      [SIZE.L]: '2rem',
+      [SIZE.NL]: '1.75rem',
+      [SIZE.N]: '1.5rem',
+      [SIZE.S]: '1rem',
+      [SIZE.XS]: '0.75rem'
     },
     weight: {
-      [FONT_WEIGHT.L]: 600,
-      [FONT_WEIGHT.N]: 400,
-      [FONT_WEIGHT.S]: 200
+      [SIZE.L]: 600,
+      [SIZE.N]: 400,
+      [SIZE.S]: 200
     }
+  },
+  letterSpacing: {
+    [SIZE.L]: '6px',
+    [SIZE.N]: '4px',
+    [SIZE.S]: '2px'
   }
 }
 

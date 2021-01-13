@@ -1,22 +1,27 @@
 import 'styled-components'
-import { FONT_SIZE, FONT_WEIGHT } from '../constants/font'
+import { SIZE } from '../constants/font'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     font: {
       size: {
-        [FONT_SIZE.EL]: string
-        [FONT_SIZE.L]: string
-        [FONT_SIZE.NL]: string
-        [FONT_SIZE.N]: string
-        [FONT_SIZE.S]: string
-        [FONT_SIZE.XS]: string
+        [SIZE.EL]: string
+        [SIZE.L]: string
+        [SIZE.NL]: string
+        [SIZE.N]: string
+        [SIZE.S]: string
+        [SIZE.XS]: string
       }
       weight: {
-        [FONT_WEIGHT.L]: number
-        [FONT_WEIGHT.N]: number
-        [FONT_WEIGHT.S]: number
+        [SIZE.L]: number
+        [SIZE.N]: number
+        [SIZE.S]: number
       }
+    }
+    letterSpacing: {
+      [SIZE.L]: string
+      [SIZE.N]: string
+      [SIZE.S]: string
     }
     colours: {
       main: {

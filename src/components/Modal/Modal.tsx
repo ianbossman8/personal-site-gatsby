@@ -15,7 +15,6 @@ function Modal(props: Props) {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     event.stopPropagation()
-    return false
   }
 
   let info
@@ -33,22 +32,22 @@ function Modal(props: Props) {
           <P>
             <mark>- Myself with reference to Urban Dictionary</mark>
           </P>
-          <P>
-            As I had just quoted the best definition of <i>BOSSMAN</i> you can
-            ever get on the internet (OxBridge Dictionary ?? allow it my G), we
-            know that to take on the role of a Bossman is no laughing matter.
-            The responsibility you have to take on is real, and the whole mandem
-            would be have both eyes on you. Take the lead on your life.
-          </P>
-          <P>
-            This is Ian and this is my website to bring on all my knowledge and
-            help you to become a better person
-          </P>
         </BlockQuote>
+        <P>
+          As I had just quoted the best definition of <i>BOSSMAN</i> you can
+          ever get on the internet (OxBridge Dictionary ?? allow it my G), we
+          know that to take on the role of a Bossman is no laughing matter. The
+          responsibility you have to take on is real, and the whole mandem would
+          be have both eyes on you. Take the lead on your life.
+        </P>
+        <P>
+          This is Ian and this is my website to bring on all my knowledge and
+          help you to become a better person
+        </P>
       </>
     )
   } else {
-    info = <ModalHeader primary>coming soon my g</ModalHeader>
+    info = <P>coming soon my g</P>
   }
 
   return (
