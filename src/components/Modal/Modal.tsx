@@ -1,7 +1,8 @@
 import React from 'react'
-import { P } from '../../styles/text'
-import CloseButton from '../CloseButton/CloseButton'
+import { GrClose } from 'react-icons/gr'
 import { Container, ContentContainer, ModalHeader, BlockQuote } from './styles'
+import SocialIconsList from '../SocialIconsList/SocialIconsList'
+import { P } from '../../styles/text'
 
 interface Props {
   content: string
@@ -44,6 +45,8 @@ function Modal(props: Props) {
           This is Ian and this is my website to bring on all my knowledge and
           help you to become a better person
         </P>
+
+        <SocialIconsList />
       </>
     )
   } else {
@@ -53,7 +56,7 @@ function Modal(props: Props) {
   return (
     <Container onClick={handleModalClose}>
       <ContentContainer onClick={handleModalContentContainerClick}>
-        <CloseButton handleModalClose={handleModalClose} />
+        <GrClose onClick={handleModalClose} className="modal-close-button" />
         <ModalHeader primary>about</ModalHeader>
         {info}
       </ContentContainer>

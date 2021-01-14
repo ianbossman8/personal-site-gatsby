@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { H2, P } from '../../styles/text'
-import { colourfulBackground } from '../../styles/colours'
+import { colourfulBackground, glassBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
 import { MEDIA_QUERY_SMALL } from '../../constants/styles'
 
@@ -35,6 +35,10 @@ export const ModalHeader = styled(H2)`
 `
 
 export const BlockQuote = styled.blockquote`
+  ${glassBackground};
+  padding: 0.1rem 0.75rem;
+  margin-bottom: 2rem;
+
   mark {
     background-color: transparent;
     font-size: ${({
@@ -95,4 +99,15 @@ export const Container = styled.div`
   justify-content: center;
   z-index: 1;
   animation: ${opacityAnimation} 0.2s ease-in forwards;
+
+  svg.modal-close-button {
+    position: sticky;
+    top: 0;
+    float: right;
+    cursor: pointer;
+
+    path {
+      stroke: ${({ theme: { colours } }) => colours.primary[1]};
+    }
+  }
 `

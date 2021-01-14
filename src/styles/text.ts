@@ -81,7 +81,7 @@ export const P = styled.p<{ primary?: boolean }>`
       theme: {
         font: { size }
       }
-    }) => size[SIZE.XS]};
+    }) => size[SIZE.S]};
   }
 `
 

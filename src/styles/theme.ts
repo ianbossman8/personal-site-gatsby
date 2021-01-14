@@ -25,6 +25,12 @@ const commonStyle = {
   }
 }
 
+const brandColour = {
+  twitter: '#1da1f2',
+  medium: '#00ab6c',
+  blogger: '#f57d00'
+}
+
 const lightTheme: DefaultTheme = {
   ...commonStyle,
   colours: {
@@ -51,12 +57,18 @@ const lightTheme: DefaultTheme = {
     primary: {
       1: '#ffffff',
       2: '#f5f5f5',
-      3: '#f0f0f0'
+      3: '#f0f0f0',
+      blur: 'rgba(255, 255, 255, 0.25)'
     },
     secondary: {
       1: '#000000',
       2: '#1f1f1f',
-      3: '#434343'
+      3: '#434343',
+      blur: 'rgba(0, 0, 0, 0.25)'
+    },
+    brands: {
+      ...brandColour,
+      github: '#333'
     }
   }
 }
@@ -87,12 +99,18 @@ const darkTheme: DefaultTheme = {
     primary: {
       1: '#000000',
       2: '#1f1f1f',
-      3: '#434343'
+      3: '#434343',
+      blur: 'rgba(0, 0, 0, 0.25)'
     },
     secondary: {
       1: '#ffffff',
       2: '#f5f5f5',
-      3: '#f0f0f0'
+      3: '#f0f0f0',
+      blur: 'rgba(255, 255, 255, 0.25)'
+    },
+    brands: {
+      ...brandColour,
+      github: '#fafafa'
     }
   }
 }

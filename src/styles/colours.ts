@@ -21,3 +21,11 @@ export const fillBackgroundText = css`
   -webkit-text-fill-color: transparent;
   color: transparent;
 `
+
+export const glassBackground = css`
+  background: ${({ theme: { colours } }) => colours.primary.blur};
+  box-shadow: ${({ theme: { colours } }) =>
+    `0 8px 32px 0 ${colours.secondary[3]}`};
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+`

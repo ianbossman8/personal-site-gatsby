@@ -21,7 +21,7 @@ const commonButtonCssProperties = css`
 `
 
 export const MainButton = styled.button`
-  background-color: ${({ theme: { colours } }) => colours.secondary[1]};
+  background-color: ${({ theme: { colours } }) => colours.main[1]};
   color: ${({ theme: { colours } }) => colours.primary[1]};
   font-size: ${({
     theme: {
