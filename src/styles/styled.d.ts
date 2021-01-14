@@ -48,11 +48,19 @@ declare module 'styled-components' {
         1: string
         2: string
         3: string
+        blur: string
       }
       secondary: {
         1: string
         2: string
         3: string
+        blur: string
+      }
+      brands: {
+        twitter: string
+        github: string
+        medium: string
+        blogger: string
       }
     }
   }

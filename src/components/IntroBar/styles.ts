@@ -32,7 +32,12 @@ export const Container = styled.div`
 
   button:nth-child(2) {
     opacity: 0;
-    animation: ${opacityAnimation} 1.4s ease-in forwards;
+    animation: ${opacityAnimation} 1.25s ease-in forwards;
+  }
+
+  button:nth-child(3) {
+    opacity: 0;
+    animation: ${opacityAnimation} 1.5s ease-in forwards;
   }
 
   button:last-child {
