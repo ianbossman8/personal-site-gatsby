@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { MainButton } from '../../styles/buttons'
-import { MEDIA_QUERY_SMALL } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM } from '../../constants/styles'
 import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
 
 const opacityAnimation = keyframes`
@@ -45,7 +45,7 @@ export const Container = styled.div`
     animation: ${opacityAnimation} 1.75s ease-in forwards;
   }
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_MEDIUM} {
     flex-direction: column;
   }
 `
