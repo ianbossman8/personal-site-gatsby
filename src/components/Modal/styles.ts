@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import { H2, P } from '../../styles/text'
-import { colourfulBackground, glassBackground } from '../../styles/colours'
+import { blockQuoteStyle, H2, P, pStyle } from '../../styles/text'
+import { colourfulBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
 import { MEDIA_QUERY_SMALL } from '../../constants/styles'
 
@@ -34,23 +34,6 @@ export const ModalHeader = styled(H2)`
   letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
 `
 
-export const BlockQuote = styled.blockquote`
-  ${glassBackground};
-  padding: 0.1rem 0.75rem;
-  margin-bottom: 2rem;
-
-  mark {
-    background-color: transparent;
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.N]};
-    font-style: italic;
-    color: ${({ theme: { colours } }) => colours.secondary[1]};
-  }
-`
-
 export const ContentContainer = styled.article`
   min-height: 475px;
   min-width: 300px;
@@ -69,16 +52,18 @@ export const ContentContainer = styled.article`
   animation: 6s ${changeBackgroundPosition} ease-in infinite,
     0.8s ${modalOpacityAnimation} ease-out forwards;
 
-  ${BlockQuote} ${P} {
-    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
+  blockquote {
+    ${blockQuoteStyle};
   }
 
-  ${P} {
+  p {
+    ${pStyle};
+    color: ${({ theme: { colours } }) => colours.primary[3]};
     letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
   }
 
   ${MEDIA_QUERY_SMALL} {
-    ${BlockQuote} ${P} {
+    blockquote mark {
       letter-spacing: ${({ theme: { letterSpacing } }) =>
         letterSpacing[SIZE.S]};
     }

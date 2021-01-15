@@ -15,7 +15,7 @@ function IntroBar(props: Props) {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     if ((event.target as any).nodeName === 'SPAN') {
-      props.setModalContent((event.target as any).innerHTML)
+      props.setModalContent((event.target as any).title)
     } else {
       props.setModalContent((isModalOn) =>
         !isModalOn ? (event.target as HTMLButtonElement).value : undefined
@@ -26,18 +26,18 @@ function IntroBar(props: Props) {
   return (
     <Container>
       <MainButton onClick={handleButtonlick} value="about">
-        <span>about</span>
+        <span title="about">about</span>
       </MainButton>
       <MainButton onClick={handleButtonlick} value="contact">
-        <span>contact me</span>
+        <span title="contact">contact me</span>
       </MainButton>
       <MainButton>
-        <span>
+        <span title="blogs">
           <Link to="/">blogs</Link>
         </span>
       </MainButton>
       <MainButton>
-        <span>
+        <span title="giving">
           <a href="https://linktr.ee/ianbossman" target="blank">
             <Emoji symbol={SYMBOLS.pointRight} size={SIZE.N} />
             support people in need
