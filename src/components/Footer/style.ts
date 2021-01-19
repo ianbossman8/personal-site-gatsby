@@ -14,4 +14,5 @@ export const AppFooter = styled.footer`
 
 export const FooterText = styled(P)`
   ${fillBackgroundText};
+  text-align: center;
 `

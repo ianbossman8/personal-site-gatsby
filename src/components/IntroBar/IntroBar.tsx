@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { MainButton } from '../../styles/buttons'
+import { navigate } from 'gatsby'
 import { Container } from './styles'
 import Emoji from '../Emoji/Emoji'
+import { MainButton } from '../../styles/buttons'
 import SYMBOLS from '../../constants/symbols'
 import { SIZE } from '../../constants/font'
 
@@ -14,11 +14,17 @@ function IntroBar(props: Props) {
   function handleButtonlick(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
-    if ((event.target as any).nodeName === 'SPAN') {
-      props.setModalContent((event.target as any).title)
+    const target = event.target as HTMLButtonElement
+
+    if (target.title === 'blogs' || target.value === 'blogs') {
+      return navigate('/blogs')
+    }
+
+    if (target.nodeName === 'SPAN') {
+      props.setModalContent(target.title)
     } else {
       props.setModalContent((isModalOn) =>
-        !isModalOn ? (event.target as HTMLButtonElement).value : undefined
+        !isModalOn ? target.value : undefined
       )
     }
   }
@@ -31,10 +37,8 @@ function IntroBar(props: Props) {
       <MainButton onClick={handleButtonlick} value="contact">
         <span title="contact">contact me</span>
       </MainButton>
-      <MainButton>
-        <span title="blogs">
-          <Link to="/">blogs</Link>
-        </span>
+      <MainButton onClick={handleButtonlick} value="blogs">
+        <span title="blogs">blogs</span>
       </MainButton>
       <MainButton>
         <span title="giving">

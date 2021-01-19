@@ -9,7 +9,13 @@ const textColourAnimation = keyframes`
   }
 `
 
-export function mainFontColour(primary?: boolean) {
+export function mainFontColour(primary?: boolean, main?: boolean) {
+  if (main) {
+    return css`
+      color: ${({ theme: { colours } }) => colours.secondary[1]};
+    `
+  }
+
   return css`
     color: ${({ theme: { colours } }) =>
       primary ? colours.primary[1] : colours.primary[3]};
@@ -45,13 +51,36 @@ export const H1 = styled.h1<{ primary?: boolean }>`
   }
 `
 
-export const H2 = styled.h2<{ primary?: boolean }>`
-  ${({ primary = false }) => mainFontColour(primary)};
+export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
+  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
   font-size: ${({
     theme: {
       font: { size }
     }
   }) => size[SIZE.NL]};
+  text-transform: capitalize;
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
+
+  ${MEDIA_QUERY_SMALL} {
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.S]};
+  }
+`
+
+export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
+  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
+  font-size: ${({
+    theme: {
+      font: { size }
+    }
+  }) => size[SIZE.N]};
   text-transform: capitalize;
   font-weight: ${({
     theme: {
@@ -84,8 +113,8 @@ export const pStyle = css`
   }
 `
 
-export const P = styled.p<{ primary?: boolean }>`
-  ${({ primary = true }) => mainFontColour(primary)};
+export const P = styled.p<{ primary?: boolean; main?: boolean }>`
+  ${({ primary = true, main = true }) => mainFontColour(primary, main)};
   ${pStyle};
 `
 
@@ -98,7 +127,7 @@ export const WelcomeText = styled(H1)`
 
 export const blockQuoteStyle = css`
   ${glassBackground};
-  padding: 0.1rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
 
   mark {

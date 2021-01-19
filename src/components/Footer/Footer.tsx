@@ -9,7 +9,9 @@ interface Props {
 function Footer(props: Props) {
   return (
     <AppFooter>
-      <FooterText>© produced and designed by ian chan</FooterText>
+      <FooterText>
+        © {new Date().getFullYear()} produced and designed by ian chan
+      </FooterText>
       <SocialIconsList />
     </AppFooter>
   )

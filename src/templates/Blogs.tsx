@@ -8,8 +8,9 @@ import { WelcomeText } from '../styles/text'
 import { useAboutContentQuery } from '../queries/useAboutContentQuery'
 import { useAllBlogPosts } from '../queries/useAllBlogPosts'
 
-function SiteIndex() {
+function Blogs() {
   const siteMetadata = useSiteMetaDataQuery()
+  const allBlogPostsInfo = useAllBlogPosts()
   const aboutMe = useAboutContentQuery()
 
   const [modalContent, setModalContent] = useState<string | undefined>(
@@ -29,24 +30,23 @@ function SiteIndex() {
   function handleModalClose() {
     setModalContent(undefined)
   }
-
   return (
     <Layout
       location={
         typeof location !== 'undefined' ? location.pathname : undefined
       }>
-      <SEO title={siteMetadata.title} />
-      <WelcomeText>wagwan, this is bossman's life</WelcomeText>
+      <SEO title={'blogs'} />
       <IntroBar setModalContent={setModalContent} />
       {modalContent && (
         <Modal
           content={modalContent}
           handleModalClose={handleModalClose}
           info={info}
+          blogsInfo={allBlogPostsInfo}
         />
       )}
     </Layout>
   )
 }
 
-export default SiteIndex
+export default Blogs
