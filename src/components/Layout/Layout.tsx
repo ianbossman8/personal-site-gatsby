@@ -13,10 +13,13 @@ interface Props {
   children: ReactNode
 }
 
-const rootPath = '/'
+const path = {
+  root: '/',
+  blogs: '/blogs'
+}
 
 function Layout(props: Props) {
-  const { children, location = rootPath, title, description } = props
+  const { children, location = path.root, title, description } = props
 
   const [colourTheme, setColourTheme] = useState<THEME>(THEME.LIGHT)
 
@@ -44,10 +47,12 @@ function Layout(props: Props) {
 
       if (event.matches && localTheme !== THEME.DARK) {
         setColourTheme(THEME.DARK)
+        localStorage.setItem('colourTheme', THEME.DARK)
       }
 
       if (!event.matches && localTheme !== THEME.LIGHT) {
         setColourTheme(THEME.LIGHT)
+        localStorage.setItem('colourTheme', THEME.LIGHT)
       }
     }
 
@@ -63,7 +68,7 @@ function Layout(props: Props) {
     localStorage.setItem('colourTheme', theme)
   }
 
-  const isIndex = location === rootPath
+  const isIndex = location === path.root
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>

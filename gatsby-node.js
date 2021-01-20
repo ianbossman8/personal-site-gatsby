@@ -1,8 +1,9 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
+
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode })
     const contentType = getNode(node.parent).sourceInstanceName
@@ -13,6 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       value: `${prefix}${slug}`
     })
+
     createNodeField({
       node,
       name: 'contentType',
@@ -23,11 +25,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      blogs: allMarkdownRemark(
+        filter: { fields: { contentType: { eq: "blogs" } } }
+      ) {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -37,13 +43,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.blogs.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/BlogPost.tsx`),
+      component: path.resolve(`./src/templates/blogPost.tsx`),
       context: {
         slug: node.fields.slug
       }
+    })
+  })
+
+  const blogPosts = result.data.blogs.edges
+  // const blogPostsPerPage =
+  //     result.data.limitPost.siteMetadata.blogItemsPerPage
+  // const numBlogPages = Math.ceil(blogPosts.length / blogPostsPerPage)
+
+  Array.from({ length: 1 }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+      component: path.resolve('./src/templates/blogs.tsx')
     })
   })
 }

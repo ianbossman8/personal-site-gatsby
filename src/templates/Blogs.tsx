@@ -4,9 +4,9 @@ import SEO from '../components/Seo'
 import Layout from '../components/Layout/Layout'
 import IntroBar from '../components/IntroBar/IntroBar'
 import Modal from '../components/Modal/Modal'
-import { WelcomeText } from '../styles/text'
 import { useAboutContentQuery } from '../queries/useAboutContentQuery'
 import { useAllBlogPosts } from '../queries/useAllBlogPosts'
+import BlogsList from '../components/BlogsList/BlogsList'
 
 function Blogs() {
   const siteMetadata = useSiteMetaDataQuery()
@@ -30,6 +30,7 @@ function Blogs() {
   function handleModalClose() {
     setModalContent(undefined)
   }
+
   return (
     <Layout
       location={
@@ -42,9 +43,12 @@ function Blogs() {
           content={modalContent}
           handleModalClose={handleModalClose}
           info={info}
-          blogsInfo={allBlogPostsInfo}
         />
       )}
+      <BlogsList
+        totalBlogs={allBlogPostsInfo.totalCount}
+        blogsDesc={allBlogPostsInfo.edges}
+      />
     </Layout>
   )
 }

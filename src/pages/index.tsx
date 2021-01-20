@@ -6,7 +6,6 @@ import IntroBar from '../components/IntroBar/IntroBar'
 import Modal from '../components/Modal/Modal'
 import { WelcomeText } from '../styles/text'
 import { useAboutContentQuery } from '../queries/useAboutContentQuery'
-import { useAllBlogPosts } from '../queries/useAllBlogPosts'
 
 function SiteIndex() {
   const siteMetadata = useSiteMetaDataQuery()

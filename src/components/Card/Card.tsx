@@ -30,10 +30,6 @@ function Card(props: Props) {
         <P>{blogDetail.description}</P>
       </InfoContainer>
       <MetaContainer>
-        <span>{blogDetail.date}</span>
-        <span>{blogDetail.date}</span>
-        <span>{blogDetail.date}</span>
-        <span>{blogDetail.date}</span>
         <P>{blogDetail.date}</P>
       </MetaContainer>
     </CardContainer>

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { Container, ContentContainer, ModalHeader } from './styles'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
-import BlogsList from '../BlogsList/BlogsList'
 import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPosts'
 
 interface Props {
@@ -44,14 +43,7 @@ function Modal(props: Props) {
         <ModalHeader primary main={isBlog}>
           {content}
         </ModalHeader>
-        {!isBlog ? (
-          <div dangerouslySetInnerHTML={{ __html: info }} />
-        ) : (
-          <BlogsList
-            totalBlogs={blogsInfo.totalCount}
-            blogsDesc={blogsInfo.edges}
-          />
-        )}
+        <div dangerouslySetInnerHTML={{ __html: info }} />
         <SocialIconsList />
       </ContentContainer>
     </Container>
