@@ -5,6 +5,7 @@ import { MEDIA_QUERY_SMALL } from '../../constants/styles'
 
 export const AppFooter = styled.footer`
   display: flex;
+  justify-content: center;
   text-transform: uppercase;
 
   ${MEDIA_QUERY_SMALL} {

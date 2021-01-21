@@ -18,13 +18,15 @@ export const CardContainer = styled.div`
   width: 325px;
   max-width: 325px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   background: ${({ theme: { colours } }) => colours.primary[2]};
   box-shadow: ${({ theme: { colours } }) =>
     `0 1px 4px ${colours.secondary.blur}`};
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   letter-spacing: 0;
-  padding-bottom: 1rem;
+  margin: 0 0 1rem 1rem;
   transition: all 0.2s;
 
   &:hover {
@@ -39,10 +41,8 @@ export const CardContainer = styled.div`
 `
 
 export const MetaContainer = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0;
   display: flex;
+  align-self: flex-end;
 
   ${CardContainer}, ${P} {
     margin: 0;

@@ -38,7 +38,7 @@ function Layout(props: Props) {
           setColourTheme={handleThemeChange}
           isIndex={isIndex}
         />
-        <MainContainer>{children}</MainContainer>
+        <MainContainer isIndex={isIndex}>{children}</MainContainer>
         <Footer isIndex={isIndex} />
       </PageContainer>
     </ThemeProvider>
