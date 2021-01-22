@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { Container, ContentContainer, ModalHeader } from './styles'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
-import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPosts'
+import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPostsQuery'
 
 interface Props {
   content: string

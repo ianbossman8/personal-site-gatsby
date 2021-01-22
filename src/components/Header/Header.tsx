@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+
 import { AppHeader } from './styles'
 import { ThemeButton } from '../../styles/buttons'
 import Emoji from '../Emoji/Emoji'
@@ -11,11 +11,10 @@ interface Props {
   description?: string
   colourTheme: THEME
   setColourTheme: (theme: THEME) => void
-  isIndex: boolean
 }
 
 function Header(props: Props) {
-  const { colourTheme, setColourTheme, isIndex } = props
+  const { colourTheme, setColourTheme } = props
 
   function handleThemeButtonClick() {
     const nextTheme = colourTheme === THEME.DARK ? THEME.LIGHT : THEME.DARK
@@ -25,7 +24,6 @@ function Header(props: Props) {
 
   return (
     <AppHeader>
-      {!isIndex && <div></div>}
       <ThemeButton onClick={handleThemeButtonClick}>
         <Emoji
           label={'dim background'}

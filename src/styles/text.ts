@@ -22,7 +22,8 @@ export function mainFontColour(primary?: boolean, main?: boolean) {
   `
 }
 
-export const H1 = styled.h1<{ primary?: boolean }>`
+export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
+  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
   font-weight: ${({
     theme: {
       font: { weight }

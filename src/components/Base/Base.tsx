@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSiteMetaDataQuery } from '../../queries/useSiteMetaDataQuery'
 import { useAboutContentQuery } from '../../queries/useAboutContentQuery'
-import { useAllBlogPosts } from '../../queries/useAllBlogPosts'
+import { useAllBlogPosts } from '../../queries/useAllBlogPostsQuery'
 import SEO from '../Seo'
 import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'

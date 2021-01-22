@@ -1,15 +1,71 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
+import { NodeData } from '../queries/useAllBlogPostsQuery'
+import Emoji from '../components/Emoji/Emoji'
+import SYMBOLS from '../constants/symbols'
+import { SIZE } from '../constants/font'
+import Layout from '../components/Layout/Layout'
+import { H1, P } from '../styles/text'
 
-export default function BlogPost({ data }: any) {
-  const post = data.markdownRemark
+interface Props {
+  data: {
+    markdownRemark: {
+      html: string
+      frontmatter: NodeData['frontmatter']
+      fields: {
+        slug: string
+      }
+    }
+  }
+}
+
+const Page = styled.div`
+  width: inherit;
+
+  a {
+    color: ${({ theme: { colours } }) => colours.main[2]};
+  }
+`
+
+const BlogPostContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+`
+
+const ImgHolder = styled.div`
+  width: 100%;
+  max-width: 960px;
+`
+
+export default function BlogPost(props: Props) {
+  const {
+    data: {
+      markdownRemark: { html, frontmatter, fields }
+    }
+  } = props
+
   return (
-    <>
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-    </>
+    <Layout location={fields.slug}>
+      <Page>
+        <Link to="/blogs">
+          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} />{' '}
+          back to all blogs
+        </Link>
+        <BlogPostContainer>
+          <ImgHolder>
+            <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
+          </ImgHolder>
+          <H1 main>{frontmatter.title}</H1>
+          <P>{frontmatter.author}</P>
+          <P>{frontmatter.date}</P>
+          <article dangerouslySetInnerHTML={{ __html: html }} />
+        </BlogPostContainer>
+      </Page>
+    </Layout>
   )
 }
 
@@ -18,7 +74,17 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        title
+        ...CustomNodeFrontmatter
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1280, quality: 100) {
+              ...CustomGatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      fields {
+        slug
       }
     }
   }

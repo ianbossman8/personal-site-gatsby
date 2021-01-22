@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 import Base from '../components/Base/Base'
-import { useAllBlogPosts } from '../queries/useAllBlogPosts'
+import { useAllBlogPosts } from '../queries/useAllBlogPostsQuery'
 
 function SiteIndex() {
   const siteMetadata = useSiteMetaDataQuery()

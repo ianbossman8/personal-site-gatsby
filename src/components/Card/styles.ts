@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { MEDIA_QUERY_SMALL } from '../../constants/styles'
 import { H3, P } from '../../styles/text'
 
 export const ImgHolder = styled.div`
@@ -37,6 +38,10 @@ export const CardContainer = styled.div`
 
   ${H3}, ${P} {
     margin: 0.45rem 0.25rem;
+  }
+
+  ${MEDIA_QUERY_SMALL} {
+    margin: 1rem 0;
   }
 `
 

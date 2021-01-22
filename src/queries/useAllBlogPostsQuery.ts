@@ -13,9 +13,7 @@ export type NodeData = {
       relativePath: string
       childImageSharp: {
         id: string
-        fluid: FluidObject & {
-          originalName: string
-        }
+        fluid: FluidObject
       }
     }
   }
@@ -38,31 +36,17 @@ export function useAllBlogPosts() {
   const { allMarkdownRemark } = useStaticQuery<AllBlogPostsInfoQuery>(
     graphql`
       query {
-        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(blog)/" } }) {
+        allMarkdownRemark(
+          filter: { fields: { contentType: { eq: "blogs" } } }
+        ) {
           edges {
             node {
               frontmatter {
-                title
-                description
-                date(formatString: "MMMM Do, YYYY")
-                tags
-                categories
-                author
+                ...CustomNodeFrontmatter
                 thumbnail {
-                  relativePath
-                  publicURL
                   childImageSharp {
-                    id
                     fluid(maxWidth: 460, quality: 80) {
-                      aspectRatio
-                      src
-                      srcSet
-                      sizes
-                      srcWebp
-                      base64
-                      tracedSVG
-                      srcSetWebp
-                      originalName
+                      ...CustomGatsbyImageSharpFluid
                     }
                   }
                 }

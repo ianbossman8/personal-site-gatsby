@@ -6,7 +6,7 @@ import {
   InfoContainer,
   MetaContainer
 } from './styles'
-import { NodeData } from '../../queries/useAllBlogPosts'
+import { NodeData } from '../../queries/useAllBlogPostsQuery'
 import { P, H3 } from '../../styles/text'
 
 interface Props {
@@ -16,14 +16,11 @@ interface Props {
 function Card(props: Props) {
   const { blogDetail } = props
   const thumbnail = blogDetail.thumbnail
-  console.log(blogDetail)
+
   return (
     <CardContainer>
       <ImgHolder>
-        <Img
-          fluid={thumbnail.childImageSharp.fluid}
-          alt="Cat taking up an entire chair"
-        />
+        <Img fluid={thumbnail.childImageSharp.fluid} alt="" />
       </ImgHolder>
       <InfoContainer>
         <H3 main>{blogDetail.title}</H3>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { BlogsListContainer, BlogsContainer } from './styles'
-import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPosts'
+import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPostsQuery'
 import Card from '../Card/Card'
 import { P } from '../../styles/text'
 

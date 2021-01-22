@@ -28,18 +28,15 @@ function Layout(props: Props) {
     localStorage.setItem('colourTheme', theme)
   }
 
+  const isMain = location === path.root || location === path.blogs
   const isIndex = location === path.root
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      <PageContainer>
-        <Header
-          colourTheme={colourTheme}
-          setColourTheme={handleThemeChange}
-          isIndex={isIndex}
-        />
+      <PageContainer isMain={isMain}>
+        <Header colourTheme={colourTheme} setColourTheme={handleThemeChange} />
         <MainContainer isIndex={isIndex}>{children}</MainContainer>
-        <Footer isIndex={isIndex} />
+        <Footer />
       </PageContainer>
     </ThemeProvider>
   )
