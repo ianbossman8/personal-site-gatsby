@@ -2,14 +2,12 @@ import React from 'react'
 import { AppFooter, FooterText } from './style'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
 
-interface Props {
-  isIndex: boolean
-}
-
-function Footer(props: Props) {
+function Footer() {
   return (
     <AppFooter>
-      <FooterText>© produced and designed by ian chan</FooterText>
+      <FooterText>
+        © {new Date().getFullYear()} produced and designed by ian chan
+      </FooterText>
       <SocialIconsList />
     </AppFooter>
   )

@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { PageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import useSetTheme from '../../customHooks/useSetTheme'
 import { styleTheme } from '../../styles/theme'
 import THEME from '../../constants/theme'
 
@@ -13,68 +14,29 @@ interface Props {
   children: ReactNode
 }
 
-const rootPath = '/'
+const path = {
+  root: '/',
+  blogs: '/blogs'
+}
 
 function Layout(props: Props) {
-  const { children, location = rootPath, title, description } = props
-
-  const [colourTheme, setColourTheme] = useState<THEME>(THEME.LIGHT)
-
-  useEffect(() => {
-    const localTheme = localStorage.getItem('colourTheme')
-
-    if (!localTheme) {
-      const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches
-
-      if (systemTheme) {
-        setColourTheme(THEME.DARK)
-        localStorage.setItem('colourTheme', THEME.DARK)
-      } else {
-        setColourTheme(THEME.LIGHT)
-        localStorage.setItem('colourTheme', THEME.LIGHT)
-      }
-    } else {
-      setColourTheme(localTheme as THEME)
-    }
-
-    const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
-
-    function handleSystemChange(event: MediaQueryListEvent) {
-      const localTheme = localStorage.getItem('colourTheme')
-
-      if (event.matches && localTheme !== THEME.DARK) {
-        setColourTheme(THEME.DARK)
-      }
-
-      if (!event.matches && localTheme !== THEME.LIGHT) {
-        setColourTheme(THEME.LIGHT)
-      }
-    }
-
-    isSystemDark.addEventListener('change', handleSystemChange)
-
-    return () => {
-      isSystemDark.removeEventListener('change', handleSystemChange)
-    }
-  }, [])
+  const [colourTheme, setColourTheme] = useSetTheme()
+  const { children, location = path.root, title, description } = props
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
     localStorage.setItem('colourTheme', theme)
   }
 
-  const isIndex = location === rootPath
+  const isMain = location === path.root || location === path.blogs
+  const isIndex = location === path.root
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      <PageContainer>
-        <Header
-          colourTheme={colourTheme}
-          setColourTheme={handleThemeChange}
-          isIndex={isIndex}
-        />
-        <MainContainer>{children}</MainContainer>
-        <Footer isIndex={isIndex} />
+      <PageContainer isMain={isMain}>
+        <Header colourTheme={colourTheme} setColourTheme={handleThemeChange} />
+        <MainContainer isIndex={isIndex}>{children}</MainContainer>
+        <Footer />
       </PageContainer>
     </ThemeProvider>
   )

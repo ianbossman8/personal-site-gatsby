@@ -15,13 +15,13 @@ const commonStyle = {
     weight: {
       [SIZE.L]: 600,
       [SIZE.N]: 400,
-      [SIZE.S]: 200
+      [SIZE.S]: 300
     }
   },
   letterSpacing: {
-    [SIZE.L]: '6px',
-    [SIZE.N]: '4px',
-    [SIZE.S]: '2px'
+    [SIZE.L]: '4px',
+    [SIZE.N]: '2px',
+    [SIZE.S]: '1px'
   }
 }
 
