@@ -1,8 +1,8 @@
-import styled, { keyframes } from 'styled-components'
-import { blockQuoteStyle, H2, P, pStyle } from '../../styles/text'
+import styled, { css, keyframes } from 'styled-components'
+import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
 import { colourfulBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
-import { MEDIA_QUERY_SMALL } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM } from '../../constants/styles'
 
 const opacityAnimation = keyframes`
  to {
@@ -34,23 +34,46 @@ export const ModalHeader = styled(H2)`
   letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
 `
 
-export const ContentContainer = styled.article`
+const standardModalStyles = css`
   min-height: 475px;
   min-width: 300px;
   height: 57.5%;
   width: 57.5%;
-  box-sizing: border-box;
-  opacity: 0;
-  padding: 1.5rem;
   background: ${({ theme: { colours } }) =>
     colourfulBackground(colours, 'toBottomRight')};
   background-size: 200% 200%;
   box-shadow: ${({ theme: { colours } }) =>
     `0 4px 12px 0 ${colours.secondary[1]}`};
+  animation: 6s ${changeBackgroundPosition} ease-in infinite;
+`
+
+const blogsModalStyles = css`
+  height: 100%;
+  width: 100%;
+  background: ${({ theme: { colours } }) => colours.primary[3]};
+`
+
+export const ContentContainer = styled.section<{ main: boolean }>`
+  ${({ main }) => (!main ? standardModalStyles : blogsModalStyles)}
+  box-sizing: border-box;
+  opacity: 0;
+  padding: 1.5rem;
   overflow: scroll;
   z-index: 2;
-  animation: 6s ${changeBackgroundPosition} ease-in infinite,
-    0.8s ${modalOpacityAnimation} ease-out forwards;
+  animation: 0.8s ${modalOpacityAnimation} ease-out forwards;
+
+  svg.modal-close-button {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 3;
+    cursor: pointer;
+
+    path {
+      stroke: ${({ theme: { colours }, main }) =>
+        !main ? colours.primary[1] : colours.secondary[1]};
+    }
+  }
 
   blockquote {
     ${blockQuoteStyle};
@@ -58,14 +81,20 @@ export const ContentContainer = styled.article`
 
   p {
     ${pStyle};
-    color: ${({ theme: { colours } }) => colours.primary[3]};
+    color: ${({ theme: { colours }, main }) =>
+      main ? colours.secondary[3] : colours.primary[3]};
     letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
   }
 
-  ${MEDIA_QUERY_SMALL} {
-    blockquote mark {
-      letter-spacing: ${({ theme: { letterSpacing } }) =>
-        letterSpacing[SIZE.S]};
+  ${MEDIA_QUERY_MEDIUM} {
+    blockquote {
+      padding: 0.15rem 0.5rem;
+      margin: 0;
+
+      mark {
+        letter-spacing: ${({ theme: { letterSpacing } }) =>
+          letterSpacing[SIZE.S]};
+      }
     }
   }
 `
@@ -74,7 +103,7 @@ export const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
@@ -84,15 +113,4 @@ export const Container = styled.div`
   justify-content: center;
   z-index: 1;
   animation: ${opacityAnimation} 0.2s ease-in forwards;
-
-  svg.modal-close-button {
-    position: sticky;
-    top: 0;
-    float: right;
-    cursor: pointer;
-
-    path {
-      stroke: ${({ theme: { colours } }) => colours.primary[1]};
-    }
-  }
 `

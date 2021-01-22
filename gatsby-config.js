@@ -8,13 +8,22 @@ const plugins = [
   'gatsby-plugin-netlify-cms',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-typescript',
+  'gatsby-plugin-sharp',
   'gatsby-plugin-styled-components',
   'gatsby-transformer-remark',
+  'gatsby-transformer-sharp',
   {
     resolve: 'gatsby-source-filesystem',
     options: {
-      name: 'src',
-      path: `${__dirname}/content/`
+      name: 'siteInfo',
+      path: `${__dirname}/contents/siteInfo`
+    }
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'blogs',
+      path: `${__dirname}/contents/blogs`
     }
   }
 ]
