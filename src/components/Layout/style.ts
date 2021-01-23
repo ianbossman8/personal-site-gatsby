@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { MEDIA_QUERY_MEDIUM } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
 
 export const PageContainer = styled.div<{ isMain: boolean }>`
   min-height: 100vh;
@@ -12,7 +12,7 @@ export const PageContainer = styled.div<{ isMain: boolean }>`
   padding: 1rem 2rem;
   transition: background-color 0.3s ease;
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_MEDIUM_RULE} {
     ${({ isMain }) =>
       !isMain &&
       css`

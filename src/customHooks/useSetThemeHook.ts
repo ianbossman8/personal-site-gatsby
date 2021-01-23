@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import THEME from '../constants/theme'
 
 function useSetTheme(): [THEME, React.Dispatch<React.SetStateAction<THEME>>] {
-  const [colourTheme, setColourTheme] = useState<THEME>(THEME.LIGHT)
+  const [colourTheme, setColourTheme] = useState<THEME>(THEME.DARK)
 
   useEffect(() => {
     const localTheme = localStorage.getItem('colourTheme')

@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 import { fillBackgroundText, glassBackground } from './colours'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../constants/styles'
+import { MEDIA_QUERY_MEDIUM_RULE, MEDIA_QUERY_SMALL_RULE } from '../constants/styles'
 
 const textColourAnimation = keyframes`
   to {
@@ -17,8 +17,7 @@ export function mainFontColour(primary?: boolean, main?: boolean) {
   }
 
   return css`
-    color: ${({ theme: { colours } }) =>
-      primary ? colours.primary[1] : colours.primary[3]};
+    color: ${({ theme: { colours } }) => (primary ? colours.primary[1] : colours.primary[3])};
   `
 }
 
@@ -35,7 +34,7 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
     }
   }) => size[SIZE.EL]};
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_MEDIUM_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -43,7 +42,7 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
     }) => size[SIZE.L]};
   }
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -66,7 +65,7 @@ export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
     }
   }) => weight[SIZE.S]};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -89,7 +88,7 @@ export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
     }
   }) => weight[SIZE.S]};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -105,7 +104,7 @@ export const pStyle = css`
     }
   }) => weight[SIZE.S]};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }

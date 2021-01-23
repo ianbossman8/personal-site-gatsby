@@ -2,17 +2,15 @@ import React, { useEffect } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { Container, ContentContainer, ModalHeader } from './styles'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
-import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPostsQuery'
 
 interface Props {
-  content: string
-  info: string
-  blogsInfo?: AllBlogPostsInfoQuery['allMarkdownRemark']
+  topic: string
+  modalContent: string
   handleModalClose: () => void
 }
 
 function Modal(props: Props) {
-  const { content, info, blogsInfo, handleModalClose } = props
+  const { topic, modalContent, handleModalClose } = props
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -26,24 +24,20 @@ function Modal(props: Props) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  function handleModalContentContainerClick(
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) {
+  function handleModalContentContainerClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.stopPropagation()
   }
 
-  const isBlog = Boolean(content === 'blogs')
+  const isBlog = Boolean(topic === 'blogs')
 
   return (
     <Container onClick={handleModalClose}>
-      <ContentContainer
-        onClick={handleModalContentContainerClick}
-        main={isBlog}>
-        <GrClose onClick={handleModalClose} className="modal-close-button" />
+      <ContentContainer onClick={handleModalContentContainerClick} main={isBlog}>
+        <GrClose onClick={handleModalClose} className="modal--close-button" />
         <ModalHeader primary main={isBlog}>
-          {content}
+          {topic}
         </ModalHeader>
-        <div dangerouslySetInnerHTML={{ __html: info }} />
+        <div dangerouslySetInnerHTML={{ __html: modalContent }} />
         <SocialIconsList />
       </ContentContainer>
     </Container>

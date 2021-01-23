@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { MEDIA_QUERY_SMALL } from '../../constants/styles'
+import { MEDIA_QUERY_SMALL_RULE } from '../../constants/styles'
 import { H3, P } from '../../styles/text'
 
 export const ImgHolder = styled.div`
@@ -16,14 +16,13 @@ export const InfoContainer = styled.div`
 
 export const CardContainer = styled.div`
   max-height: 400px;
-  width: 325px;
-  max-width: 325px;
+  width: 315px;
+  max-width: 315px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: ${({ theme: { colours } }) => colours.primary[2]};
-  box-shadow: ${({ theme: { colours } }) =>
-    `0 1px 4px ${colours.secondary.blur}`};
+  box-shadow: ${({ theme: { colours } }) => `0 1px 4px ${colours.secondary.blur}`};
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   letter-spacing: 0;
@@ -31,8 +30,7 @@ export const CardContainer = styled.div`
   transition: all 0.2s;
 
   &:hover {
-    box-shadow: ${({ theme: { colours } }) =>
-      `0 8px 16px ${colours.secondary.blur}`};
+    box-shadow: ${({ theme: { colours } }) => `0 8px 16px ${colours.secondary.blur}`};
     transform: translateY(-10px);
   }
 
@@ -40,7 +38,7 @@ export const CardContainer = styled.div`
     margin: 0.45rem 0.25rem;
   }
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     margin: 1rem 0;
   }
 `

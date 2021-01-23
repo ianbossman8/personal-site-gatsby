@@ -1,9 +1,6 @@
 import { css, DefaultTheme } from 'styled-components'
 
-export function colourfulBackground(
-  colours: DefaultTheme['colours'],
-  direction: string
-) {
+export function colourfulBackground(colours: DefaultTheme['colours'], direction: string) {
   if (direction === 'toRight') {
     return `linear-gradient(to right, ${colours.main[3]}, ${colours.info[3]}, ${colours.warn[3]}, ${colours.alert[3]})`
   }
@@ -14,8 +11,7 @@ export function colourfulBackground(
 }
 
 export const fillBackgroundText = css`
-  background: ${({ theme: { colours } }) =>
-    colourfulBackground(colours, 'toRight')};
+  background: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -23,9 +19,8 @@ export const fillBackgroundText = css`
 `
 
 export const glassBackground = css`
-  background: ${({ theme: { colours } }) => colours.primary.blur};
-  box-shadow: ${({ theme: { colours } }) =>
-    `0 8px 32px 0 ${colours.secondary[3]}`};
+  background: ${({ theme: { colours } }) => colours.primary.blur.light};
+  box-shadow: ${({ theme: { colours } }) => `0 8px 32px 0 ${colours.secondary[3]}`};
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 `

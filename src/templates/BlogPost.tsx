@@ -49,11 +49,10 @@ export default function BlogPost(props: Props) {
   } = props
 
   return (
-    <Layout location={fields.slug}>
+    <Layout curLocation={fields.slug}>
       <Page>
         <Link to="/blogs">
-          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} />{' '}
-          back to all blogs
+          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>
           <ImgHolder>

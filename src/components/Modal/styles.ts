@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components'
 import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
 import { colourfulBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
-import { MEDIA_QUERY_MEDIUM } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
 
 const opacityAnimation = keyframes`
  to {
@@ -39,11 +39,9 @@ const standardModalStyles = css`
   min-width: 300px;
   height: 57.5%;
   width: 57.5%;
-  background: ${({ theme: { colours } }) =>
-    colourfulBackground(colours, 'toBottomRight')};
+  background: ${({ theme: { colours } }) => colourfulBackground(colours, 'toBottomRight')};
   background-size: 200% 200%;
-  box-shadow: ${({ theme: { colours } }) =>
-    `0 4px 12px 0 ${colours.secondary[1]}`};
+  box-shadow: ${({ theme: { colours } }) => `0 4px 12px 0 ${colours.secondary[1]}`};
   animation: 6s ${changeBackgroundPosition} ease-in infinite;
 `
 
@@ -59,19 +57,18 @@ export const ContentContainer = styled.section<{ main: boolean }>`
   opacity: 0;
   padding: 1.5rem;
   overflow: scroll;
-  z-index: 2;
+  z-index: 3;
   animation: 0.8s ${modalOpacityAnimation} ease-out forwards;
 
-  svg.modal-close-button {
+  svg.modal--close-button {
     position: sticky;
     top: 0;
     float: right;
-    z-index: 3;
+    z-index: 4;
     cursor: pointer;
 
     path {
-      stroke: ${({ theme: { colours }, main }) =>
-        !main ? colours.primary[1] : colours.secondary[1]};
+      stroke: ${({ theme: { colours }, main }) => (!main ? colours.primary[1] : colours.secondary[1])};
     }
   }
 
@@ -81,19 +78,17 @@ export const ContentContainer = styled.section<{ main: boolean }>`
 
   p {
     ${pStyle};
-    color: ${({ theme: { colours }, main }) =>
-      main ? colours.secondary[3] : colours.primary[3]};
+    color: ${({ theme: { colours }, main }) => (main ? colours.secondary[3] : colours.primary[3])};
     letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
   }
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_MEDIUM_RULE} {
     blockquote {
       padding: 0.15rem 0.5rem;
       margin: 0;
 
       mark {
-        letter-spacing: ${({ theme: { letterSpacing } }) =>
-          letterSpacing[SIZE.S]};
+        letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
       }
     }
   }
@@ -111,6 +106,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
   animation: ${opacityAnimation} 0.2s ease-in forwards;
 `

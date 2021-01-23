@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { MainButton } from '../../styles/buttons'
-import { MEDIA_QUERY_MEDIUM } from '../../constants/styles'
 import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
+import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
 
 const opacityAnimation = keyframes`
  to {
@@ -9,15 +9,13 @@ const opacityAnimation = keyframes`
  }
 `
 
-export const Container = styled.div`
+export const Container = styled.nav<{ isIndex: boolean; exceedBoundary?: boolean }>`
   display: flex;
   justify-content: center;
 
   ${MainButton} {
     border: 2px solid inherit;
-    border-image: ${({ theme: { colours } }) =>
-        colourfulBackground(colours, 'toRight')}
-      5;
+    border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
     background: transparent;
 
     span {
@@ -25,27 +23,31 @@ export const Container = styled.div`
     }
   }
 
-  button:first-child {
-    opacity: 0;
-    animation: ${opacityAnimation} 1s ease-in forwards;
-  }
+  ${({ isIndex }) =>
+    isIndex &&
+    css`
+      button:first-child {
+        opacity: 0;
+        animation: ${opacityAnimation} 0.8s ease-in forwards;
+      }
 
-  button:nth-child(2) {
-    opacity: 0;
-    animation: ${opacityAnimation} 1.25s ease-in forwards;
-  }
+      button:nth-child(2) {
+        opacity: 0;
+        animation: ${opacityAnimation} 1s ease-in forwards;
+      }
 
-  button:nth-child(3) {
-    opacity: 0;
-    animation: ${opacityAnimation} 1.5s ease-in forwards;
-  }
+      button:nth-child(3) {
+        opacity: 0;
+        animation: ${opacityAnimation} 1.25s ease-in forwards;
+      }
 
-  button:last-child {
-    opacity: 0;
-    animation: ${opacityAnimation} 1.75s ease-in forwards;
-  }
+      button:last-child {
+        opacity: 0;
+        animation: ${opacityAnimation} 1.5s ease-in forwards;
+      }
+    `}
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_MEDIUM_RULE} {
     flex-direction: column;
   }
 `
