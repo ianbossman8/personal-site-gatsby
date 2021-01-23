@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  FaMedium,
-  FaBlogger,
-  FaGithub,
-  FaTwitter,
-  FaPrayingHands
-} from 'react-icons/fa'
+import { FaMedium, FaBlogger, FaGithub, FaTwitter, FaPrayingHands } from 'react-icons/fa'
 import { Container } from './styles'
 import SocialIcon from '../SocialIcon/SocialIcon'
 import { socialMedia } from '../../constants/socialMedia'
@@ -26,7 +20,7 @@ function iconGen(name: string, size = 24) {
   return iconMapper[name]
 }
 
-function SocialIconsList() {
+export default function SocialIconsList() {
   return (
     <Container>
       {socialMedia.map((media) => (
@@ -37,5 +31,3 @@ function SocialIconsList() {
     </Container>
   )
 }
-
-export default SocialIconsList

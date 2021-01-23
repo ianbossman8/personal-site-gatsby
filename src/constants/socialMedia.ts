@@ -1,7 +1,9 @@
+import { EXTERNAL_LINKS } from './externalLinks'
+
 export const socialMedia = [
   {
     name: 'github',
-    link: 'https://github.com/ianbossman8',
+    link: EXTERNAL_LINKS.GH,
     title: 'Github'
   },
   {
@@ -11,7 +13,7 @@ export const socialMedia = [
   },
   {
     name: 'medium',
-    link: 'https://ianbossman.medium.com/',
+    link: EXTERNAL_LINKS.M,
     title: 'Medium'
   },
   {
@@ -21,7 +23,7 @@ export const socialMedia = [
   },
   {
     name: 'linktree',
-    link: 'https://linktr.ee/ianbossman',
+    link: EXTERNAL_LINKS.LT,
     title: 'LinkTree'
   }
 ]

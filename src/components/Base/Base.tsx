@@ -1,72 +1,75 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { IoIosMenu } from 'react-icons/io'
 import { useSiteMetaDataQuery } from '../../queries/useSiteMetaDataQuery'
-import { useAboutContentQuery } from '../../queries/useAboutContentQuery'
 import { useAllBlogPosts } from '../../queries/useAllBlogPostsQuery'
+import useModalContentHooks from '../../customHooks/useModalContentHooks'
+import useWindowResizeHook from '../../customHooks/useWindowResizeHook'
 import SEO from '../Seo'
 import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
-import { WelcomeText } from '../../styles/text'
 import BlogsList from '../BlogsList/BlogsList'
+import { PATH } from '../../constants/path'
+import { WIDTH_BOUNDARIES } from '../../constants/styles'
+import { Location } from '../../util'
+import { WelcomeText } from '../../styles/text'
+import { MenuButton } from '../../styles/buttons'
+import { Menu } from './styles'
 
 interface Props {
   siteMetadata?: ReturnType<typeof useSiteMetaDataQuery>
   allBlogPostsInfo?: ReturnType<typeof useAllBlogPosts>
 }
 
-const path = {
-  root: '/',
-  blogs: '/blogs'
-}
+export default function Base(props: Props) {
+  const locObj = new Location()
 
-function checkLocation() {
-  return typeof location !== 'undefined'
-}
-
-function Base(props: Props) {
   const { siteMetadata, allBlogPostsInfo } = props
-  const aboutMe = useAboutContentQuery()
 
-  const [modalContent, setModalContent] = useState<string | undefined>(
-    undefined
-  )
+  const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
+  const [showMenu, setShowMenu] = useState<boolean>(false)
 
-  let info
-
-  if (modalContent === 'about') {
-    info = aboutMe
-  } else if (modalContent === 'contact') {
-    info = '<p>coming soon my g</p>'
-  } else {
-    info = ''
-  }
+  const modalContent = useModalContentHooks(modalContentTopic)
+  const exceedBoundary = useWindowResizeHook(WIDTH_BOUNDARIES.M)
 
   function handleModalClose() {
-    setModalContent(undefined)
+    setModalContentTopic(undefined)
   }
 
-  const isIndex = checkLocation() && location.pathname === path.root
+  function handleMenuClick(_: React.MouseEvent<Element, MouseEvent> | undefined, off?: boolean) {
+    if (typeof off !== 'undefined') {
+      return setShowMenu(off)
+    }
+
+    setShowMenu((showMenu) => !showMenu)
+  }
+
+  const isIndex = locObj.isMatchingPath(PATH.ROOT)
+
+  useEffect(() => {
+    if (!isIndex) {
+      if (!exceedBoundary) {
+        setShowMenu(true)
+      } else {
+        setShowMenu((showMenu) => !showMenu)
+      }
+    }
+  }, [isIndex, exceedBoundary])
 
   return (
-    <Layout location={checkLocation() ? location.pathname : undefined}>
+    <Layout curLocation={locObj.currentPath}>
       <SEO title={siteMetadata?.title ?? ''} />
+      {!isIndex && exceedBoundary && (
+        <MenuButton>
+          <IoIosMenu size={48} onClick={handleMenuClick} />
+        </MenuButton>
+      )}
       {isIndex && <WelcomeText>wagwan, this is bossman's life</WelcomeText>}
-      <IntroBar setModalContent={setModalContent} />
-      {allBlogPostsInfo && (
-        <BlogsList
-          totalBlogs={allBlogPostsInfo.totalCount}
-          blogsDesc={allBlogPostsInfo.edges}
-        />
-      )}
-      {modalContent && (
-        <Modal
-          content={modalContent}
-          handleModalClose={handleModalClose}
-          info={info}
-        />
-      )}
+      <Menu showMenu={showMenu} isIndex={isIndex} onClick={() => handleMenuClick(undefined, false)}>
+        <IntroBar isIndex={isIndex} setModalContentTopic={setModalContentTopic} />
+      </Menu>
+      {allBlogPostsInfo && <BlogsList totalBlogs={allBlogPostsInfo.totalCount} blogsDesc={allBlogPostsInfo.edges} />}
+      {modalContentTopic && <Modal topic={modalContentTopic} modalContent={modalContent} handleModalClose={handleModalClose} />}
     </Layout>
   )
 }
-
-export default Base

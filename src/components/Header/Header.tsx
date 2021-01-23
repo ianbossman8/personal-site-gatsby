@@ -1,14 +1,11 @@
 import React from 'react'
-
-import { AppHeader } from './styles'
-import { ThemeButton } from '../../styles/buttons'
 import Emoji from '../Emoji/Emoji'
 import THEME from '../../constants/theme'
 import SYMBOLS from '../../constants/symbols'
+import { AppHeader } from './styles'
+import { ThemeButton } from '../../styles/buttons'
 
 interface Props {
-  title?: string
-  description?: string
   colourTheme: THEME
   setColourTheme: (theme: THEME) => void
 }
@@ -25,10 +22,7 @@ function Header(props: Props) {
   return (
     <AppHeader>
       <ThemeButton onClick={handleThemeButtonClick}>
-        <Emoji
-          label={'dim background'}
-          symbol={SYMBOLS[colourTheme].themeSwitch}
-        />
+        <Emoji label={'dim background'} symbol={SYMBOLS[colourTheme].themeSwitch} />
       </ThemeButton>
     </AppHeader>
   )

@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 import { fillBackgroundText, glassBackground } from './colours'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../constants/styles'
+import { MEDIA_QUERY_MEDIUM_RULE, MEDIA_QUERY_SMALL_RULE } from '../constants/styles'
 
 const textColourAnimation = keyframes`
   to {
@@ -17,10 +17,43 @@ export function mainFontColour(primary?: boolean, main?: boolean) {
   }
 
   return css`
-    color: ${({ theme: { colours } }) =>
-      primary ? colours.primary[1] : colours.primary[3]};
+    color: ${({ theme: { colours } }) => (primary ? colours.primary[1] : colours.primary[3])};
   `
 }
+
+export const blockQuoteStyle = css`
+  ${glassBackground};
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 2rem;
+
+  mark {
+    ${mainFontColour()};
+    background-color: transparent;
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.N]};
+    font-style: italic;
+    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
+  }
+`
+
+export const pStyle = css`
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
+
+  ${MEDIA_QUERY_SMALL_RULE} {
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.S]};
+  }
+`
 
 export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
   ${({ primary = false, main = false }) => mainFontColour(primary, main)};
@@ -35,7 +68,7 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
     }
   }) => size[SIZE.EL]};
 
-  ${MEDIA_QUERY_MEDIUM} {
+  ${MEDIA_QUERY_MEDIUM_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -43,7 +76,7 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
     }) => size[SIZE.L]};
   }
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -66,7 +99,7 @@ export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
     }
   }) => weight[SIZE.S]};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -89,23 +122,7 @@ export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
     }
   }) => weight[SIZE.S]};
 
-  ${MEDIA_QUERY_SMALL} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.S]};
-  }
-`
-
-export const pStyle = css`
-  font-weight: ${({
-    theme: {
-      font: { weight }
-    }
-  }) => weight[SIZE.S]};
-
-  ${MEDIA_QUERY_SMALL} {
+  ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
       theme: {
         font: { size }
@@ -124,22 +141,4 @@ export const WelcomeText = styled(H1)`
   text-transform: uppercase;
   ${fillBackgroundText}
   animation: 0.8s ${textColourAnimation} ease-in-out forwards;
-`
-
-export const blockQuoteStyle = css`
-  ${glassBackground};
-  padding: 0.25rem 0.75rem;
-  margin-bottom: 2rem;
-
-  mark {
-    ${mainFontColour()};
-    background-color: transparent;
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.N]};
-    font-style: italic;
-    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
-  }
 `

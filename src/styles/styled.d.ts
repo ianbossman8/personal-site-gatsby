@@ -48,7 +48,10 @@ declare module 'styled-components' {
         1: string
         2: string
         3: string
-        blur: string
+        blur: {
+          strong: string
+          light: string
+        }
       }
       secondary: {
         1: string

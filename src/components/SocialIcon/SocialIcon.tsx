@@ -7,7 +7,7 @@ interface Props {
   title: string
 }
 
-function SocialIcon(props: Props) {
+export default function SocialIcon(props: Props) {
   const { children, link, title } = props
 
   return (
@@ -16,5 +16,3 @@ function SocialIcon(props: Props) {
     </IconLink>
   )
 }
-
-export default SocialIcon

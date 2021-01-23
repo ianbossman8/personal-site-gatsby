@@ -3,33 +3,29 @@ import { ThemeProvider } from 'styled-components'
 import { PageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import useSetTheme from '../../customHooks/useSetTheme'
+import useSetThemeHook from '../../customHooks/useSetThemeHook'
 import { styleTheme } from '../../styles/theme'
 import THEME from '../../constants/theme'
+import { PATH } from '../../constants/path'
 
 interface Props {
-  location: string | undefined
+  curLocation: string | undefined
   title?: string
   description?: string
   children: ReactNode
 }
 
-const path = {
-  root: '/',
-  blogs: '/blogs'
-}
-
 function Layout(props: Props) {
-  const [colourTheme, setColourTheme] = useSetTheme()
-  const { children, location = path.root, title, description } = props
+  const [colourTheme, setColourTheme] = useSetThemeHook()
+  const { children, curLocation = PATH.ROOT, title, description } = props
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
     localStorage.setItem('colourTheme', theme)
   }
 
-  const isMain = location === path.root || location === path.blogs
-  const isIndex = location === path.root
+  const isMain = curLocation === PATH.ROOT || curLocation === '/blogs'
+  const isIndex = curLocation === PATH.ROOT
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>

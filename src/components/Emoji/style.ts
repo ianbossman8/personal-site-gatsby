@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import { SIZE } from '../../constants/font'
 
-interface SymbolSpanProps {
-  size: SIZE
-}
-
-export const SymbolSpan = styled.span<SymbolSpanProps>`
+export const SymbolSpan = styled.span<{ size: SIZE }>`
   font-size: ${({ theme: { font }, size }) => font.size[size]};
 `
