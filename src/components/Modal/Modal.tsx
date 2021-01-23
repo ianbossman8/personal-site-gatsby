@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { GrClose } from 'react-icons/gr'
-import { Container, ContentContainer, ModalHeader } from './styles'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
+import { Container, ContentContainer, ModalHeader } from './styles'
 
 interface Props {
   topic: string
@@ -9,7 +9,7 @@ interface Props {
   handleModalClose: () => void
 }
 
-function Modal(props: Props) {
+export default function Modal(props: Props) {
   const { topic, modalContent, handleModalClose } = props
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Modal(props: Props) {
     event.stopPropagation()
   }
 
-  const isBlog = Boolean(topic === 'blogs')
+  const isBlog = topic === 'blogs'
 
   return (
     <Container onClick={handleModalClose}>
@@ -43,5 +43,3 @@ function Modal(props: Props) {
     </Container>
   )
 }
-
-export default Modal

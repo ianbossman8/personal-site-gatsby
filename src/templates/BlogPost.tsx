@@ -4,9 +4,10 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
+import Layout from '../components/Layout/Layout'
 import SYMBOLS from '../constants/symbols'
 import { SIZE } from '../constants/font'
-import Layout from '../components/Layout/Layout'
+import { PATH } from '../constants/path'
 import { H1, P } from '../styles/text'
 
 interface Props {
@@ -51,7 +52,7 @@ export default function BlogPost(props: Props) {
   return (
     <Layout curLocation={fields.slug}>
       <Page>
-        <Link to="/blogs">
+        <Link to={PATH.BLOGS}>
           <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>

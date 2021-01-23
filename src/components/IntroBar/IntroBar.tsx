@@ -34,7 +34,7 @@ export default function IntroBar(props: Props) {
 
   return (
     <Container isIndex={isIndex}>
-      <Link to="/" className="home--link">
+      <Link to={PATH.ROOT} className="home--link">
         <FcHome size={48} />
       </Link>
       <MainButton onClick={handleButtonlick} value={SITE_TOPIC.ABOUT}>

@@ -21,6 +21,40 @@ export function mainFontColour(primary?: boolean, main?: boolean) {
   `
 }
 
+export const blockQuoteStyle = css`
+  ${glassBackground};
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 2rem;
+
+  mark {
+    ${mainFontColour()};
+    background-color: transparent;
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.N]};
+    font-style: italic;
+    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
+  }
+`
+
+export const pStyle = css`
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
+
+  ${MEDIA_QUERY_SMALL_RULE} {
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.S]};
+  }
+`
+
 export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
   ${({ primary = false, main = false }) => mainFontColour(primary, main)};
   font-weight: ${({
@@ -97,22 +131,6 @@ export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
   }
 `
 
-export const pStyle = css`
-  font-weight: ${({
-    theme: {
-      font: { weight }
-    }
-  }) => weight[SIZE.S]};
-
-  ${MEDIA_QUERY_SMALL_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.S]};
-  }
-`
-
 export const P = styled.p<{ primary?: boolean; main?: boolean }>`
   ${({ primary = true, main = true }) => mainFontColour(primary, main)};
   ${pStyle};
@@ -123,22 +141,4 @@ export const WelcomeText = styled(H1)`
   text-transform: uppercase;
   ${fillBackgroundText}
   animation: 0.8s ${textColourAnimation} ease-in-out forwards;
-`
-
-export const blockQuoteStyle = css`
-  ${glassBackground};
-  padding: 0.25rem 0.75rem;
-  margin-bottom: 2rem;
-
-  mark {
-    ${mainFontColour()};
-    background-color: transparent;
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.N]};
-    font-style: italic;
-    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
-  }
 `
