@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { FcHome } from 'react-icons/fc'
 import Emoji from '../Emoji/Emoji'
 import SYMBOLS from '../../constants/symbols'
@@ -34,7 +34,9 @@ export default function IntroBar(props: Props) {
 
   return (
     <Container isIndex={isIndex}>
-      <FcHome size={48} />
+      <Link to="/" className="home--link">
+        <FcHome size={48} />
+      </Link>
       <MainButton onClick={handleButtonlick} value={SITE_TOPIC.ABOUT}>
         <span title={SITE_TOPIC.ABOUT} className={SITE_TOPIC.ABOUT}>
           about

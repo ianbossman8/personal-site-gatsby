@@ -12,9 +12,9 @@ import BlogsList from '../BlogsList/BlogsList'
 import { PATH } from '../../constants/path'
 import { WIDTH_BOUNDARIES } from '../../constants/styles'
 import { Location } from '../../util'
-import { Menu } from './styles'
 import { WelcomeText } from '../../styles/text'
 import { MenuButton } from '../../styles/buttons'
+import { Menu } from './styles'
 
 interface Props {
   siteMetadata?: ReturnType<typeof useSiteMetaDataQuery>

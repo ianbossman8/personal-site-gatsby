@@ -23,6 +23,10 @@ export const Container = styled.nav<{ isIndex: boolean; exceedBoundary?: boolean
     }
   }
 
+  a.home--link {
+    align-self: center;
+  }
+
   ${({ isIndex }) =>
     isIndex &&
     css`
