@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { IoIosMenu } from 'react-icons/io'
-import { useSiteMetaDataQuery } from '../../queries/useSiteMetaDataQuery'
 import { useAllBlogPosts } from '../../queries/useAllBlogPostsQuery'
 import useModalContentHooks from '../../customHooks/useModalContentHooks'
 import useWindowResizeHook from '../../customHooks/useWindowResizeHook'
-import SEO from '../Seo'
+import SEO, { Props as SeoProps } from '../Seo'
 import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
@@ -17,14 +16,14 @@ import { MenuButton } from '../../styles/buttons'
 import { Menu } from './styles'
 
 interface Props {
-  siteMetadata?: ReturnType<typeof useSiteMetaDataQuery>
   allBlogPostsInfo?: ReturnType<typeof useAllBlogPosts>
+  pageSeo?: SeoProps
 }
 
 export default function Base(props: Props) {
   const locObj = new Location()
 
-  const { siteMetadata, allBlogPostsInfo } = props
+  const { allBlogPostsInfo, pageSeo } = props
 
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -58,7 +57,7 @@ export default function Base(props: Props) {
 
   return (
     <Layout curLocation={locObj.currentPath}>
-      <SEO title={siteMetadata?.title ?? ''} />
+      <SEO {...pageSeo} />
       {!isIndex && exceedBoundary && (
         <MenuButton>
           <IoIosMenu size={48} onClick={handleMenuClick} />

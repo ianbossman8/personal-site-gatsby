@@ -1,13 +1,12 @@
 import React from 'react'
-import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 import { useAllBlogPosts } from '../queries/useAllBlogPostsQuery'
 import Base from '../components/Base/Base'
+import { PAGE_META } from '../constants/meta'
 
 function SiteIndex() {
-  const siteMetadata = useSiteMetaDataQuery()
   const allBlogPostsInfo = useAllBlogPosts()
 
-  return <Base siteMetadata={siteMetadata} allBlogPostsInfo={allBlogPostsInfo} />
+  return <Base allBlogPostsInfo={allBlogPostsInfo} pageSeo={{ ...PAGE_META.blog }} />
 }
 
 export default SiteIndex

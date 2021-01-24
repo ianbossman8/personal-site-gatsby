@@ -1,8 +1,9 @@
 const siteMetadata = {
-  title: 'Personal Site | Ianbossman',
-  description: 'This is my personal site and demo',
-  author: 'IanChan',
-  theme: 'light'
+  title: 'Ianbossman Personal Site',
+  description: "This is Ianbossman's personal site and demo",
+  author: 'Ian Chan',
+  keywords: 'Gtasby Personal Blog, Tech, Finance, Investment, Real Estate',
+  lang: 'en'
 }
 
 const plugins = [
@@ -44,7 +45,10 @@ const plugins = [
       background_color: '#0050b3',
       theme_color: '#0050b3',
       display: 'standalone',
-      icon: 'src/images/favicon.png'
+      icon: 'src/images/favicon.png',
+      icon_options: {
+        purpose: `maskable`
+      }
     }
   }
 ]

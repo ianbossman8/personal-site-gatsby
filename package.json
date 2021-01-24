@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "gatsby develop",
-    "build": "npm run clean && gatsby build",
-    "serve": "gatsby serve"
+    "build": "rm -rf public && npm run clean && gatsby build",
+    "serve": "gatsby serve",
+    "serve:local": "npm run build && npm run serve"
   },
   "keywords": [
     "gatsby",
