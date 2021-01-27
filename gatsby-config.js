@@ -14,6 +14,7 @@ const plugins = [
   'gatsby-plugin-styled-components',
   'gatsby-transformer-sharp',
   'gatsby-plugin-offline',
+  'gatsby-plugin-sitemap',
   {
     resolve: 'gatsby-transformer-remark',
     options: {
