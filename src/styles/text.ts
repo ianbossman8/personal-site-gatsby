@@ -136,7 +136,7 @@ export const P = styled.p<{ primary?: boolean; main?: boolean }>`
   ${pStyle};
 `
 
-export const WelcomeText = styled(H1)`
+export const ColourFulHeader = styled(H1)`
   text-align: center;
   text-transform: uppercase;
   ${fillBackgroundText}

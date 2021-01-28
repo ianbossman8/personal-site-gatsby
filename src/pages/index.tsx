@@ -1,9 +1,12 @@
 import React from 'react'
-import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 import Base from '../components/Base/Base'
+import { PAGE_META } from '../constants/meta'
+import { ColourFulHeader } from '../styles/text'
 
 export default function SiteIndex() {
-  const siteMetadata = useSiteMetaDataQuery()
-
-  return <Base siteMetadata={siteMetadata} />
+  return (
+    <Base pageSeo={{ ...PAGE_META.index }}>
+      <ColourFulHeader>wagwan, this is bossman's life</ColourFulHeader>
+    </Base>
+  )
 }

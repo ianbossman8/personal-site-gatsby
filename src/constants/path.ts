@@ -1,4 +1,5 @@
 export const PATH = {
   ROOT: '/',
-  BLOGS: '/blogs'
+  BLOGS: '/blogs',
+  404: '404'
 }

@@ -5,6 +5,10 @@ type SiteMetaDataQueryResponse = {
     siteMetadata: {
       title: string
       description: string
+      author: string
+      keywords: string
+      lang: string
+      siteUrl: string
     }
   }
 }
@@ -17,6 +21,10 @@ export function useSiteMetaDataQuery() {
           siteMetadata {
             title
             description
+            author
+            keywords
+            lang
+            siteUrl
           }
         }
       }

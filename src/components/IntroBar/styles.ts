@@ -30,22 +30,22 @@ export const Container = styled.nav<{ isIndex: boolean; exceedBoundary?: boolean
   ${({ isIndex }) =>
     isIndex &&
     css`
-      button:first-child {
+      button:nth-of-type(1) {
         opacity: 0;
         animation: ${opacityAnimation} 0.8s ease-in forwards;
       }
 
-      button:nth-child(2) {
+      button:nth-of-type(2) {
         opacity: 0;
         animation: ${opacityAnimation} 1s ease-in forwards;
       }
 
-      button:nth-child(3) {
+      button:nth-of-type(3) {
         opacity: 0;
         animation: ${opacityAnimation} 1.25s ease-in forwards;
       }
 
-      button:last-child {
+      button:nth-of-type(4) {
         opacity: 0;
         animation: ${opacityAnimation} 1.5s ease-in forwards;
       }

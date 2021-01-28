@@ -9,7 +9,7 @@ export const ThemeButton = styled.button`
   cursor: pointer;
 `
 
-const commonButtonCssProperties = css`
+export const commonButtonCssProperties = css`
   margin: 0.75rem 1rem;
   padding: 0.5rem 1rem;
   box-shadow: ${({ theme: { colours } }) => `0 2px 6px 0 ${colours.secondary[1]}`};

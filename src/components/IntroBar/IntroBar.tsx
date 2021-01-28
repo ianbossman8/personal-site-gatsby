@@ -18,10 +18,16 @@ interface Props {
 export default function IntroBar(props: Props) {
   const { setModalContentTopic, isIndex } = props
 
-  function handleButtonlick(event: React.MouseEvent<HTMLButtonElement | HTMLSpanElement, MouseEvent>) {
+  function handleButtonlick(
+    event: React.MouseEvent<HTMLButtonElement | HTMLSpanElement, MouseEvent>
+  ) {
     const target = event.target as HTMLButtonElement | HTMLSpanElement
+    event.stopPropagation()
 
-    if (target.className === SITE_TOPIC.BLOGS || (target as HTMLButtonElement).value === SITE_TOPIC.BLOGS) {
+    if (
+      target.className === SITE_TOPIC.BLOGS ||
+      (target as HTMLButtonElement).value === SITE_TOPIC.BLOGS
+    ) {
       return navigate(PATH.BLOGS)
     }
 
