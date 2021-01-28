@@ -53,7 +53,8 @@ export default function BlogPost(props: Props) {
 
   const pageSEO = {
     title: frontmatter.title,
-    description: excerpt
+    description: excerpt,
+    pathname: fields.slug
   }
 
   return (
@@ -91,7 +92,7 @@ export const query = graphql`
           }
         }
       }
-      excerpt
+      excerpt(pruneLength: 160)
       fields {
         slug
       }

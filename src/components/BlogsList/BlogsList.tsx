@@ -17,11 +17,15 @@ function BlogsList(props: Props) {
     <BlogsContainer>
       <P>Number of articles- {totalBlogs}</P>
       <BlogsListContainer>
-        {blogsDesc.map(({ node: { id, frontmatter, fields } }) => (
-          <Link to={fields.slug} key={id}>
-            <Card blogDetail={frontmatter} />
-          </Link>
-        ))}
+        {blogsDesc.length > 0 ? (
+          blogsDesc.map(({ node: { id, frontmatter, fields } }) => (
+            <Link to={fields.slug} key={id}>
+              <Card blogDetail={frontmatter} />
+            </Link>
+          ))
+        ) : (
+          <P>no post found</P>
+        )}
       </BlogsListContainer>
     </BlogsContainer>
   )

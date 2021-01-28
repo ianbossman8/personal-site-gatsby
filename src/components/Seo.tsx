@@ -1,15 +1,24 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
+
 export interface Props {
   description?: string
   meta?: []
   title?: string
+  pathname?: string
 }
 
 export default function SEO(props: Props) {
   const siteMetadata = useSiteMetaDataQuery()
-  const { description = siteMetadata.description, meta = [], title = siteMetadata.title } = props
+  const {
+    description = siteMetadata.description,
+    meta = [],
+    title = siteMetadata.title,
+    pathname
+  } = props
+
+  const canonical = `${siteMetadata.siteUrl}${pathname}`
 
   return (
     <Helmet
@@ -18,6 +27,16 @@ export default function SEO(props: Props) {
       }}
       title={title}
       titleTemplate={`%s | ${siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+              {
+                rel: 'canonical',
+                href: canonical
+              }
+            ]
+          : []
+      }
       meta={[
         {
           name: 'description',

@@ -8,6 +8,7 @@ type SiteMetaDataQueryResponse = {
       author: string
       keywords: string
       lang: string
+      siteUrl: string
     }
   }
 }
@@ -23,6 +24,7 @@ export function useSiteMetaDataQuery() {
             author
             keywords
             lang
+            siteUrl
           }
         }
       }

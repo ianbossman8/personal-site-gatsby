@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "gatsby develop",
-    "build": "rm -rf public && npm run clean && gatsby build",
+    "build": "npm run clean && gatsby build",
     "serve": "gatsby serve",
     "serve:local": "npm run build && npm run serve"
   },
@@ -19,6 +19,7 @@
     "typescript",
     "javascript",
     "css-in-js",
+    "jam-stack",
     "blog"
   ],
   "author": "ian",
@@ -31,6 +32,7 @@
     "gatsby-plugin-netlify-cms": "^4.9.0",
     "gatsby-plugin-offline": "^3.9.0",
     "gatsby-plugin-react-helmet": "^3.9.0",
+    "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sharp": "^2.13.1",
     "gatsby-plugin-sitemap": "^2.11.0",
     "gatsby-plugin-styled-components": "^3.9.0",
