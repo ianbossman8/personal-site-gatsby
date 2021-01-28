@@ -10,28 +10,28 @@ import { PATH } from '../../constants/path'
 
 interface Props {
   curLocation: string | undefined
-  title?: string
-  description?: string
   children: ReactNode
 }
 
 function Layout(props: Props) {
   const [colourTheme, setColourTheme] = useSetThemeHook()
-  const { children, curLocation = PATH.ROOT, title, description } = props
+  const { children, curLocation } = props
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
     localStorage.setItem('colourTheme', theme)
   }
 
-  const isMain = curLocation === PATH.ROOT || curLocation === '/blogs'
+  const isMain = curLocation === PATH.ROOT || curLocation === PATH.BLOGS
   const isIndex = curLocation === PATH.ROOT
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
       <PageContainer isMain={isMain}>
         <Header colourTheme={colourTheme} setColourTheme={handleThemeChange} />
-        <MainContainer isIndex={isIndex}>{children}</MainContainer>
+        <MainContainer className={isIndex ? 'main-container' : 'secondary-container'}>
+          {children}
+        </MainContainer>
         <Footer />
       </PageContainer>
     </ThemeProvider>

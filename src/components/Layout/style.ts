@@ -21,11 +21,19 @@ export const PageContainer = styled.div<{ isMain: boolean }>`
   }
 `
 
-export const MainContainer = styled.main<{ isIndex: boolean }>`
+export const MainContainer = styled.main`
   width: inherit;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  align-self: ${({ isIndex }) => (isIndex ? 'center' : 'flex-start')};
   padding: 1rem 0;
+
+  &.main-container {
+    align-self: center;
+    flex-direction: column-reverse;
+  }
+
+  &.secondary-container {
+    align-self: flex-start;
+    flex-direction: column;
+  }
 `

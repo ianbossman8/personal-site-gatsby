@@ -60,10 +60,10 @@ export default function Base(props: Props) {
           <IoIosMenu size={48} onClick={handleMenuClick} />
         </MenuButton>
       )}
-      {children}
       <Menu showMenu={showMenu} isIndex={isIndex} onClick={() => handleMenuClick(undefined, false)}>
         <IntroBar isIndex={isIndex} setModalContentTopic={setModalContentTopic} />
       </Menu>
+      {children}
       {modalContentTopic && (
         <Modal
           topic={modalContentTopic}
