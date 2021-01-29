@@ -24,7 +24,9 @@ export default function Modal(props: Props) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  function handleModalContentContainerClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function handleModalContentContainerClick(
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
     event.stopPropagation()
   }
 

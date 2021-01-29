@@ -80,7 +80,7 @@ const plugins = [
       display: 'standalone',
       icon: 'src/images/favicon.png',
       icon_options: {
-        purpose: `maskable`
+        purpose: 'any maskable'
       }
     }
   }
