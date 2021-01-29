@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { PageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
@@ -9,29 +9,25 @@ import THEME from '../../constants/theme'
 import { PATH } from '../../constants/path'
 
 interface Props {
-  curLocation: string | undefined
+  isIndex?: boolean
+  isSecondary?: boolean
   children: ReactNode
 }
 
 function Layout(props: Props) {
   const [colourTheme, setColourTheme] = useSetThemeHook()
-  const { children, curLocation } = props
+  const { children, isIndex, isSecondary } = props
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
     localStorage.setItem('colourTheme', theme)
   }
 
-  const isMain = curLocation === PATH.ROOT || curLocation === PATH.BLOGS
-  const isIndex = curLocation === PATH.ROOT
-
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      <PageContainer isMain={isMain}>
+      <PageContainer isSecondary={isSecondary}>
         <Header colourTheme={colourTheme} setColourTheme={handleThemeChange} />
-        <MainContainer className={isIndex ? 'main-container' : 'secondary-container'}>
-          {children}
-        </MainContainer>
+        <MainContainer isIndex={isIndex}>{children}</MainContainer>
         <Footer />
       </PageContainer>
     </ThemeProvider>

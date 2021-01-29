@@ -58,7 +58,7 @@ export default function BlogPost(props: Props) {
   }
 
   return (
-    <Layout curLocation={fields.slug}>
+    <Layout>
       <Seo {...pageSEO} />
       <Page>
         <Link to={PATH.BLOGS}>

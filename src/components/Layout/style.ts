@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
 
-export const PageContainer = styled.div<{ isMain: boolean }>`
+export const PageContainer = styled.div<{ isSecondary: boolean | undefined }>`
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
@@ -13,27 +13,28 @@ export const PageContainer = styled.div<{ isMain: boolean }>`
   transition: background-color 0.3s ease;
 
   ${MEDIA_QUERY_MEDIUM_RULE} {
-    ${({ isMain }) =>
-      !isMain &&
+    ${({ isSecondary }) =>
+      !isSecondary &&
       css`
         padding: 1rem 0;
       `}
   }
 `
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.main<{ isIndex: boolean | undefined }>`
   width: inherit;
   display: flex;
   align-items: center;
   padding: 1rem 0;
 
-  &.main-container {
-    align-self: center;
-    flex-direction: column-reverse;
-  }
-
-  &.secondary-container {
-    align-self: flex-start;
-    flex-direction: column;
-  }
+  ${({ isIndex }) =>
+    isIndex
+      ? css`
+          align-self: center;
+          flex-direction: column-reverse;
+        `
+      : css`
+          align-self: flex-start;
+          flex-direction: column;
+        `}
 `

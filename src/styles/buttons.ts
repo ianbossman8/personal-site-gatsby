@@ -16,24 +16,18 @@ export const commonButtonCssProperties = css`
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   text-transform: capitalize;
-  cursor: pointer;
-`
-
-export const MainButton = styled.button`
-  min-height: 3rem;
-  background-color: ${({ theme: { colours } }) => colours.main[1]};
-  color: ${({ theme: { colours } }) => colours.primary[1]};
   font-size: ${({
     theme: {
       font: { size }
     }
   }) => size[SIZE.L]};
+
   font-weight: ${({
     theme: {
       font: { weight }
     }
   }) => weight[SIZE.S]};
-  ${commonButtonCssProperties}
+  cursor: pointer;
 
   ${MEDIA_QUERY_SMALL_RULE} {
     font-size: ${({
@@ -42,6 +36,25 @@ export const MainButton = styled.button`
       }
     }) => size[SIZE.S]};
   }
+`
+
+export const PrimaryButton = styled.button`
+  ${commonButtonCssProperties};
+  background-color: ${({ theme: { colours } }) => colours.main[1]};
+  color: ${({ theme: { colours } }) => colours.secondary[1]};
+  width: 200px;
+
+  ${MEDIA_QUERY_SMALL_RULE} {
+    width: 150px;
+  }
+`
+
+export const MainButton = styled.button`
+  min-height: 3rem;
+  background-color: ${({ theme: { colours } }) => colours.main[1]};
+  color: ${({ theme: { colours } }) => colours.primary[1]};
+
+  ${commonButtonCssProperties}
 `
 
 export const MenuButton = styled.button`

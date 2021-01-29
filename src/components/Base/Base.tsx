@@ -6,7 +6,6 @@ import SEO, { Props as SeoProps } from '../Seo'
 import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
-import { PATH } from '../../constants/path'
 import { WIDTH_BOUNDARIES } from '../../constants/styles'
 import { Location } from '../../util'
 import { MenuButton } from '../../styles/buttons'
@@ -14,13 +13,14 @@ import { Menu } from './styles'
 
 interface Props {
   pageSeo?: SeoProps
+  path: string
   children: ReactNode
 }
 
 export default function Base(props: Props) {
   const locObj = new Location()
 
-  const { pageSeo, children } = props
+  const { pageSeo, children, path } = props
 
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -40,7 +40,8 @@ export default function Base(props: Props) {
     setShowMenu((showMenu) => !showMenu)
   }
 
-  const isIndex = locObj.isMatchingPath(PATH.ROOT)
+  const isIndex = locObj.isIndexPath(path)
+  const isSecondary = locObj.isSecondaryPath(path)
 
   useEffect(() => {
     if (!isIndex) {
@@ -53,7 +54,7 @@ export default function Base(props: Props) {
   }, [isIndex, exceedBoundary])
 
   return (
-    <Layout curLocation={locObj.currentPath}>
+    <Layout isIndex={isIndex} isSecondary={isSecondary}>
       <SEO {...pageSeo} />
       {!isIndex && exceedBoundary && (
         <MenuButton>
