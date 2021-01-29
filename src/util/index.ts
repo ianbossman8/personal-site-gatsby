@@ -1,3 +1,5 @@
+import { PATH } from '../constants/path'
+
 export class Location {
   isLocationAvailable: boolean
   currentPath: string | undefined
@@ -7,7 +9,18 @@ export class Location {
     this.currentPath = this.isLocationAvailable ? location.pathname : undefined
   }
 
-  isMatchingPath(path: string) {
-    return this.currentPath === path
+  isIndexPath(path: string) {
+    return PATH.ROOT === path
+  }
+
+  isSecondaryPath(curPath: string) {
+    let isSecondaryPath = false
+
+    for (let path in PATH) {
+      if (path !== curPath) {
+        return (isSecondaryPath = true)
+      }
+    }
+    return isSecondaryPath
   }
 }

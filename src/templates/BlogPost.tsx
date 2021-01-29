@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
 import Layout from '../components/Layout/Layout'
+import Seo from '../components/Seo'
 import SYMBOLS from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { PATH } from '../constants/path'
@@ -15,6 +16,7 @@ interface Props {
     markdownRemark: {
       html: string
       frontmatter: NodeData['frontmatter']
+      excerpt: string
       fields: {
         slug: string
       }
@@ -45,12 +47,19 @@ const ImgHolder = styled.div`
 export default function BlogPost(props: Props) {
   const {
     data: {
-      markdownRemark: { html, frontmatter, fields }
+      markdownRemark: { html, frontmatter, fields, excerpt }
     }
   } = props
 
+  const pageSEO = {
+    title: frontmatter.title,
+    description: excerpt,
+    pathname: fields.slug
+  }
+
   return (
-    <Layout curLocation={fields.slug}>
+    <Layout>
+      <Seo {...pageSEO} />
       <Page>
         <Link to={PATH.BLOGS}>
           <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
@@ -83,6 +92,7 @@ export const query = graphql`
           }
         }
       }
+      excerpt(pruneLength: 160)
       fields {
         slug
       }

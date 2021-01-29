@@ -1,22 +1,68 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 
-interface Props {
+export interface Props {
   description?: string
-  lang?: string
   meta?: []
-  title: string
+  title?: string
+  pathname?: string
 }
 
-const SEO = ({ description, lang, meta, title }: Props) => {
+export default function SEO(props: Props) {
+  const siteMetadata = useSiteMetaDataQuery()
+  const {
+    description = siteMetadata.description,
+    meta = [],
+    title = siteMetadata.title,
+    pathname
+  } = props
+
+  const canonical = `${siteMetadata.siteUrl}${pathname}`
+
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: siteMetadata.lang
       }}
       title={title}
+      titleTemplate={`%s | ${siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+              {
+                rel: 'canonical',
+                href: canonical
+              }
+            ]
+          : []
+      }
+      meta={[
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          name: 'author',
+          content: siteMetadata.author
+        },
+        {
+          name: 'keywords',
+          content: siteMetadata.keywords
+        },
+        {
+          property: 'og:description',
+          content: description
+        },
+        {
+          property: 'og:type',
+          content: 'website'
+        }
+      ].concat(meta)}
     />
   )
 }
-
-export default SEO
