@@ -16,7 +16,7 @@ interface Props {
 function Layout(props: Props) {
   const [colourTheme, setColourTheme] = useSetThemeHook()
   const { children, isIndex, isSecondary } = props
-
+  console.log(colourTheme)
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
     localStorage.setItem('colourTheme', theme)

@@ -1,6 +1,6 @@
 import { PATH } from '../constants/path'
 
-export class Location {
+class Location {
   isLocationAvailable: boolean
   currentPath: string | undefined
 
@@ -25,3 +25,5 @@ export class Location {
     return isSecondaryPath
   }
 }
+
+export default new Location()

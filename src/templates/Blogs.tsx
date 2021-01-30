@@ -3,8 +3,6 @@ import { useAllBlogPosts } from '../queries/useAllBlogPostsQuery'
 import Base from '../components/Base/Base'
 import BlogsList from '../components/BlogsList/BlogsList'
 import { PAGE_META } from '../constants/meta'
-import { PATH } from '../constants/path'
-import { Location } from '../util'
 
 function Blogs() {
   const allBlogPostsInfo = useAllBlogPosts()

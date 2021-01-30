@@ -7,7 +7,7 @@ import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
 import { WIDTH_BOUNDARIES } from '../../constants/styles'
-import { Location } from '../../util'
+import Location from '../../util/location'
 import { MenuButton } from '../../styles/buttons'
 import { Menu } from './styles'
 
@@ -17,8 +17,6 @@ interface Props {
 }
 
 export default function Base(props: Props) {
-  const locObj = new Location()
-
   const { pageSeo, children } = props
 
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
@@ -39,8 +37,8 @@ export default function Base(props: Props) {
     setShowMenu((showMenu) => !showMenu)
   }
 
-  const isIndex = locObj.isIndexPath(pageSeo.pathname)
-  const isSecondary = locObj.isSecondaryPath(pageSeo.pathname)
+  const isIndex = Location.isIndexPath(pageSeo.pathname)
+  const isSecondary = Location.isSecondaryPath(pageSeo.pathname)
 
   useEffect(() => {
     if (!isIndex) {
