@@ -83,6 +83,12 @@ const plugins = [
         purpose: 'any maskable'
       }
     }
+  },
+  {
+    resolve: `gatsby-plugin-google-gtag`,
+    options: {
+      trackingIds: ['G-5RJRC53V0F']
+    }
   }
 ]
 
