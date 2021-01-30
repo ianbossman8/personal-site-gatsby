@@ -6,7 +6,6 @@ import Footer from '../Footer/Footer'
 import useSetThemeHook from '../../customHooks/useSetThemeHook'
 import { styleTheme } from '../../styles/theme'
 import THEME from '../../constants/theme'
-import { PATH } from '../../constants/path'
 
 interface Props {
   isIndex?: boolean

@@ -21,6 +21,7 @@ export class Location {
         return (isSecondaryPath = true)
       }
     }
+
     return isSecondaryPath
   }
 }

@@ -12,15 +12,14 @@ import { MenuButton } from '../../styles/buttons'
 import { Menu } from './styles'
 
 interface Props {
-  pageSeo?: SeoProps
-  path: string
+  pageSeo: SeoProps
   children: ReactNode
 }
 
 export default function Base(props: Props) {
   const locObj = new Location()
 
-  const { pageSeo, children, path } = props
+  const { pageSeo, children } = props
 
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -40,8 +39,8 @@ export default function Base(props: Props) {
     setShowMenu((showMenu) => !showMenu)
   }
 
-  const isIndex = locObj.isIndexPath(path)
-  const isSecondary = locObj.isSecondaryPath(path)
+  const isIndex = locObj.isIndexPath(pageSeo.pathname)
+  const isSecondary = locObj.isSecondaryPath(pageSeo.pathname)
 
   useEffect(() => {
     if (!isIndex) {

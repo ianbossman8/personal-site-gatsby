@@ -4,8 +4,8 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
-import Layout from '../components/Layout/Layout'
 import Seo from '../components/Seo'
+import Base from '../components/Base/Base'
 import SYMBOLS from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { PATH } from '../constants/path'
@@ -58,8 +58,7 @@ export default function BlogPost(props: Props) {
   }
 
   return (
-    <Layout>
-      <Seo {...pageSEO} />
+    <Base pageSeo={{ ...pageSEO }}>
       <Page>
         <Link to={PATH.BLOGS}>
           <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
@@ -74,7 +73,7 @@ export default function BlogPost(props: Props) {
           <article dangerouslySetInnerHTML={{ __html: html }} />
         </BlogPostContainer>
       </Page>
-    </Layout>
+    </Base>
   )
 }
 

@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react'
 import THEME from '../constants/theme'
 
+function initialTheme() {
+  const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches
+  const curlocalTheme = localStorage.getItem('colourTheme')
+  let initialTheme
+
+  if (curlocalTheme) {
+    initialTheme = curlocalTheme as THEME
+  } else {
+    if (systemTheme) {
+      initialTheme = THEME.DARK
+    } else {
+      initialTheme = THEME.LIGHT
+    }
+  }
+
+  return initialTheme
+}
+
 function useSetTheme(): [THEME, React.Dispatch<React.SetStateAction<THEME>>] {
-  const [colourTheme, setColourTheme] = useState<THEME>(THEME.DARK)
+  const theme = initialTheme()
+  const [colourTheme, setColourTheme] = useState<THEME>(theme)
 
   useEffect(() => {
-    const localTheme = localStorage.getItem('colourTheme')
-
-    if (!localTheme) {
-      const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches
-
-      if (systemTheme) {
-        setColourTheme(THEME.DARK)
-        localStorage.setItem('colourTheme', THEME.DARK)
-      } else {
-        setColourTheme(THEME.LIGHT)
-        localStorage.setItem('colourTheme', THEME.LIGHT)
-      }
-    } else {
-      setColourTheme(localTheme as THEME)
-    }
-
     const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
 
     function handleSystemChange(event: MediaQueryListEvent) {
