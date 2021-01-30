@@ -57,7 +57,7 @@ export default function Base(props: Props) {
       <SEO {...pageSeo} />
       {!isIndex && exceedBoundary && (
         <MenuButton>
-          <IoIosMenu size={48} onClick={handleMenuClick} />
+          <IoIosMenu size={48} onClick={handleMenuClick} title="menu" />
         </MenuButton>
       )}
       <Menu showMenu={showMenu} isIndex={isIndex} onClick={() => handleMenuClick(undefined, false)}>

@@ -39,7 +39,7 @@ const BlogPostContainer = styled.section`
   padding: 1rem 0;
 `
 
-const ImgHolder = styled.div`
+const ImgHolder = styled.figure`
   width: 100%;
   max-width: 960px;
 `
@@ -66,6 +66,7 @@ export default function BlogPost(props: Props) {
         <BlogPostContainer>
           <ImgHolder>
             <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
+            <figcaption>caption</figcaption>
           </ImgHolder>
           <H1 main>{frontmatter.title}</H1>
           <P>{frontmatter.author}</P>
