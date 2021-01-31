@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { PageContainer, MainContainer } from './style'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import useSetThemeHook from '../../customHooks/useSetThemeHook'
-import { styleTheme } from '../../styles/theme'
+import { ThemeContext } from '../../context/ThemeProvider'
+import useSetThemeHook from '../../customHooks/useSetSystemThemeHook'
 import THEME from '../../constants/theme'
-import { PATH } from '../../constants/path'
+import { PageContainer, MainContainer } from './style'
+import { styleTheme } from '../../styles/theme'
 
 interface Props {
   isIndex?: boolean
@@ -15,7 +15,9 @@ interface Props {
 }
 
 function Layout(props: Props) {
-  const [colourTheme, setColourTheme] = useSetThemeHook()
+  const { colourTheme, setColourTheme } = useContext(ThemeContext)
+  useSetThemeHook(setColourTheme)
+
   const { children, isIndex, isSecondary } = props
 
   function handleThemeChange(theme: THEME) {

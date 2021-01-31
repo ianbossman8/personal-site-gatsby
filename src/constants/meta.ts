@@ -1,11 +1,11 @@
 import { PATH } from './path'
 
 export const PAGE_META = {
-  index: {
+  INDEX: {
     title: 'Home',
-    pathname: ''
+    pathname: PATH.ROOT
   },
-  blog: {
+  BLOG: {
     description: "List of awesome Ian Bossman's blogs",
     title: 'Blogs',
     pathname: PATH.BLOGS

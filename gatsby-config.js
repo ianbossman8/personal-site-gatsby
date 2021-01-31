@@ -80,7 +80,16 @@ const plugins = [
       display: 'standalone',
       icon: 'src/images/favicon.png',
       icon_options: {
-        purpose: `maskable`
+        purpose: 'any maskable'
+      }
+    }
+  },
+  {
+    resolve: `gatsby-plugin-google-gtag`,
+    options: {
+      trackingIds: ['G-5RJRC53V0F'],
+      gtagConfig: {
+        anonymize_ip: true
       }
     }
   }

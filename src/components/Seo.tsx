@@ -5,8 +5,8 @@ import { useSiteMetaDataQuery } from '../queries/useSiteMetaDataQuery'
 export interface Props {
   description?: string
   meta?: []
-  title?: string
-  pathname?: string
+  title: string
+  pathname: string
 }
 
 export default function SEO(props: Props) {

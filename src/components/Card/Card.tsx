@@ -1,11 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import {
-  CardContainer,
-  ImgHolder,
-  InfoContainer,
-  MetaContainer
-} from './styles'
+import { CardContainer, ImgHolder, InfoContainer, MetaContainer } from './styles'
 import { NodeData } from '../../queries/useAllBlogPostsQuery'
 import { P, H3 } from '../../styles/text'
 
@@ -20,7 +15,7 @@ function Card(props: Props) {
   return (
     <CardContainer>
       <ImgHolder>
-        <Img fluid={thumbnail.childImageSharp.fluid} alt="" />
+        <Img fluid={thumbnail.childImageSharp.fluid} alt="" title="" />
       </ImgHolder>
       <InfoContainer>
         <H3 main>{blogDetail.title}</H3>

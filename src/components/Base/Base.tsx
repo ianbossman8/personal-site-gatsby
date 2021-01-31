@@ -7,20 +7,17 @@ import Layout from '../Layout/Layout'
 import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
 import { WIDTH_BOUNDARIES } from '../../constants/styles'
-import { Location } from '../../util'
+import Location from '../../util/location'
 import { MenuButton } from '../../styles/buttons'
 import { Menu } from './styles'
 
 interface Props {
-  pageSeo?: SeoProps
-  path: string
+  pageSeo: SeoProps
   children: ReactNode
 }
 
 export default function Base(props: Props) {
-  const locObj = new Location()
-
-  const { pageSeo, children, path } = props
+  const { pageSeo, children } = props
 
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -40,8 +37,8 @@ export default function Base(props: Props) {
     setShowMenu((showMenu) => !showMenu)
   }
 
-  const isIndex = locObj.isIndexPath(path)
-  const isSecondary = locObj.isSecondaryPath(path)
+  const isIndex = Location.isIndexPath(pageSeo.pathname)
+  const isSecondary = Location.isSecondaryPath(pageSeo.pathname)
 
   useEffect(() => {
     if (!isIndex) {
@@ -58,7 +55,7 @@ export default function Base(props: Props) {
       <SEO {...pageSeo} />
       {!isIndex && exceedBoundary && (
         <MenuButton>
-          <IoIosMenu size={48} onClick={handleMenuClick} />
+          <IoIosMenu size={48} onClick={handleMenuClick} title="menu" />
         </MenuButton>
       )}
       <Menu showMenu={showMenu} isIndex={isIndex} onClick={() => handleMenuClick(undefined, false)}>

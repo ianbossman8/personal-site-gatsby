@@ -5,9 +5,7 @@ import SocialIconsList from '../SocialIconsList/SocialIconsList'
 function Footer() {
   return (
     <AppFooter>
-      <FooterText>
-        © {new Date().getFullYear()} produced and designed by ian chan
-      </FooterText>
+      <FooterText>© {new Date().getFullYear()} produced and designed by ian chan</FooterText>
       <SocialIconsList />
     </AppFooter>
   )
