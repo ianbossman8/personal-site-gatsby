@@ -28,9 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      blogs: allMarkdownRemark(
-        filter: { fields: { contentType: { eq: "blogs" } } }
-      ) {
+      blogs: allMarkdownRemark(filter: { fields: { contentType: { eq: "blogs" } } }) {
         edges {
           node {
             id
@@ -52,11 +50,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-
-  const blogPosts = result.data.blogs.edges
-  // const blogPostsPerPage =
-  //     result.data.limitPost.siteMetadata.blogItemsPerPage
-  // const numBlogPages = Math.ceil(blogPosts.length / blogPostsPerPage)
 
   Array.from({ length: 1 }).forEach((_, i) => {
     createPage({

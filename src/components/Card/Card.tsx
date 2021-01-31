@@ -8,7 +8,6 @@ interface Props {
   blogDetail: NodeData['frontmatter']
 }
 
-// three size for cards
 function Card(props: Props) {
   const { blogDetail } = props
   const thumbnail = blogDetail.thumbnail

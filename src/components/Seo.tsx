@@ -8,9 +8,7 @@ export interface Props {
   title: string
   pathname: string
 }
-// json-ld
-// bread cramb
-// robot meta
+
 export default function SEO(props: Props) {
   const siteMetadata = useSiteMetaDataQuery()
   const {
