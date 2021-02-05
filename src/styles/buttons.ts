@@ -55,6 +55,10 @@ export const MainButton = styled.button`
   color: ${({ theme: { colours } }) => colours.primary[1]};
 
   ${commonButtonCssProperties}
+
+  a {
+    text-decoration: none;
+  }
 `
 
 export const MenuButton = styled.button`

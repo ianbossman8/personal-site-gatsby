@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
+import { MEDIA_QUERY_SMALL_RULE } from '../../constants/styles'
 
-export const PageContainer = styled.div<{ isSecondary: boolean | undefined }>`
+export const PageContainer = styled.div<{ isIndex: boolean | undefined }>`
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
@@ -12,9 +12,9 @@ export const PageContainer = styled.div<{ isSecondary: boolean | undefined }>`
   padding: 1rem 2rem;
   transition: background-color 0.3s ease;
 
-  ${MEDIA_QUERY_MEDIUM_RULE} {
-    ${({ isSecondary }) =>
-      !isSecondary &&
+  ${MEDIA_QUERY_SMALL_RULE} {
+    ${({ isIndex }) =>
+      !isIndex &&
       css`
         padding: 1rem 0;
       `}

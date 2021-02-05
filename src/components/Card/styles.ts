@@ -16,9 +16,9 @@ export const InfoContainer = styled.div`
 `
 
 export const CardContainer = styled.div`
-  max-height: 400px;
-  width: 315px;
-  max-width: 315px;
+  max-height: 425px;
+  width: 325px;
+  max-width: 325px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

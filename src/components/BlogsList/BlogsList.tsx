@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPostsQuery'
 import Card from '../Card/Card'
 import { BlogsListContainer, BlogsContainer } from './styles'
+import { Divider } from '../../styles/divider'
 import { P } from '../../styles/text'
 
 interface Props {
@@ -16,6 +17,7 @@ function BlogsList(props: Props) {
   return (
     <BlogsContainer>
       <P>Number of articles- {totalBlogs}</P>
+      <Divider />
       <BlogsListContainer>
         {blogsDesc.length > 0 ? (
           blogsDesc.map(({ node: { id, frontmatter, fields } }) => (

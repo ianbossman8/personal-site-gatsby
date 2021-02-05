@@ -4,11 +4,10 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
-import Seo from '../components/Seo'
 import Base from '../components/Base/Base'
 import SYMBOLS from '../constants/symbols'
 import { SIZE } from '../constants/font'
-import { PATH } from '../constants/path'
+import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
 
 interface Props {
@@ -28,7 +27,7 @@ const Page = styled.div`
   width: inherit;
 
   a {
-    color: ${({ theme: { colours } }) => colours.main[2]};
+    color: ${({ theme: { colours } }) => colours.info[2]};
   }
 `
 
@@ -60,7 +59,7 @@ export default function BlogPost(props: Props) {
   return (
     <Base pageSeo={{ ...pageSEO }}>
       <Page>
-        <Link to={PATH.BLOGS}>
+        <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
           <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>

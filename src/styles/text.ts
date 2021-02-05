@@ -53,6 +53,11 @@ export const pStyle = css`
       }
     }) => size[SIZE.S]};
   }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme: { colours } }) => colours.info[2]};
+  }
 `
 
 export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
@@ -87,12 +92,12 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
 
 export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
   ${({ primary = false, main = false }) => mainFontColour(primary, main)};
+  text-transform: capitalize;
   font-size: ${({
     theme: {
       font: { size }
     }
   }) => size[SIZE.NL]};
-  text-transform: capitalize;
   font-weight: ${({
     theme: {
       font: { weight }
@@ -104,18 +109,18 @@ export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
       theme: {
         font: { size }
       }
-    }) => size[SIZE.S]};
+    }) => size[SIZE.N]};
   }
 `
 
 export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
   ${({ primary = false, main = false }) => mainFontColour(primary, main)};
+  text-transform: capitalize;
   font-size: ${({
     theme: {
       font: { size }
     }
   }) => size[SIZE.N]};
-  text-transform: capitalize;
   font-weight: ${({
     theme: {
       font: { weight }
@@ -127,7 +132,7 @@ export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
       theme: {
         font: { size }
       }
-    }) => size[SIZE.S]};
+    }) => size[SIZE.NS]};
   }
 `
 
