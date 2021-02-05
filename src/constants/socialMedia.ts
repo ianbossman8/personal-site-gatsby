@@ -1,9 +1,9 @@
-import { EXTERNAL_LINKS } from './externalLinks'
+import { LINKS } from './links'
 
 export const socialMedia = [
   {
     name: 'github',
-    link: EXTERNAL_LINKS.GH,
+    link: LINKS.EXTERNAL_LINKS.GH,
     title: 'Github'
   },
   {
@@ -13,7 +13,7 @@ export const socialMedia = [
   },
   {
     name: 'medium',
-    link: EXTERNAL_LINKS.M,
+    link: LINKS.EXTERNAL_LINKS.M,
     title: 'Medium'
   },
   {
@@ -23,7 +23,7 @@ export const socialMedia = [
   },
   {
     name: 'linktree',
-    link: EXTERNAL_LINKS.LT,
+    link: LINKS.EXTERNAL_LINKS.LT,
     title: 'LinkTree'
   }
 ]

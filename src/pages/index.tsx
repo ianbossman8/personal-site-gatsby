@@ -1,7 +1,6 @@
 import React from 'react'
 import Base from '../components/Base/Base'
 import { PAGE_META } from '../constants/meta'
-import { PATH } from '../constants/path'
 import { ColourFulHeader } from '../styles/text'
 
 export default function SiteIndex() {

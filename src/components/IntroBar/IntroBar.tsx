@@ -4,8 +4,7 @@ import { FcHome } from 'react-icons/fc'
 import Emoji from '../Emoji/Emoji'
 import SYMBOLS from '../../constants/symbols'
 import { SIZE } from '../../constants/font'
-import { PATH } from '../../constants/path'
-import { EXTERNAL_LINKS } from '../../constants/externalLinks'
+import { LINKS } from '../../constants/links'
 import { SITE_TOPIC } from '../../constants/siteTopic'
 import { Container } from './styles'
 import { MainButton } from '../../styles/buttons'
@@ -28,7 +27,7 @@ export default function IntroBar(props: Props) {
       target.className === SITE_TOPIC.BLOGS ||
       (target as HTMLButtonElement).value === SITE_TOPIC.BLOGS
     ) {
-      return navigate(PATH.BLOGS)
+      return navigate(LINKS.INTERNAL_LINKS.BLOGS)
     }
 
     if (target.nodeName === 'SPAN') {
@@ -40,7 +39,7 @@ export default function IntroBar(props: Props) {
 
   return (
     <Container isIndex={isIndex}>
-      <Link to={PATH.ROOT} className="home--link">
+      <Link to={LINKS.INTERNAL_LINKS.ROOT} className="home--link">
         <FcHome size={48} title="go home" />
       </Link>
       <MainButton onClick={handleButtonlick} value={SITE_TOPIC.ABOUT}>
@@ -60,7 +59,7 @@ export default function IntroBar(props: Props) {
       </MainButton>
       <MainButton>
         <span title="giving">
-          <a href={EXTERNAL_LINKS.LT} target="blank">
+          <a href={LINKS.EXTERNAL_LINKS.LT} target="blank">
             <Emoji symbol={SYMBOLS.pointRight} size={SIZE.N} />
             support people in need
             <Emoji symbol={SYMBOLS.pointLeft} size={SIZE.N} />

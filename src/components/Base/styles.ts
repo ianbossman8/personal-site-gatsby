@@ -8,7 +8,7 @@ export const Menu = styled.div<{ showMenu: boolean; isIndex: boolean }>`
       position: static;
 
       ${MEDIA_QUERY_MEDIUM_RULE} {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;

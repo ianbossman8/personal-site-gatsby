@@ -38,7 +38,6 @@ export default function Base(props: Props) {
   }
 
   const isIndex = Location.isIndexPath(pageSeo.pathname)
-  const isSecondary = Location.isSecondaryPath(pageSeo.pathname)
 
   useEffect(() => {
     if (!isIndex) {
@@ -51,7 +50,7 @@ export default function Base(props: Props) {
   }, [isIndex, exceedBoundary])
 
   return (
-    <Layout isIndex={isIndex} isSecondary={isSecondary}>
+    <Layout isIndex={isIndex}>
       <SEO {...pageSeo} />
       {!isIndex && exceedBoundary && (
         <MenuButton>
