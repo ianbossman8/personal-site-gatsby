@@ -6,7 +6,7 @@ export function colourfulBackground(colours: DefaultTheme['colours'], direction:
   }
 
   if (direction === 'toBottomRight') {
-    return `linear-gradient(-45deg, ${colours.main[3]}, ${colours.info[3]}, ${colours.warn[3]}, ${colours.alert[3]})`
+    return `linear-gradient(-45deg, ${colours.main[2]}, ${colours.info[2]}, ${colours.warn[2]}, ${colours.alert[2]})`
   }
 }
 

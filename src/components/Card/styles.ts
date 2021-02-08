@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { MEDIA_QUERY_SMALL_RULE } from '../../constants/styles'
+import { MEDIA_QUERY_SMALL_WIDTH_RULE } from '../../constants/styles'
 import { H3, P } from '../../styles/text'
 
 export const ImgHolder = styled.figure`
@@ -39,7 +39,7 @@ export const CardContainer = styled.div`
     margin: 0.45rem 0.25rem;
   }
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     margin: 1rem 0;
   }
 `

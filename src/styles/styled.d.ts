@@ -9,6 +9,7 @@ declare module 'styled-components' {
         [SIZE.L]: string
         [SIZE.NL]: string
         [SIZE.N]: string
+        [SIZE.NS]: string
         [SIZE.S]: string
         [SIZE.XS]: string
       }

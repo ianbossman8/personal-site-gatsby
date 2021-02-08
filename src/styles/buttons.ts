@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_SMALL_RULE } from '../constants/styles'
+import { MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
 
 export const ThemeButton = styled.button`
   padding: 0;
@@ -29,23 +29,12 @@ export const commonButtonCssProperties = css`
   }) => weight[SIZE.S]};
   cursor: pointer;
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     font-size: ${({
       theme: {
         font: { size }
       }
     }) => size[SIZE.S]};
-  }
-`
-
-export const PrimaryButton = styled.button`
-  ${commonButtonCssProperties};
-  background-color: ${({ theme: { colours } }) => colours.main[1]};
-  color: ${({ theme: { colours } }) => colours.secondary[1]};
-  width: 200px;
-
-  ${MEDIA_QUERY_SMALL_RULE} {
-    width: 150px;
   }
 `
 
@@ -55,10 +44,6 @@ export const MainButton = styled.button`
   color: ${({ theme: { colours } }) => colours.primary[1]};
 
   ${commonButtonCssProperties}
-
-  a {
-    text-decoration: none;
-  }
 `
 
 export const MenuButton = styled.button`

@@ -1,7 +1,7 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { MainButton } from '../../styles/buttons'
 import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
-import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../../constants/styles'
 
 const opacityAnimation = keyframes`
  to {
@@ -9,7 +9,7 @@ const opacityAnimation = keyframes`
  }
 `
 
-export const Container = styled.nav<{ isIndex: boolean; exceedBoundary?: boolean }>`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
 
@@ -17,41 +17,39 @@ export const Container = styled.nav<{ isIndex: boolean; exceedBoundary?: boolean
     border: 2px solid inherit;
     border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
     background: transparent;
+    ${fillBackgroundText}
 
-    span {
-      ${fillBackgroundText};
+    ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+      min-width: 240px;
     }
   }
 
-  a.home--link {
-    align-self: center;
+  button:nth-of-type(1) {
+    opacity: 0;
+    animation: ${opacityAnimation} 0.75s ease-in forwards;
   }
 
-  ${({ isIndex }) =>
-    isIndex &&
-    css`
-      button:nth-of-type(1) {
-        opacity: 0;
-        animation: ${opacityAnimation} 0.8s ease-in forwards;
-      }
+  button:nth-of-type(2) {
+    opacity: 0;
+    animation: ${opacityAnimation} 0.9s ease-in forwards;
+  }
 
-      button:nth-of-type(2) {
-        opacity: 0;
-        animation: ${opacityAnimation} 1s ease-in forwards;
-      }
+  button:nth-of-type(3) {
+    opacity: 0;
+    animation: ${opacityAnimation} 1.05s ease-in forwards;
+  }
 
-      button:nth-of-type(3) {
-        opacity: 0;
-        animation: ${opacityAnimation} 1.25s ease-in forwards;
-      }
+  button:nth-of-type(4) {
+    opacity: 0;
+    animation: ${opacityAnimation} 1.2s ease-in forwards;
+  }
 
-      button:nth-of-type(4) {
-        opacity: 0;
-        animation: ${opacityAnimation} 1.5s ease-in forwards;
-      }
-    `}
+  button:nth-of-type(5) {
+    opacity: 0;
+    animation: ${opacityAnimation} 1.35s ease-in forwards;
+  }
 
-  ${MEDIA_QUERY_MEDIUM_RULE} {
+  ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     flex-direction: column;
   }
 `

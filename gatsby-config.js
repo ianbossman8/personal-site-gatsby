@@ -87,10 +87,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-gtag`,
     options: {
-      trackingIds: ['G-5RJRC53V0F'],
-      gtagConfig: {
-        anonymize_ip: true
-      }
+      trackingIds: ['G-5RJRC53V0F']
     }
   }
 ]

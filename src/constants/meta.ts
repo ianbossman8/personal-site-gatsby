@@ -12,38 +12,39 @@ interface PAGE_META {
 
 export const PAGE_META: PAGE_META = {
   INDEX: {
-    title: 'Home',
-    pathname: LINKS.INTERNAL_LINKS.ROOT
+    title: 'home',
+    pathname: LINKS.INTERNAL_LINKS.ROOT,
+    icon: SYMBOLS.house
   },
   ABOUT: {
-    title: 'About',
+    title: 'about',
     pathname: LINKS.INTERNAL_LINKS.ABOUT,
     icon: SYMBOLS.monkey
   },
   BLOG: {
     description: "List of awesome Ian Bossman's blogs",
-    title: 'Blogs',
+    title: 'blogs',
     pathname: LINKS.INTERNAL_LINKS.BLOGS,
     icon: SYMBOLS.writingHand
   },
   PROJECTS: {
-    title: 'Projects',
+    title: 'projects',
     pathname: LINKS.INTERNAL_LINKS.PROJECTS,
     icon: SYMBOLS.tools
   },
   PRIVACY: {
-    title: 'Privacy',
+    title: 'privacy',
     pathname: LINKS.INTERNAL_LINKS.PRIVACY,
     icon: SYMBOLS.detective
   },
   PROMOTIONS: {
-    title: 'Promotions',
+    title: 'promotions',
     pathname: LINKS.INTERNAL_LINKS.PROMOTIONS,
     icon: SYMBOLS.gift
   },
   404: {
-    description: 'Page Not Found',
     title: '404',
+    description: 'Page Not Found',
     pathname: LINKS.INTERNAL_LINKS[404]
   }
 }

@@ -1,28 +1,35 @@
 import React from 'react'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
 import LinksList from '../LinksList/LinksList'
-import { AppFooter, MainFooterText, InfoBox, FirstContainer, SecondContainer } from './style'
+import {
+  AppFooter,
+  MainFooterText,
+  InfoBox,
+  FirstContainer,
+  SecondContainer,
+  Container
+} from './style'
 import { LinksObj } from '../../util/linksGen'
 import { Divider } from '../../styles/divider'
 import { H3, P } from '../../styles/text'
 
 interface Props {
   isIndex: boolean
-  linksMeta?: LinksObj[]
+  linksMeta: LinksObj[]
 }
 
 function Footer(props: Props) {
   const { isIndex, linksMeta } = props
 
   return (
-    <AppFooter isIndex={isIndex}>
-      {!isIndex && linksMeta && (
+    <AppFooter>
+      {!isIndex ? (
         <>
           <InfoBox>
             <SecondContainer>
               <div>
                 <H3 main>This Site</H3>
-                <LinksList linksMeta={linksMeta} />
+                <LinksList linksMeta={linksMeta} direction="column" />
               </div>
               <div>
                 <H3 main>Popular Articles</H3>
@@ -37,13 +44,17 @@ function Footer(props: Props) {
               <SocialIconsList />
             </FirstContainer>
           </InfoBox>
-          <Divider />
         </>
+      ) : (
+        <Container>
+          <LinksList linksMeta={linksMeta} showIcons={false} />
+          <SocialIconsList />
+        </Container>
       )}
+      <Divider />
       <MainFooterText>
         © {new Date().getFullYear()} produced and designed by Ian Chan
       </MainFooterText>
-      {isIndex && <SocialIconsList />}
     </AppFooter>
   )
 }

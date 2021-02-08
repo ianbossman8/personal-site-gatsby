@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { MEDIA_QUERY_MEDIUM_RULE } from '../../constants/styles'
+import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
 
 export const Menu = styled.div<{ showMenu: boolean; isIndex: boolean }>`
   ${({ isIndex, showMenu }) =>
@@ -7,7 +7,7 @@ export const Menu = styled.div<{ showMenu: boolean; isIndex: boolean }>`
     css`
       position: static;
 
-      ${MEDIA_QUERY_MEDIUM_RULE} {
+      ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
         position: fixed;
         top: 0;
         left: 0;

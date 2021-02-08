@@ -60,7 +60,7 @@ export default function BlogPost(props: Props) {
     <Base pageSeo={{ ...pageSEO }}>
       <Page>
         <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
-          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
+          <Emoji label="back page" symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>
           <ImgHolder>

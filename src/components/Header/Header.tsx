@@ -22,7 +22,7 @@ function Header(props: Props) {
   return (
     <AppHeader>
       <ThemeButton onClick={handleThemeButtonClick}>
-        <Emoji label={'dim background'} symbol={SYMBOLS[colourTheme].themeSwitch} />
+        <Emoji label="switch colour theme" symbol={SYMBOLS[colourTheme].themeSwitch} />
       </ThemeButton>
     </AppHeader>
   )

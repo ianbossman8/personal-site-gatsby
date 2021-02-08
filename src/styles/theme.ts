@@ -11,7 +11,7 @@ const commonStyle = {
       [SIZE.N]: '1.5rem',
       [SIZE.NS]: '1.25rem',
       [SIZE.S]: '1rem',
-      [SIZE.XS]: '0.75rem'
+      [SIZE.XS]: '0.875rem'
     },
     weight: {
       [SIZE.L]: 600,

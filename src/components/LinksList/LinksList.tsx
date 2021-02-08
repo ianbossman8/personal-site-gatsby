@@ -8,17 +8,19 @@ import { LinksListContainer } from './style'
 interface Props {
   linksMeta: LinksObj[]
   size?: SIZE
+  direction?: string
+  showIcons?: boolean
 }
 
 function LinksList(props: Props) {
-  const { size = SIZE.NS } = props
+  const { size = SIZE.NS, direction = 'row', showIcons = true } = props
 
   return (
-    <LinksListContainer>
+    <LinksListContainer direction={direction}>
       {props.linksMeta.map((meta) => (
         <li key={meta.pathname}>
           <Link to={meta.pathname}>
-            <Emoji symbol={meta.icon} size={size} />
+            {showIcons && <Emoji symbol={meta.icon} size={size} label={meta.title} />}
             {meta.title}
           </Link>
         </li>
