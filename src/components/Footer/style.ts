@@ -77,6 +77,7 @@ export const MainFooterText = styled(P)`
   ${fillBackgroundText};
   text-transform: uppercase;
   text-align: center;
+  user-select: none;
 
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     margin: 0.25rem 0;

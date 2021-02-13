@@ -53,13 +53,17 @@ declare module 'styled-components' {
         blur: {
           strong: string
           light: string
+          zero: string
         }
       }
       secondary: {
         1: string
         2: string
         3: string
-        blur: string
+        blur: {
+          strong: string
+          light: string
+        }
       }
       brands: {
         twitter: string

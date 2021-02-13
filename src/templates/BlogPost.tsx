@@ -67,7 +67,7 @@ export default function BlogPost(props: Props) {
             <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
             <figcaption>caption</figcaption>
           </ImgHolder>
-          <H1 main>{frontmatter.title}</H1>
+          <H1>{frontmatter.title}</H1>
           <P>{frontmatter.author}</P>
           <P>{frontmatter.date}</P>
           <article dangerouslySetInnerHTML={{ __html: html }} />

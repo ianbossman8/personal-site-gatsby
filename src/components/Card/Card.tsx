@@ -18,7 +18,7 @@ function Card(props: Props) {
         <Img fluid={thumbnail.childImageSharp.fluid} alt="" title="" />
       </ImgHolder>
       <InfoContainer>
-        <H3 main>{blogDetail.title}</H3>
+        <H3>{blogDetail.title}</H3>
         <P>{blogDetail.description}</P>
       </InfoContainer>
       <MetaContainer>

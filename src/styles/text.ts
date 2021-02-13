@@ -9,25 +9,23 @@ const textColourAnimation = keyframes`
   }
 `
 
-export function mainFontColour(primary?: boolean, main?: boolean) {
-  if (main) {
-    return css`
-      color: ${({ theme: { colours } }) => colours.secondary[1]};
-    `
-  }
-
-  return css`
-    color: ${({ theme: { colours } }) => (primary ? colours.primary[1] : colours.primary[3])};
-  `
+export function reverseFontColour(reverse: boolean | undefined = false) {
+  return reverse
+    ? css`
+        color: ${({ theme: { colours } }) => colours.primary[1]};
+      `
+    : css`
+        color: ${({ theme: { colours } }) => colours.secondary[1]};
+      `
 }
 
-export const blockQuoteStyle = css`
+export const blockQuoteStyle = (reverse?: boolean) => css`
   ${glassBackground};
   padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
 
   mark {
-    ${mainFontColour()};
+    ${reverseFontColour(reverse)};
     background-color: transparent;
     font-size: ${({
       theme: {
@@ -39,7 +37,8 @@ export const blockQuoteStyle = css`
   }
 `
 
-export const pStyle = css`
+export const pStyle = (reverse?: boolean) => css`
+  ${reverseFontColour(reverse)};
   font-weight: ${({
     theme: {
       font: { weight }
@@ -59,18 +58,18 @@ export const pStyle = css`
   }
 `
 
-export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
-  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
-  font-weight: ${({
-    theme: {
-      font: { weight }
-    }
-  }) => weight[SIZE.N]};
+export const H1 = styled.h1<{ reverse?: boolean }>`
+  ${({ reverse }) => reverseFontColour(reverse)};
   font-size: ${({
     theme: {
       font: { size }
     }
   }) => size[SIZE.EL]};
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.N]};
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     font-size: ${({
@@ -89,8 +88,8 @@ export const H1 = styled.h1<{ primary?: boolean; main?: boolean }>`
   }
 `
 
-export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
-  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
+export const H2 = styled.h2<{ reverse?: boolean }>`
+  ${({ reverse }) => reverseFontColour(reverse)};
   text-transform: capitalize;
   font-size: ${({
     theme: {
@@ -101,7 +100,7 @@ export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
     theme: {
       font: { weight }
     }
-  }) => weight[SIZE.S]};
+  }) => weight[SIZE.N]};
 
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     font-size: ${({
@@ -112,8 +111,8 @@ export const H2 = styled.h2<{ primary?: boolean; main?: boolean }>`
   }
 `
 
-export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
-  ${({ primary = false, main = false }) => mainFontColour(primary, main)};
+export const H3 = styled.h3<{ reverse?: boolean }>`
+  ${({ reverse }) => reverseFontColour(reverse)};
   text-transform: capitalize;
   font-size: ${({
     theme: {
@@ -135,14 +134,14 @@ export const H3 = styled.h3<{ primary?: boolean; main?: boolean }>`
   }
 `
 
-export const P = styled.p<{ primary?: boolean; main?: boolean }>`
-  ${({ primary = true, main = true }) => mainFontColour(primary, main)};
-  ${pStyle};
+export const P = styled.p<{ reverse?: boolean }>`
+  ${({ reverse }) => pStyle(reverse)};
 `
 
 export const ColourFulHeader = styled(H1)`
   text-align: center;
   text-transform: uppercase;
+  user-select: none;
   ${fillBackgroundText}
-  animation: 0.8s ${textColourAnimation} ease-in-out forwards;
+  animation: ${textColourAnimation} 0.8s ease-in-out forwards;
 `

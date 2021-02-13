@@ -2,18 +2,10 @@ import styled, { css } from 'styled-components'
 import { SIZE } from '../constants/font'
 import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
 
-export const ThemeButton = styled.button`
-  padding: 0;
-  margin: 0.75rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-`
-
-export const commonButtonCssProperties = css`
+const commonButtonCssProperties = css`
   margin: 0.75rem 1rem;
   padding: 0.5rem 1rem;
-  box-shadow: ${({ theme: { colours } }) => `0 2px 6px 0 ${colours.secondary[1]}`};
+
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   text-transform: capitalize;
@@ -39,11 +31,19 @@ export const commonButtonCssProperties = css`
   }
 `
 
+export const ThemeButton = styled.button`
+  padding: 0;
+  margin: 0.75rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+`
+
 export const MainButton = styled.button`
   min-height: 3rem;
   background-color: ${({ theme: { colours } }) => colours.main[1]};
   color: ${({ theme: { colours } }) => colours.primary[1]};
-
+  box-shadow: ${({ theme: { colours } }) => `0 2px 8px 0 ${colours.secondary.blur.strong}`};
   ${commonButtonCssProperties}
 `
 

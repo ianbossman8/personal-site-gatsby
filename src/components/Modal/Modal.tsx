@@ -25,7 +25,7 @@ export default function Modal(props: Props) {
     <Container onClick={handleModalClose}>
       <ContentContainer onClick={handleModalContentContainerClick}>
         <GrClose onClick={handleModalClose} className="modal--close-button" />
-        <ModalHeader primary>{topic}</ModalHeader>
+        <ModalHeader reverse={true}>{topic}</ModalHeader>
         {typeof modalContent === 'string' ? (
           <div dangerouslySetInnerHTML={{ __html: modalContent }} />
         ) : (

@@ -17,6 +17,7 @@ export const Container = styled.div`
     border: 2px solid inherit;
     border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
     background: transparent;
+    user-select: none;
     ${fillBackgroundText}
 
     ${MEDIA_QUERY_SMALL_WIDTH_RULE} {

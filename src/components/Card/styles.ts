@@ -23,15 +23,13 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: ${({ theme: { colours } }) => colours.primary[2]};
-  box-shadow: ${({ theme: { colours } }) => `0 1px 4px ${colours.secondary.blur}`};
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  box-shadow: ${({ theme: { colours } }) => `0 1px 4px 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
   margin: 0 0 1rem 1rem;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: ${({ theme: { colours } }) => `0 8px 16px ${colours.secondary.blur}`};
+    box-shadow: ${({ theme: { colours } }) => `0 8px 16px 0 ${colours.secondary.blur.light}`};
     transform: translateY(-10px);
   }
 

@@ -33,11 +33,11 @@ function Footer(props: Props) {
           <InfoBox>
             <SecondContainer>
               <div>
-                <H3 main>This Site</H3>
+                <H3>This Site</H3>
                 <LinksList linksMeta={linksMeta} direction="column" />
               </div>
               <div>
-                <H3 main>Popular Articles</H3>
+                <H3>Popular Articles</H3>
                 <P>Incoming</P>
                 <P>Incoming</P>
                 <P>Incoming</P>

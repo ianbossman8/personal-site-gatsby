@@ -6,7 +6,7 @@ export function colourfulBackground(colours: DefaultTheme['colours'], direction:
   }
 
   if (direction === 'toBottomRight') {
-    return `linear-gradient(-45deg, ${colours.main[2]}, ${colours.info[2]}, ${colours.warn[2]}, ${colours.alert[2]})`
+    return `linear-gradient(-45deg, ${colours.main[3]}, ${colours.info[3]}, ${colours.warn[3]}, ${colours.alert[3]})`
   }
 }
 
@@ -20,7 +20,7 @@ export const fillBackgroundText = css`
 
 export const glassBackground = css`
   background: ${({ theme: { colours } }) => colours.primary.blur.light};
-  box-shadow: ${({ theme: { colours } }) => `0 8px 32px 0 ${colours.secondary[3]}`};
+  box-shadow: ${({ theme: { colours } }) => `0 8px 32px 0 ${colours.secondary.blur.strong}`};
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 `

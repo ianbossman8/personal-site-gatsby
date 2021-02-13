@@ -7,6 +7,7 @@ export const AppHeader = styled.header<{ isIndex: boolean }>`
   width: inherit;
   display: flex;
   justify-content: center;
+  user-select: none;
 
   ${({ isIndex }) =>
     !isIndex &&
