@@ -37,6 +37,7 @@ export const InfoBox = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     flex-direction: column;

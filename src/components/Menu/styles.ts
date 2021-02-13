@@ -1,12 +1,9 @@
 import styled, { css } from 'styled-components'
 import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
 
-export const Menu = styled.div<{ showMenu: boolean; isIndex: boolean }>`
-  ${({ isIndex, showMenu }) =>
-    !isIndex &&
+export const MenuContainer = styled.div<{ showMenu: boolean }>`
+  ${({ showMenu }) =>
     css`
-      position: static;
-
       ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
         position: fixed;
         top: 0;

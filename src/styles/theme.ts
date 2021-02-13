@@ -35,6 +35,7 @@ const brandColour = {
 const lightTheme: DefaultTheme = {
   ...commonStyle,
   colours: {
+    bg: '#fff7e6',
     main: {
       1: '#91d5ff',
       2: '#1890ff',
@@ -60,7 +61,7 @@ const lightTheme: DefaultTheme = {
       2: '#f5f5f5',
       3: '#f0f0f0',
       blur: {
-        strong: 'rgba(255, 255, 255, 0.75)',
+        strong: 'rgba(255, 255, 255, 0.85)',
         light: 'rgba(255, 255, 255, 0.25)'
       }
     },
@@ -80,6 +81,7 @@ const lightTheme: DefaultTheme = {
 const darkTheme: DefaultTheme = {
   ...commonStyle,
   colours: {
+    bg: '#141414',
     main: {
       3: '#91d5ff',
       2: '#1890ff',
@@ -105,7 +107,7 @@ const darkTheme: DefaultTheme = {
       2: '#1f1f1f',
       3: '#434343',
       blur: {
-        strong: 'rgba(0, 0, 0, 0.75)',
+        strong: 'rgba(0, 0, 0, 0.85)',
         light: 'rgba(0, 0, 0, 0.25)'
       }
     },

@@ -1,6 +1,8 @@
 import React from 'react'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
 import LinksList from '../LinksList/LinksList'
+import linksGen from '../../util/linksGen'
+import { PageMeta } from '../../constants/meta'
 import {
   AppFooter,
   MainFooterText,
@@ -9,17 +11,20 @@ import {
   SecondContainer,
   Container
 } from './style'
-import { LinksObj } from '../../util/linksGen'
 import { Divider } from '../../styles/divider'
 import { H3, P } from '../../styles/text'
+import { PAGE_NAMES } from '../../constants/pageNames'
+import { SIZE } from '../../constants/font'
 
 interface Props {
   isIndex: boolean
-  linksMeta: LinksObj[]
+  pageMeta: PageMeta
 }
 
 function Footer(props: Props) {
-  const { isIndex, linksMeta } = props
+  const { isIndex, pageMeta } = props
+
+  const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.HOME])
 
   return (
     <AppFooter>

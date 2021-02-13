@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-function useModalEscapeKeyHooks(closeFunction: () => void) {
+export default function useModalEscapeKeyHooks(closeFunction: () => void) {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -13,5 +13,3 @@ function useModalEscapeKeyHooks(closeFunction: () => void) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 }
-
-export default useModalEscapeKeyHooks

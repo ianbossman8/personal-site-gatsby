@@ -1,17 +1,26 @@
 import React from 'react'
+import Menu from '../Menu/Menu'
 import Emoji from '../Emoji/Emoji'
 import THEME from '../../constants/theme'
-import SYMBOLS from '../../constants/symbols'
+import symbols from '../../constants/symbols'
+import { PageMeta } from '../../constants/meta'
+import { PAGE_NAMES } from '../../constants/pageNames'
+import { SIZE } from '../../constants/font'
+import linksGen from '../../util/linksGen'
 import { AppHeader } from './styles'
 import { ThemeButton } from '../../styles/buttons'
 
 interface Props {
   colourTheme: THEME
+  pageMeta: PageMeta
+  isIndex: boolean
   setColourTheme: (theme: THEME) => void
 }
 
-function Header(props: Props) {
-  const { colourTheme, setColourTheme } = props
+export default function Header(props: Props) {
+  const { pageMeta, colourTheme, setColourTheme, isIndex } = props
+
+  const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.PRIVACY])
 
   function handleThemeButtonClick() {
     const nextTheme = colourTheme === THEME.DARK ? THEME.LIGHT : THEME.DARK
@@ -20,12 +29,11 @@ function Header(props: Props) {
   }
 
   return (
-    <AppHeader>
+    <AppHeader isIndex={isIndex}>
       <ThemeButton onClick={handleThemeButtonClick}>
-        <Emoji label="switch colour theme" symbol={SYMBOLS[colourTheme].themeSwitch} />
+        <Emoji label="switch colour theme" symbol={symbols[colourTheme].themeSwitch} />
       </ThemeButton>
+      <Menu linksMeta={linksMeta} isIndex={isIndex} size={SIZE.L} />
     </AppHeader>
   )
 }
-
-export default Header

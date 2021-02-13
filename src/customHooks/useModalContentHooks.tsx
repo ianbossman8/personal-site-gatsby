@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react'
 import { useAboutContentQuery } from '../queries/useAboutContentQuery'
-import { INTRO_MENU } from '../constants/introMenu'
+import { PAGE_NAMES } from '../constants/pageNames'
 
 interface ModalContent {
   title: string
@@ -9,16 +9,16 @@ interface ModalContent {
 
 export type HooksReturnType = undefined | ModalContent
 
-function useModalContentHooks(topic: string | undefined): HooksReturnType {
+export default function useModalContentHooks(topic: string | undefined): HooksReturnType {
   const aboutMe = useAboutContentQuery()
   const [modalContent, setModalContent] = useState<HooksReturnType>(undefined)
 
   const introItems = {
-    [INTRO_MENU.ABOUT]: { title: INTRO_MENU.ABOUT, body: aboutMe },
-    [INTRO_MENU.CONTACT]: { title: INTRO_MENU.CONTACT, body: <p>a form</p> },
-    [INTRO_MENU.BLOGS]: { title: INTRO_MENU.BLOGS, body: <p>latest blogs</p> },
-    [INTRO_MENU.PROJECTS]: { title: INTRO_MENU.PROJECTS, body: <p>latest projects</p> },
-    [INTRO_MENU.GIVING]: { title: INTRO_MENU.GIVING, body: <p>best deals</p> }
+    [PAGE_NAMES.ABOUT]: { title: PAGE_NAMES.ABOUT, body: aboutMe },
+    [PAGE_NAMES.CONTACT]: { title: PAGE_NAMES.CONTACT, body: <p>a form</p> },
+    [PAGE_NAMES.BLOGS]: { title: PAGE_NAMES.BLOGS, body: <p>latest blogs</p> },
+    [PAGE_NAMES.PROJECTS]: { title: PAGE_NAMES.PROJECTS, body: <p>latest projects</p> },
+    [PAGE_NAMES.PROMOTIONS]: { title: PAGE_NAMES.PROMOTIONS, body: <p>best deals</p> }
   }
 
   useEffect(() => {
@@ -31,5 +31,3 @@ function useModalContentHooks(topic: string | undefined): HooksReturnType {
 
   return modalContent
 }
-
-export default useModalContentHooks

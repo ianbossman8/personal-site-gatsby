@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
+import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
 
 export const ThemeButton = styled.button`
   padding: 0;
+  margin: 0.75rem;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -47,13 +48,18 @@ export const MainButton = styled.button`
 `
 
 export const MenuButton = styled.button`
-  position: fixed;
-  top: 0.5rem;
-  left: 1rem;
-  padding: 0;
-  background: transparent;
-  border: none;
-  color: ${({ theme: { colours } }) => colours.secondary[1]};
-  z-index: 2;
-  cursor: pointer;
+  display: none;
+
+  ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
+    display: block;
+    position: fixed;
+    top: 0.5rem;
+    left: 1rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: ${({ theme: { colours } }) => colours.secondary[1]};
+    z-index: 2;
+    cursor: pointer;
+  }
 `

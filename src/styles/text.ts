@@ -56,7 +56,6 @@ export const pStyle = css`
 
   a {
     text-decoration: none;
-    color: ${({ theme: { colours } }) => colours.info[2]};
   }
 `
 

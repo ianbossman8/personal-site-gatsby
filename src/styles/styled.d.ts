@@ -25,6 +25,7 @@ declare module 'styled-components' {
       [SIZE.S]: string
     }
     colours: {
+      bg: string
       main: {
         1: string
         2: string

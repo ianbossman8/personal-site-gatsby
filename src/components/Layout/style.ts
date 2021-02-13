@@ -8,7 +8,7 @@ export const PageContainer = styled.div<{ isIndex: boolean | undefined }>`
   display: grid;
   grid-template-rows: max-content auto max-content;
   justify-items: center;
-  background-color: ${({ theme }) => theme.colours.primary[1]};
+  background-color: ${({ theme }) => theme.colours.bg};
   padding: 1rem 1rem;
   transition: background-color 0.3s ease;
 

@@ -1,4 +1,6 @@
-import { LINKS } from '../constants/links'
+import { PageMeta } from '../constants/meta'
+import { PAGE_NAMES } from '../constants/pageNames'
+import symbols from '../constants/symbols'
 
 export interface LinksObj {
   title: string
@@ -6,14 +8,23 @@ export interface LinksObj {
   pathname: string
 }
 
-export default function linksGen(linksMeta: any) {
-  return Object.keys(linksMeta).reduce((acc, cur) => {
-    const pathname = linksMeta[cur].pathname
+const iconMapper = {
+  [PAGE_NAMES.HOME]: symbols.house,
+  [PAGE_NAMES.ABOUT]: symbols.monkey,
+  [PAGE_NAMES.BLOGS]: symbols.writingHand,
+  [PAGE_NAMES.PROJECTS]: symbols.tools,
+  [PAGE_NAMES.PRIVACY]: symbols.detective,
+  [PAGE_NAMES.PROMOTIONS]: symbols.gift
+}
 
-    if (pathname !== LINKS.INTERNAL_LINKS.ROOT && pathname !== LINKS.INTERNAL_LINKS[404]) {
+export default function linksGen(pageMeta: PageMeta, filter: string[]) {
+  return Object.keys(pageMeta).reduce((acc, cur) => {
+    const pathname = pageMeta[cur].pathname
+
+    if (!filter.includes(pageMeta[cur].title)) {
       acc.push({
-        title: linksMeta[cur].title,
-        icon: linksMeta[cur].icon,
+        title: pageMeta[cur].title,
+        icon: iconMapper[pageMeta[cur].title],
         pathname
       })
     }

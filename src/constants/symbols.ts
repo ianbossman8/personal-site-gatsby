@@ -1,6 +1,6 @@
 import THEME from './theme'
 
-const SYMBOLS = {
+const symbols = {
   [THEME.DARK]: {
     themeSwitch: 0x1f31e // 🌞
   },
@@ -18,4 +18,4 @@ const SYMBOLS = {
   monkey: 0x1f435
 }
 
-export default SYMBOLS
+export default symbols
