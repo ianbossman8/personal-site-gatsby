@@ -12,7 +12,7 @@ interface Props {
     modalContent: HooksReturnType
     handleModalReset: () => void
   }
-  children: ReactNode
+  children?: ReactNode
 }
 
 export default function Base(props: Props) {

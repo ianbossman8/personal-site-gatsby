@@ -18,7 +18,7 @@ export const pageMeta: PageMeta = {
     title: PAGE_NAMES.ABOUT,
     pathname: LINKS.INTERNAL_LINKS.ABOUT
   },
-  blog: {
+  blogs: {
     title: PAGE_NAMES.BLOGS,
     description: "List of awesome Ian Bossman's blogs",
     pathname: LINKS.INTERNAL_LINKS.BLOGS
@@ -29,6 +29,7 @@ export const pageMeta: PageMeta = {
   },
   privacy: {
     title: PAGE_NAMES.PRIVACY,
+    description: 'Privacy and cookies disclosure',
     pathname: LINKS.INTERNAL_LINKS.PRIVACY
   },
   promotions: {

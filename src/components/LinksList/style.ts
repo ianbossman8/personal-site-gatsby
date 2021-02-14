@@ -16,8 +16,12 @@ export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE 
 
   a {
     text-decoration: none;
-    color: ${({ theme: { colours } }) => colours.secondary[2]};
+    color: ${({ theme: { colours } }) => colours.secondary[1]};
     text-transform: capitalize;
+
+    &:hover {
+      color: ${({ theme: { colours } }) => colours.info[3]};
+    }
   }
 
   li {

@@ -18,18 +18,33 @@ const siteMetadata = {
 }
 
 const plugins = [
-  'gatsby-plugin-netlify-cms',
-  'gatsby-plugin-react-helmet',
-  'gatsby-plugin-typescript',
   'gatsby-plugin-sharp',
-  'gatsby-plugin-styled-components',
   'gatsby-transformer-sharp',
+  'gatsby-plugin-netlify-cms',
   'gatsby-plugin-offline',
   'gatsby-plugin-sitemap',
+  'gatsby-plugin-react-helmet',
+  'gatsby-plugin-typescript',
+  'gatsby-plugin-styled-components',
   {
     resolve: 'gatsby-transformer-remark',
     options: {
-      maxWidth: 1600
+      plugins: [
+        'gatsby-remark-relative-images',
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 1600
+          }
+        }
+      ]
+    }
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: 'images',
+      path: `${__dirname}/static/assets`
     }
   },
   {

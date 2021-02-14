@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: ${({ theme: { colours } }) => colours.primary[2]};
+  background-color: ${({ theme: { colours } }) => colours.primary[3]};
   box-shadow: ${({ theme: { colours } }) => `0 1px 4px 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
   margin: 0 0 1rem 1rem;

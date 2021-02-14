@@ -1,10 +1,10 @@
 export const PAGE_NAMES = {
-  ABOUT: 'about',
-  HOME: 'home',
-  CONTACT: 'contact',
-  BLOGS: 'blogs',
-  PROJECTS: 'projects',
-  PROMOTIONS: 'promotions',
-  PRIVACY: 'privacy',
+  ABOUT: 'About',
+  HOME: 'Home',
+  CONTACT: 'Contact',
+  BLOGS: 'Blogs',
+  PROJECTS: 'Projects',
+  PROMOTIONS: 'Promotions',
+  PRIVACY: 'Privacy',
   404: '404'
 }

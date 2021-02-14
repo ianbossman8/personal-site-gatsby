@@ -61,7 +61,7 @@ const lightTheme: DefaultTheme = {
       2: '#f5f5f5',
       3: '#f0f0f0',
       blur: {
-        strong: 'rgba(255, 255, 255, 0.85)',
+        strong: 'rgba(255, 255, 255, 0.75)',
         light: 'rgba(255, 255, 255, 0.25)',
         zero: 'rgba(255, 255, 255, 0)'
       }
@@ -111,7 +111,7 @@ const darkTheme: DefaultTheme = {
       2: '#1f1f1f',
       3: '#434343',
       blur: {
-        strong: 'rgba(0, 0, 0, 0.85)',
+        strong: 'rgba(0, 0, 0, 0.75)',
         light: 'rgba(0, 0, 0, 0.25)',
         zero: 'rgba(0, 0, 0, 0)'
       }
