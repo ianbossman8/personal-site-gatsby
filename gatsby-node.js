@@ -7,7 +7,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode })
     const contentType = getNode(node.parent).sourceInstanceName
-    const prefix = contentType === 'siteInfo' ? '' : '/' + contentType
+    const prefix = `/${contentType}`
 
     createNodeField({
       node,

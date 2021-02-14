@@ -1,71 +1,34 @@
-import React, { ReactNode, useEffect, useState } from 'react'
-import { IoIosMenu } from 'react-icons/io'
-import useModalContentHooks from '../../customHooks/useModalContentHooks'
-import useWindowResizeHook from '../../customHooks/useWindowResizeHook'
+import React, { ReactNode } from 'react'
+import { HooksReturnType } from '../../customHooks/useModalContentHooks'
 import SEO, { Props as SeoProps } from '../Seo'
 import Layout from '../Layout/Layout'
-import IntroBar from '../IntroBar/IntroBar'
 import Modal from '../Modal/Modal'
-import { WIDTH_BOUNDARIES } from '../../constants/styles'
+import { pageMeta } from '../../constants/meta'
 import Location from '../../util/location'
-import { MenuButton } from '../../styles/buttons'
-import { Menu } from './styles'
 
 interface Props {
   pageSeo: SeoProps
-  children: ReactNode
+  modalProps?: {
+    modalContent: HooksReturnType
+    handleModalReset: () => void
+  }
+  children?: ReactNode
 }
 
 export default function Base(props: Props) {
-  const { pageSeo, children } = props
-
-  const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
-  const [showMenu, setShowMenu] = useState<boolean>(false)
-
-  const modalContent = useModalContentHooks(modalContentTopic)
-  const exceedBoundary = useWindowResizeHook(WIDTH_BOUNDARIES.M)
-
-  function handleModalClose() {
-    setModalContentTopic(undefined)
-  }
-
-  function handleMenuClick(_: React.MouseEvent<Element, MouseEvent> | undefined, off?: boolean) {
-    if (typeof off !== 'undefined') {
-      return setShowMenu(off)
-    }
-
-    setShowMenu((showMenu) => !showMenu)
-  }
+  const { pageSeo, modalProps, children } = props
 
   const isIndex = Location.isIndexPath(pageSeo.pathname)
 
-  useEffect(() => {
-    if (!isIndex) {
-      if (!exceedBoundary) {
-        setShowMenu(true)
-      } else {
-        setShowMenu(false)
-      }
-    }
-  }, [isIndex, exceedBoundary])
-
   return (
-    <Layout isIndex={isIndex}>
+    <Layout isIndex={isIndex} pageMeta={pageMeta}>
       <SEO {...pageSeo} />
-      {!isIndex && exceedBoundary && (
-        <MenuButton>
-          <IoIosMenu size={48} onClick={handleMenuClick} title="menu" />
-        </MenuButton>
-      )}
-      <Menu showMenu={showMenu} isIndex={isIndex} onClick={() => handleMenuClick(undefined, false)}>
-        <IntroBar isIndex={isIndex} setModalContentTopic={setModalContentTopic} />
-      </Menu>
       {children}
-      {modalContentTopic && (
+      {modalProps && modalProps.modalContent && (
         <Modal
-          topic={modalContentTopic}
-          modalContent={modalContent}
-          handleModalClose={handleModalClose}
+          topic={modalProps.modalContent.title}
+          modalContent={modalProps.modalContent.body}
+          handleModalClose={modalProps.handleModalReset}
         />
       )}
     </Layout>

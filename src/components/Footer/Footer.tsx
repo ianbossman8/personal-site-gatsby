@@ -1,31 +1,43 @@
 import React from 'react'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
 import LinksList from '../LinksList/LinksList'
-import { AppFooter, MainFooterText, InfoBox, FirstContainer, SecondContainer } from './style'
-import { LinksObj } from '../../util/linksGen'
+import linksGen from '../../util/linksGen'
+import { PageMeta } from '../../constants/meta'
+import {
+  AppFooter,
+  MainFooterText,
+  InfoBox,
+  FirstContainer,
+  SecondContainer,
+  Container
+} from './style'
 import { Divider } from '../../styles/divider'
 import { H3, P } from '../../styles/text'
+import { PAGE_NAMES } from '../../constants/pageNames'
+import { SIZE } from '../../constants/font'
 
 interface Props {
   isIndex: boolean
-  linksMeta?: LinksObj[]
+  pageMeta: PageMeta
 }
 
 function Footer(props: Props) {
-  const { isIndex, linksMeta } = props
+  const { isIndex, pageMeta } = props
+
+  const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.HOME])
 
   return (
-    <AppFooter isIndex={isIndex}>
-      {!isIndex && linksMeta && (
+    <AppFooter>
+      {!isIndex ? (
         <>
           <InfoBox>
             <SecondContainer>
               <div>
-                <H3 main>This Site</H3>
-                <LinksList linksMeta={linksMeta} />
+                <H3>This Site</H3>
+                <LinksList linksMeta={linksMeta} direction="column" />
               </div>
               <div>
-                <H3 main>Popular Articles</H3>
+                <H3>Popular Articles</H3>
                 <P>Incoming</P>
                 <P>Incoming</P>
                 <P>Incoming</P>
@@ -37,13 +49,17 @@ function Footer(props: Props) {
               <SocialIconsList />
             </FirstContainer>
           </InfoBox>
-          <Divider />
         </>
+      ) : (
+        <Container>
+          <LinksList linksMeta={linksMeta} showIcons={false} />
+          <SocialIconsList />
+        </Container>
       )}
+      <Divider />
       <MainFooterText>
         © {new Date().getFullYear()} produced and designed by Ian Chan
       </MainFooterText>
-      {isIndex && <SocialIconsList />}
     </AppFooter>
   )
 }

@@ -1,24 +1,25 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { H3, P } from '../../styles/text'
 import { fillBackgroundText } from '../../styles/colours'
-import { MEDIA_QUERY_MEDIUM_RULE, MEDIA_QUERY_SMALL_RULE } from '../../constants/styles'
+import { MEDIA_QUERY_SMALL_WIDTH_RULE, MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
+import { SIZE } from '../../constants/font'
 
-export const AppFooter = styled.footer<{ isIndex: boolean }>`
+export const AppFooter = styled.footer`
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  flex-direction: column;
 
-  ${({ isIndex }) =>
-    isIndex
-      ? css`
-          ${MEDIA_QUERY_MEDIUM_RULE} {
-            flex-direction: column-reverse;
-          }
-        `
-      : css`
-          flex-direction: column;
-        `}
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+    li {
+      font-size: ${({
+        theme: {
+          font: { size }
+        }
+      }) => size[SIZE.XS]};
+    }
+  }
 `
 
 export const InfoBox = styled.div`
@@ -28,8 +29,23 @@ export const InfoBox = styled.div`
     margin: 0.35rem 0;
   }
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     flex-direction: column;
+  }
+`
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+      margin-bottom: 0.75rem;
+    }
   }
 `
 
@@ -40,7 +56,7 @@ export const FirstContainer = styled.div`
   justify-content: space-around;
   align-items: flex-start;
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     width: auto;
     align-items: center;
   }
@@ -50,7 +66,7 @@ export const SecondContainer = styled.div`
   display: flex;
   justify-content: space-around;
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     width: auto;
     justify-content: space-around;
     margin-bottom: 1rem;
@@ -61,8 +77,9 @@ export const MainFooterText = styled(P)`
   ${fillBackgroundText};
   text-transform: uppercase;
   text-align: center;
+  user-select: none;
 
-  ${MEDIA_QUERY_SMALL_RULE} {
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     margin: 0.25rem 0;
   }
 `

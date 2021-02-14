@@ -1,7 +1,11 @@
 body {
   margin: 0;
-  font-family: ff-clan-web-pro, -apple-system, BlinkMacSystemFont,
-    'Helvetica Neue', Helvetica, sans-serif;
+  font-family: ff-clan-web-pro, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    sans-serif;
+}
+
+*::selection {
+  background-color: #13c2c2;
 }
 
 #gatsby-focus-wrapper {

@@ -1,17 +1,20 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: dev
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
 media_folder: static/assets
 public_folder: /assets
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'contents/blog'
+  - name: 'blogs'
+    label: 'Blogs'
+    folder: 'contents/blogs'
     create: true
-    slug: 'index'
-    path: '{{title}}/index'
-    editor:
-      preview: false
+    slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'string' }
@@ -21,15 +24,13 @@ collections:
       - { label: 'Categories', name: 'categories', widget: 'list' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'about'
-    label: 'About'
-    folder: 'contents/about'
+  - name: 'siteInfo'
+    label: 'Site Info'
+    folder: 'contents/siteInfo'
     create: true
-    slug: 'index'
-    path: '{{title}}/index'
-    editor:
-      preview: false
+    slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

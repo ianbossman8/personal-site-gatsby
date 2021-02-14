@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
-import SYMBOLS from '../constants/symbols'
+import symbols from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
@@ -60,14 +60,14 @@ export default function BlogPost(props: Props) {
     <Base pageSeo={{ ...pageSEO }}>
       <Page>
         <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
-          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
+          <Emoji label="back page" symbol={symbols.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>
           <ImgHolder>
             <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
             <figcaption>caption</figcaption>
           </ImgHolder>
-          <H1 main>{frontmatter.title}</H1>
+          <H1>{frontmatter.title}</H1>
           <P>{frontmatter.author}</P>
           <P>{frontmatter.date}</P>
           <article dangerouslySetInnerHTML={{ __html: html }} />

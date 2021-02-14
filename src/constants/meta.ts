@@ -1,49 +1,44 @@
+import { PAGE_NAMES } from './pageNames'
 import { LINKS } from './links'
-import SYMBOLS from './symbols'
 
-interface PAGE_META {
+export interface PageMeta {
   [key: string]: {
     title: string
     pathname: string
     description?: string
-    icon?: number
   }
 }
 
-export const PAGE_META: PAGE_META = {
-  INDEX: {
-    title: 'Home',
+export const pageMeta: PageMeta = {
+  index: {
+    title: PAGE_NAMES.HOME,
     pathname: LINKS.INTERNAL_LINKS.ROOT
   },
-  ABOUT: {
-    title: 'About',
-    pathname: LINKS.INTERNAL_LINKS.ABOUT,
-    icon: SYMBOLS.monkey
+  about: {
+    title: PAGE_NAMES.ABOUT,
+    pathname: LINKS.INTERNAL_LINKS.ABOUT
   },
-  BLOG: {
+  blogs: {
+    title: PAGE_NAMES.BLOGS,
     description: "List of awesome Ian Bossman's blogs",
-    title: 'Blogs',
-    pathname: LINKS.INTERNAL_LINKS.BLOGS,
-    icon: SYMBOLS.writingHand
+    pathname: LINKS.INTERNAL_LINKS.BLOGS
   },
-  PROJECTS: {
-    title: 'Projects',
-    pathname: LINKS.INTERNAL_LINKS.PROJECTS,
-    icon: SYMBOLS.tools
+  projects: {
+    title: PAGE_NAMES.PROJECTS,
+    pathname: LINKS.INTERNAL_LINKS.PROJECTS
   },
-  PRIVACY: {
-    title: 'Privacy',
-    pathname: LINKS.INTERNAL_LINKS.PRIVACY,
-    icon: SYMBOLS.detective
+  privacy: {
+    title: PAGE_NAMES.PRIVACY,
+    description: 'Privacy and cookies disclosure',
+    pathname: LINKS.INTERNAL_LINKS.PRIVACY
   },
-  PROMOTIONS: {
-    title: 'Promotions',
-    pathname: LINKS.INTERNAL_LINKS.PROMOTIONS,
-    icon: SYMBOLS.gift
+  promotions: {
+    title: PAGE_NAMES.PROMOTIONS,
+    pathname: LINKS.INTERNAL_LINKS.PROMOTIONS
   },
   404: {
+    title: PAGE_NAMES[404],
     description: 'Page Not Found',
-    title: '404',
     pathname: LINKS.INTERNAL_LINKS[404]
   }
 }
