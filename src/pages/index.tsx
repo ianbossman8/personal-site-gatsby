@@ -5,6 +5,7 @@ import IntroBar from '../components/IntroBar/IntroBar'
 import Emoji from '../components/Emoji/Emoji'
 import { pageMeta } from '../constants/meta'
 import { PAGE_NAMES } from '../constants/pageNames'
+import { LINKS } from '../constants/links'
 import symbols from '../constants/symbols'
 import { ColourFulHeader } from '../styles/text'
 
@@ -25,7 +26,9 @@ export default function SiteIndex() {
   }
 
   return (
-    <Base pageSeo={{ ...pageMeta.index }} modalProps={{ modalContent, handleModalReset }}>
+    <Base
+      pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.ROOT] }}
+      modalProps={{ modalContent, handleModalReset }}>
       <Emoji symbol={symbols.party} label="welcome image" />
       <ColourFulHeader>wagwan, this is bossman's life</ColourFulHeader>
       <IntroBar setModalContentTopic={setModalContentTopic} items={introItems} />

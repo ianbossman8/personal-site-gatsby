@@ -10,7 +10,7 @@ export function useAboutContentQuery() {
   const { markdownRemark } = useStaticQuery<AboutQueryResponse>(
     graphql`
       query {
-        markdownRemark(fields: { slug: { eq: "/siteInfo/about-me/" } }) {
+        markdownRemark(fields: { slug: { eq: "/about/" } }) {
           html
         }
       }

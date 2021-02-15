@@ -37,29 +37,8 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
   }
 `
 
-export const pStyle = (reverse?: boolean) => css`
-  ${reverseFontColour(reverse)};
-  font-weight: ${({
-    theme: {
-      font: { weight }
-    }
-  }) => weight[SIZE.S]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.XS]};
-  }
-
-  a {
-    text-decoration: none;
-  }
-`
-
-export const H1 = styled.h1<{ reverse?: boolean }>`
-  ${({ reverse }) => reverseFontColour(reverse)};
+export const H1Style = css`
+  font-family: 'Garamond, Georgia, serif';
   font-size: ${({
     theme: {
       font: { size }
@@ -69,7 +48,8 @@ export const H1 = styled.h1<{ reverse?: boolean }>`
     theme: {
       font: { weight }
     }
-  }) => weight[SIZE.N]};
+  }) => weight[SIZE.L]};
+  text-transform: capitalize;
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     font-size: ${({
@@ -88,8 +68,12 @@ export const H1 = styled.h1<{ reverse?: boolean }>`
   }
 `
 
-export const H2 = styled.h2<{ reverse?: boolean }>`
+export const H1 = styled.h1<{ reverse?: boolean }>`
   ${({ reverse }) => reverseFontColour(reverse)};
+  ${H1Style};
+`
+
+export const H2Style = css`
   text-transform: capitalize;
   font-size: ${({
     theme: {
@@ -111,8 +95,12 @@ export const H2 = styled.h2<{ reverse?: boolean }>`
   }
 `
 
-export const H3 = styled.h3<{ reverse?: boolean }>`
+export const H2 = styled.h2<{ reverse?: boolean }>`
   ${({ reverse }) => reverseFontColour(reverse)};
+  ${H2Style};
+`
+
+export const H3Style = css`
   text-transform: capitalize;
   font-size: ${({
     theme: {
@@ -134,11 +122,43 @@ export const H3 = styled.h3<{ reverse?: boolean }>`
   }
 `
 
+export const H3 = styled.h3<{ reverse?: boolean }>`
+  ${({ reverse }) => reverseFontColour(reverse)};
+  ${H3Style};
+`
+
+export const pStyle = (reverse?: boolean) => css`
+  ${reverseFontColour(reverse)};
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.S]};
+
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.XS]};
+  }
+
+  a {
+    text-decoration: none;
+  }
+`
+
 export const P = styled.p<{ reverse?: boolean }>`
   ${({ reverse }) => pStyle(reverse)};
 `
 
 export const ColourFulHeader = styled(H1)`
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.N]};
   text-align: center;
   text-transform: uppercase;
   user-select: none;

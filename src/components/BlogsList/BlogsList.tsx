@@ -11,7 +11,7 @@ interface Props {
   blogsDesc: AllBlogPostsInfoQuery['allMarkdownRemark']['edges']
 }
 
-function BlogsList(props: Props) {
+export default function BlogsList(props: Props) {
   const { totalBlogs, blogsDesc } = props
 
   return (
@@ -32,5 +32,3 @@ function BlogsList(props: Props) {
     </BlogsContainer>
   )
 }
-
-export default BlogsList

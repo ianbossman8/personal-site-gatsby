@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: ff-clan-web-pro, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
-    sans-serif;
+  font-family: system-ui, ff-clan-web-pro, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Helvetica, sans-serif;
 }
 
 *::selection {

@@ -6,15 +6,15 @@ const commonStyle = {
   font: {
     size: {
       [SIZE.EL]: '3rem',
-      [SIZE.L]: '2rem',
-      [SIZE.NL]: '1.75rem',
+      [SIZE.L]: '2.25rem',
+      [SIZE.NL]: '1.875rem',
       [SIZE.N]: '1.5rem',
       [SIZE.NS]: '1.25rem',
       [SIZE.S]: '1rem',
       [SIZE.XS]: '0.875rem'
     },
     weight: {
-      [SIZE.L]: 600,
+      [SIZE.L]: 500,
       [SIZE.N]: 400,
       [SIZE.S]: 300
     }

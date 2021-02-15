@@ -13,7 +13,7 @@ const commonButtonCssProperties = css`
     theme: {
       font: { size }
     }
-  }) => size[SIZE.L]};
+  }) => size[SIZE.NL]};
 
   font-weight: ${({
     theme: {

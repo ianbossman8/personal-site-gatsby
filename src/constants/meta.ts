@@ -5,40 +5,36 @@ export interface PageMeta {
   [key: string]: {
     title: string
     pathname: string
-    description?: string
   }
 }
 
 export const pageMeta: PageMeta = {
-  index: {
+  [LINKS.INTERNAL_LINKS.ROOT]: {
     title: PAGE_NAMES.HOME,
     pathname: LINKS.INTERNAL_LINKS.ROOT
   },
-  about: {
+  [LINKS.INTERNAL_LINKS.ABOUT]: {
     title: PAGE_NAMES.ABOUT,
     pathname: LINKS.INTERNAL_LINKS.ABOUT
   },
-  blogs: {
+  [LINKS.INTERNAL_LINKS.BLOGS]: {
     title: PAGE_NAMES.BLOGS,
-    description: "List of awesome Ian Bossman's blogs",
     pathname: LINKS.INTERNAL_LINKS.BLOGS
   },
-  projects: {
+  [LINKS.INTERNAL_LINKS.PROJECTS]: {
     title: PAGE_NAMES.PROJECTS,
     pathname: LINKS.INTERNAL_LINKS.PROJECTS
   },
-  privacy: {
+  [LINKS.INTERNAL_LINKS.PRIVACY]: {
     title: PAGE_NAMES.PRIVACY,
-    description: 'Privacy and cookies disclosure',
     pathname: LINKS.INTERNAL_LINKS.PRIVACY
   },
-  promotions: {
+  [LINKS.INTERNAL_LINKS.PROMOTIONS]: {
     title: PAGE_NAMES.PROMOTIONS,
     pathname: LINKS.INTERNAL_LINKS.PROMOTIONS
   },
-  404: {
+  [LINKS.INTERNAL_LINKS[404]]: {
     title: PAGE_NAMES[404],
-    description: 'Page Not Found',
     pathname: LINKS.INTERNAL_LINKS[404]
   }
 }
