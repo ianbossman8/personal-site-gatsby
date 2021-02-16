@@ -4,11 +4,10 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
-import Seo from '../components/Seo'
 import Base from '../components/Base/Base'
-import SYMBOLS from '../constants/symbols'
+import symbols from '../constants/symbols'
 import { SIZE } from '../constants/font'
-import { PATH } from '../constants/path'
+import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
 
 interface Props {
@@ -16,7 +15,6 @@ interface Props {
     markdownRemark: {
       html: string
       frontmatter: NodeData['frontmatter']
-      excerpt: string
       fields: {
         slug: string
       }
@@ -28,7 +26,7 @@ const Page = styled.div`
   width: inherit;
 
   a {
-    color: ${({ theme: { colours } }) => colours.main[2]};
+    color: ${({ theme: { colours } }) => colours.info[2]};
   }
 `
 
@@ -47,28 +45,28 @@ const ImgHolder = styled.figure`
 export default function BlogPost(props: Props) {
   const {
     data: {
-      markdownRemark: { html, frontmatter, fields, excerpt }
+      markdownRemark: { html, frontmatter, fields }
     }
   } = props
 
   const pageSEO = {
     title: frontmatter.title,
-    description: excerpt,
+    description: frontmatter.description,
     pathname: fields.slug
   }
 
   return (
     <Base pageSeo={{ ...pageSEO }}>
       <Page>
-        <Link to={PATH.BLOGS}>
-          <Emoji label={'back page'} symbol={SYMBOLS.pointLeft} size={SIZE.S} /> back to all blogs
+        <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
+          <Emoji label="back page" symbol={symbols.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         <BlogPostContainer>
           <ImgHolder>
             <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
             <figcaption>caption</figcaption>
           </ImgHolder>
-          <H1 main>{frontmatter.title}</H1>
+          <H1>{frontmatter.title}</H1>
           <P>{frontmatter.author}</P>
           <P>{frontmatter.date}</P>
           <article dangerouslySetInnerHTML={{ __html: html }} />
@@ -83,7 +81,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        ...CustomNodeFrontmatter
+        ...CustomMarkdownRemarkFrontmatter
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1280, quality: 100) {
@@ -92,7 +90,6 @@ export const query = graphql`
           }
         }
       }
-      excerpt(pruneLength: 160)
       fields {
         slug
       }

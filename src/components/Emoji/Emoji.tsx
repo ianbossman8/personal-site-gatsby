@@ -3,12 +3,12 @@ import { SymbolSpan } from './style'
 import { SIZE } from '../../constants/font'
 
 interface Props {
-  label?: string
+  label: string
   symbol: number
   size?: SIZE
 }
 
-function Emoji(props: Props) {
+export default function Emoji(props: Props) {
   const { label, symbol, size = SIZE.L } = props
 
   return (
@@ -17,5 +17,3 @@ function Emoji(props: Props) {
     </SymbolSpan>
   )
 }
-
-export default Emoji

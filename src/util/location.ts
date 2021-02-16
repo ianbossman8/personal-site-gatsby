@@ -1,4 +1,4 @@
-import { PATH } from '../constants/path'
+import { LINKS } from '../constants/links'
 
 class Location {
   isLocationAvailable: boolean
@@ -10,19 +10,7 @@ class Location {
   }
 
   isIndexPath(path: string) {
-    return PATH.ROOT === path
-  }
-
-  isSecondaryPath(curPath: string) {
-    let isSecondaryPath = false
-
-    for (let path in PATH) {
-      if (path !== curPath) {
-        return (isSecondaryPath = true)
-      }
-    }
-
-    return isSecondaryPath
+    return LINKS.INTERNAL_LINKS.ROOT === path
   }
 }
 

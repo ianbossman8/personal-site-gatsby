@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function useWindowResizeHook(boundary: number): boolean {
+export default function useWindowResizeHook(boundary: number): boolean {
   const [exceedBoundary, setIsExceedBoundary] = useState<boolean>(false)
 
   useEffect(() => {
@@ -25,5 +25,3 @@ function useWindowResizeHook(boundary: number): boolean {
 
   return exceedBoundary
 }
-
-export default useWindowResizeHook

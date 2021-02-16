@@ -1,8 +1,8 @@
 ---
-title: About
-description: about myself
+title: about
+description: A clear description of myself
+date: 2021-02-14T18:36:07.892Z
 ---
-
 <blockquote cite="https://www.urbandictionary.com/define.php?term=Bossman">
   <p>
     <mark>
@@ -15,7 +15,7 @@ description: about myself
   </p>
 </blockquote>
 
-As I had just quoted the best definition of _BOSSMAN_ you can
+As I had just quoted the best definition of *BOSSMAN* you can
 ever get on the internet (OxBridge Dictionary ?? allow it my G), we
 know that to take on the role of a Bossman is no laughing matter. The
 responsibility you have to take on is real, and the whole mandem would

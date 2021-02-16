@@ -6,14 +6,15 @@ const commonStyle = {
   font: {
     size: {
       [SIZE.EL]: '3rem',
-      [SIZE.L]: '2rem',
-      [SIZE.NL]: '1.75rem',
+      [SIZE.L]: '2.25rem',
+      [SIZE.NL]: '1.875rem',
       [SIZE.N]: '1.5rem',
+      [SIZE.NS]: '1.25rem',
       [SIZE.S]: '1rem',
-      [SIZE.XS]: '0.75rem'
+      [SIZE.XS]: '0.875rem'
     },
     weight: {
-      [SIZE.L]: 600,
+      [SIZE.L]: 500,
       [SIZE.N]: 400,
       [SIZE.S]: 300
     }
@@ -34,6 +35,7 @@ const brandColour = {
 const lightTheme: DefaultTheme = {
   ...commonStyle,
   colours: {
+    bg: '#fff7e6',
     main: {
       1: '#91d5ff',
       2: '#1890ff',
@@ -60,14 +62,18 @@ const lightTheme: DefaultTheme = {
       3: '#f0f0f0',
       blur: {
         strong: 'rgba(255, 255, 255, 0.75)',
-        light: 'rgba(255, 255, 255, 0.25)'
+        light: 'rgba(255, 255, 255, 0.25)',
+        zero: 'rgba(255, 255, 255, 0)'
       }
     },
     secondary: {
       1: '#000000',
       2: '#1f1f1f',
       3: '#434343',
-      blur: 'rgba(0, 0, 0, 0.25)'
+      blur: {
+        strong: 'rgba(0, 0, 0, 0.65)',
+        light: 'rgba(0, 0, 0, 0.25)'
+      }
     },
     brands: {
       ...brandColour,
@@ -79,6 +85,7 @@ const lightTheme: DefaultTheme = {
 const darkTheme: DefaultTheme = {
   ...commonStyle,
   colours: {
+    bg: '#141414',
     main: {
       3: '#91d5ff',
       2: '#1890ff',
@@ -105,14 +112,18 @@ const darkTheme: DefaultTheme = {
       3: '#434343',
       blur: {
         strong: 'rgba(0, 0, 0, 0.75)',
-        light: 'rgba(0, 0, 0, 0.25)'
+        light: 'rgba(0, 0, 0, 0.25)',
+        zero: 'rgba(0, 0, 0, 0)'
       }
     },
     secondary: {
       1: '#ffffff',
       2: '#f5f5f5',
       3: '#f0f0f0',
-      blur: 'rgba(255, 255, 255, 0.25)'
+      blur: {
+        strong: 'rgba(255, 255, 255, 0.65)',
+        light: 'rgba(255, 255, 255, 0.25)'
+      }
     },
     brands: {
       ...brandColour,

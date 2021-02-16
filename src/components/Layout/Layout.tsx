@@ -5,20 +5,21 @@ import Footer from '../Footer/Footer'
 import { ThemeContext } from '../../context/ThemeProvider'
 import useSetThemeHook from '../../customHooks/useSetSystemThemeHook'
 import THEME from '../../constants/theme'
+import { PageMeta } from '../../constants/meta'
 import { PageContainer, MainContainer } from './style'
 import { styleTheme } from '../../styles/theme'
 
 interface Props {
-  isIndex?: boolean
-  isSecondary?: boolean
+  isIndex: boolean
   children: ReactNode
+  pageMeta: PageMeta
 }
 
 function Layout(props: Props) {
   const { colourTheme, setColourTheme } = useContext(ThemeContext)
   useSetThemeHook(setColourTheme)
 
-  const { children, isIndex, isSecondary } = props
+  const { children, isIndex, pageMeta } = props
 
   function handleThemeChange(theme: THEME) {
     setColourTheme(theme)
@@ -27,10 +28,15 @@ function Layout(props: Props) {
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
-      <PageContainer isSecondary={isSecondary}>
-        <Header colourTheme={colourTheme} setColourTheme={handleThemeChange} />
+      <PageContainer isIndex={isIndex}>
+        <Header
+          isIndex={isIndex}
+          pageMeta={pageMeta}
+          colourTheme={colourTheme}
+          setColourTheme={handleThemeChange}
+        />
         <MainContainer isIndex={isIndex}>{children}</MainContainer>
-        <Footer />
+        <Footer isIndex={isIndex} pageMeta={pageMeta} />
       </PageContainer>
     </ThemeProvider>
   )

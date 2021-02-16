@@ -26,7 +26,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
+  const blogsResult = await graphql(`
     query {
       blogs: allMarkdownRemark(filter: { fields: { contentType: { eq: "blogs" } } }) {
         edges {
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.blogs.edges.forEach(({ node }) => {
+  blogsResult.data.blogs.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/BlogPost.tsx`),
@@ -53,8 +53,33 @@ exports.createPages = async ({ graphql, actions }) => {
 
   Array.from({ length: 1 }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+      path: i === 0 ? '/blogs' : `/blogs/${i + 1}`,
       component: path.resolve('./src/templates/Blogs.tsx')
+    })
+  })
+
+  const siteInfoResult = await graphql(`
+    query {
+      siteInfo: allMarkdownRemark(filter: { fields: { slug: { eq: "/privacy/" } } }) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  siteInfoResult.data.siteInfo.edges.forEach(({ node }) => {
+    createPage({
+      path: '/privacy',
+      component: path.resolve(`./src/templates/Dump.tsx`),
+      context: {
+        slug: node.fields.slug
+      }
     })
   })
 }

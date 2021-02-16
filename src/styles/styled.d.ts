@@ -9,6 +9,7 @@ declare module 'styled-components' {
         [SIZE.L]: string
         [SIZE.NL]: string
         [SIZE.N]: string
+        [SIZE.NS]: string
         [SIZE.S]: string
         [SIZE.XS]: string
       }
@@ -24,6 +25,7 @@ declare module 'styled-components' {
       [SIZE.S]: string
     }
     colours: {
+      bg: string
       main: {
         1: string
         2: string
@@ -51,13 +53,17 @@ declare module 'styled-components' {
         blur: {
           strong: string
           light: string
+          zero: string
         }
       }
       secondary: {
         1: string
         2: string
         3: string
-        blur: string
+        blur: {
+          strong: string
+          light: string
+        }
       }
       brands: {
         twitter: string

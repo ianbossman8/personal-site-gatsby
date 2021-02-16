@@ -1,19 +1,18 @@
 import React from 'react'
-import { navigate } from 'gatsby'
+import { Link } from 'gatsby'
 import Base from '../components/Base/Base'
-import { PAGE_META } from '../constants/meta'
-import { ColourFulHeader } from '../styles/text'
-import { PrimaryButton } from '../styles/buttons'
+import { pageMeta } from '../constants/meta'
+import { LINKS } from '../constants/links'
+import { ColourFulHeader, P } from '../styles/text'
 
 export default function NotFoundPage() {
-  function handleLinkClick() {
-    navigate(-1)
-  }
-
   return (
-    <Base pageSeo={{ ...PAGE_META[404] }}>
-      <ColourFulHeader>Page Not Found</ColourFulHeader>
-      <PrimaryButton onClick={handleLinkClick}>back</PrimaryButton>
+    <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS[404]] }}>
+      <ColourFulHeader>404: page not found</ColourFulHeader>
+      <P>
+        The page you are looking for is not found going back{' '}
+        <Link to={LINKS.INTERNAL_LINKS.ROOT}>home</Link>
+      </P>
     </Base>
   )
 }

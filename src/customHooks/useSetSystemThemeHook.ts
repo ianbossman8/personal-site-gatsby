@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import THEME from '../constants/theme'
 
-function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void) {
+export default function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void) {
   useEffect(() => {
     const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
 
@@ -26,5 +26,3 @@ function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void) {
     }
   }, [])
 }
-
-export default useSetSystemThemeHook

@@ -20,7 +20,7 @@ export const fillBackgroundText = css`
 
 export const glassBackground = css`
   background: ${({ theme: { colours } }) => colours.primary.blur.light};
-  box-shadow: ${({ theme: { colours } }) => `0 8px 32px 0 ${colours.secondary[3]}`};
+  box-shadow: ${({ theme: { colours } }) => `0 8px 32px 0 ${colours.secondary.blur.strong}`};
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 `
