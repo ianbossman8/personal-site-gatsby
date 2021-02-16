@@ -36,13 +36,11 @@ export function useAllBlogPosts() {
   const { allMarkdownRemark } = useStaticQuery<AllBlogPostsInfoQuery>(
     graphql`
       query {
-        allMarkdownRemark(
-          filter: { fields: { contentType: { eq: "blogs" } } }
-        ) {
+        allMarkdownRemark(filter: { fields: { contentType: { eq: "blogs" } } }) {
           edges {
             node {
               frontmatter {
-                ...CustomNodeFrontmatter
+                ...CustomMarkdownRemarkFrontmatter
                 thumbnail {
                   childImageSharp {
                     fluid(maxWidth: 460, quality: 80) {

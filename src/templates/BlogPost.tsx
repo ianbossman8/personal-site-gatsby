@@ -15,7 +15,6 @@ interface Props {
     markdownRemark: {
       html: string
       frontmatter: NodeData['frontmatter']
-      excerpt: string
       fields: {
         slug: string
       }
@@ -46,13 +45,13 @@ const ImgHolder = styled.figure`
 export default function BlogPost(props: Props) {
   const {
     data: {
-      markdownRemark: { html, frontmatter, fields, excerpt }
+      markdownRemark: { html, frontmatter, fields }
     }
   } = props
 
   const pageSEO = {
     title: frontmatter.title,
-    description: excerpt,
+    description: frontmatter.description,
     pathname: fields.slug
   }
 
@@ -82,7 +81,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        ...CustomNodeFrontmatter
+        ...CustomMarkdownRemarkFrontmatter
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1280, quality: 100) {
@@ -91,7 +90,6 @@ export const query = graphql`
           }
         }
       }
-      excerpt(pruneLength: 160)
       fields {
         slug
       }

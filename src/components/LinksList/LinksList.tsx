@@ -12,7 +12,7 @@ interface Props {
   showIcons?: boolean
 }
 
-function LinksList(props: Props) {
+export default function LinksList(props: Props) {
   const { size = SIZE.S, direction = 'row', showIcons = true } = props
 
   return (
@@ -26,5 +26,3 @@ function LinksList(props: Props) {
     </LinksListContainer>
   )
 }
-
-export default LinksList

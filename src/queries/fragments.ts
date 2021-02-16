@@ -13,8 +13,8 @@ export const queryGatsbyImageSharpFluid = graphql`
   }
 `
 
-export const query = graphql`
-  fragment CustomNodeFrontmatter on MarkdownRemarkFrontmatter {
+export const queryMarkdownRemarkFrontmatter = graphql`
+  fragment CustomMarkdownRemarkFrontmatter on MarkdownRemarkFrontmatter {
     title
     description
     date(formatString: "MMMM Do, YYYY")
