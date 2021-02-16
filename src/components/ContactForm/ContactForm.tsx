@@ -30,7 +30,7 @@ export default function ContactForm() {
   return (
     <form
       name="contact"
-      method="POST"
+      method="post"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}>
