@@ -8,7 +8,7 @@ interface Props {
   size?: SIZE
 }
 
-function Emoji(props: Props) {
+export default function Emoji(props: Props) {
   const { label, symbol, size = SIZE.L } = props
 
   return (
@@ -17,5 +17,3 @@ function Emoji(props: Props) {
     </SymbolSpan>
   )
 }
-
-export default Emoji

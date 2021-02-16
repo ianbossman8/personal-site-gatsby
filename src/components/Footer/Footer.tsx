@@ -21,7 +21,7 @@ interface Props {
   pageMeta: PageMeta
 }
 
-function Footer(props: Props) {
+export default function Footer(props: Props) {
   const { isIndex, pageMeta } = props
 
   const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.HOME])
@@ -63,5 +63,3 @@ function Footer(props: Props) {
     </AppFooter>
   )
 }
-
-export default Footer
