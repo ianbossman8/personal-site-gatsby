@@ -72,7 +72,7 @@ const lightTheme: DefaultTheme = {
       3: '#434343',
       blur: {
         strong: 'rgba(0, 0, 0, 0.65)',
-        light: 'rgba(0, 0, 0, 0.25)'
+        light: 'rgba(0, 0, 0, 0.3)'
       }
     },
     brands: {
