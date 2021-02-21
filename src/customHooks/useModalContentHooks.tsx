@@ -16,7 +16,7 @@ export default function useModalContentHooks(topic: string | undefined): HooksRe
 
   const introItems = {
     [PAGE_NAMES.ABOUT]: { title: PAGE_NAMES.ABOUT, body: aboutMe },
-    [PAGE_NAMES.CONTACT]: { title: PAGE_NAMES.CONTACT, body: <ContactForm /> },
+    [PAGE_NAMES.CONTACT]: { title: PAGE_NAMES.CONTACT, body: <ContactForm reverse /> },
     [PAGE_NAMES.BLOGS]: { title: PAGE_NAMES.BLOGS, body: <p>latest blogs</p> },
     [PAGE_NAMES.PROJECTS]: { title: PAGE_NAMES.PROJECTS, body: <p>latest projects</p> },
     [PAGE_NAMES.PROMOTIONS]: { title: PAGE_NAMES.PROMOTIONS, body: <p>best deals</p> }

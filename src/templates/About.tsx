@@ -31,7 +31,7 @@ export default function Dump(props: Props) {
         <H1>about</H1>
         <HTMLContainer dangerouslySetInnerHTML={{ __html: html }} />
         <div className="contact-form">
-          <H2>contact</H2>
+          <H2>contact me</H2>
           <ContactForm />
         </div>
       </AboutContainer>
