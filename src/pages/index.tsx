@@ -28,7 +28,8 @@ export default function SiteIndex() {
   return (
     <Base
       pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.ROOT] }}
-      modalProps={{ modalContent, handleModalReset }}>
+      modalProps={{ modalContent, handleModalReset }}
+      reverse>
       <Emoji symbol={symbols.party} label="welcome image" />
       <ColourFulHeader>wagwan, this is bossman's life</ColourFulHeader>
       <IntroBar setModalContentTopic={setModalContentTopic} items={introItems} />

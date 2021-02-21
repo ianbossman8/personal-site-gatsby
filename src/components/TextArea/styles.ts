@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SIZE } from '../../constants/font'
+import { P } from '../../styles/text'
 import { ErrorText } from '../Input/styles'
 
 export const TextInputContainer = styled.div`
@@ -15,19 +16,22 @@ export const TextInputContainer = styled.div`
     text-transform: capitalize;
   }
 
-  ${ErrorText} {
+  ${ErrorText}, ${P} {
     padding: 0;
     margin: 0.25rem 0;
     min-height: 1.25rem;
-    color: ${({ theme: { colours } }) => colours.alert[3]};
 
     &::first-letter {
       text-transform: capitalize;
     }
   }
+
+  ${ErrorText} {
+    color: ${({ theme: { colours } }) => colours.alert[3]};
+  }
 `
 
-export const TextBox = styled.textarea<{ error: string }>`
+export const TextBox = styled.textarea<{ error: string | undefined }>`
   min-height: 4rem;
   box-sizing: border-box;
   margin-top: 0.25rem;

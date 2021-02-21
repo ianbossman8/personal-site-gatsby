@@ -2,16 +2,17 @@ import React, { ReactNode } from 'react'
 import { GrClose } from 'react-icons/gr'
 import useModalEscapeKeyHooks from '../../customHooks/useModalEscapeKeyHooks'
 import SocialIconsList from '../SocialIconsList/SocialIconsList'
-import { Container, ContentContainer, ModalHeader } from './styles'
+import { Background, ContentContainer, ModalHeader } from './styles'
 
 interface Props {
   topic: string
   modalContent: string | ReactNode
   handleModalClose: () => void
+  reverse: boolean
 }
 
 export default function Modal(props: Props) {
-  const { topic, modalContent, handleModalClose } = props
+  const { topic, modalContent, reverse, handleModalClose } = props
 
   useModalEscapeKeyHooks(handleModalClose)
 
@@ -22,10 +23,10 @@ export default function Modal(props: Props) {
   }
 
   return (
-    <Container onClick={handleModalClose}>
-      <ContentContainer onClick={handleModalContentContainerClick}>
+    <Background onClick={handleModalClose}>
+      <ContentContainer onClick={handleModalContentContainerClick} reverse={reverse}>
         <GrClose onClick={handleModalClose} className="modal--close-button" />
-        <ModalHeader reverse>{topic}</ModalHeader>
+        <ModalHeader>{topic}</ModalHeader>
         {typeof modalContent === 'string' ? (
           <div dangerouslySetInnerHTML={{ __html: modalContent }} />
         ) : (
@@ -33,6 +34,6 @@ export default function Modal(props: Props) {
         )}
         <SocialIconsList />
       </ContentContainer>
-    </Container>
+    </Background>
   )
 }

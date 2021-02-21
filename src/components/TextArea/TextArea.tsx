@@ -1,4 +1,5 @@
 import React from 'react'
+import { P } from '../../styles/text'
 import { ErrorText } from '../Input/styles'
 import { TextBox, TextInputContainer } from './styles'
 
@@ -6,7 +7,7 @@ interface Props {
   name: string
   handleChange: (e: React.ChangeEvent<any>) => void
   value: string
-  error: string | number | undefined
+  error: string | undefined
   required?: boolean
 }
 
@@ -27,7 +28,7 @@ export default function TextArea(props: Props) {
         placeholder={`enter your ${name}`}
         error={error}
       />
-      <ErrorText>{error || `words remaining ${wordsRemain}`}</ErrorText>
+      {error ? <ErrorText>{error}</ErrorText> : <P>{`words remaining ${wordsRemain}`}</P>}
     </TextInputContainer>
   )
 }

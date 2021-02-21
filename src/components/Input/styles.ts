@@ -3,7 +3,7 @@ import { SIZE } from '../../constants/font'
 
 export const ErrorText = styled.p``
 
-export const InputBox = styled.input<{ error?: string }>`
+export const InputBox = styled.input<{ error: string | undefined }>`
   margin: 0.25rem 0;
   padding: 0.25rem;
   font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};

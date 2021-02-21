@@ -13,10 +13,11 @@ interface Props {
     handleModalReset: () => void
   }
   children?: ReactNode
+  reverse?: boolean
 }
 
 export default function Base(props: Props) {
-  const { pageSeo, modalProps, children } = props
+  const { pageSeo, modalProps, children, reverse = false } = props
 
   const isIndex = Location.isIndexPath(pageSeo.pathname)
 
@@ -29,6 +30,7 @@ export default function Base(props: Props) {
           topic={modalProps.modalContent.title}
           modalContent={modalProps.modalContent.body}
           handleModalClose={modalProps.handleModalReset}
+          reverse={reverse}
         />
       )}
     </Layout>

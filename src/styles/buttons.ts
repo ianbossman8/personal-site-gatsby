@@ -18,6 +18,11 @@ const commonButtonCssProperties = css`
   }) => weight[SIZE.S]};
   cursor: pointer;
 
+  &:disabled {
+    background-color: ${({ theme: { colours } }) => colours.secondary.blur.light};
+    cursor: not-allowed;
+  }
+
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     font-size: ${({
       theme: {
@@ -35,12 +40,23 @@ export const ThemeButton = styled.button`
   cursor: pointer;
 `
 
+export const mainButtonCss = (reverse: boolean = false) =>
+  !reverse
+    ? css`
+        background-color: ${({ theme: { colours } }) => colours.info[3]};
+        color: ${({ theme: { colours } }) => colours.primary[1]};
+        box-shadow: ${({ theme: { colours } }) => `0 2px 8px 0 ${colours.secondary.blur.strong}`};
+      `
+    : css`
+        background-color: ${({ theme: { colours } }) => colours.info[1]};
+        color: ${({ theme: { colours } }) => colours.secondary[1]};
+        box-shadow: ${({ theme: { colours } }) => `0 2px 8px 0 ${colours.primary.blur.strong}`};
+      `
+
 export const MainButton = styled.button`
   min-height: 2.75rem;
-  background-color: ${({ theme: { colours } }) => colours.info[1]};
-  color: ${({ theme: { colours } }) => colours.secondary[1]};
   border: none;
-  box-shadow: ${({ theme: { colours } }) => `0 2px 8px 0 ${colours.secondary.blur.strong}`};
+  ${mainButtonCss()};
   ${commonButtonCssProperties}
 `
 

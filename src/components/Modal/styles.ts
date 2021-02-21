@@ -1,11 +1,14 @@
 import styled, { css, keyframes } from 'styled-components'
-import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
-import { colourfulBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
 import {
   MEDIA_QUERY_MEDIUM_HEIGHT_RULE,
   MEDIA_QUERY_MEDIUM_WIDTH_RULE
 } from '../../constants/styles'
+import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
+import { colourfulBackground } from '../../styles/colours'
+import { MainButton, mainButtonCss } from '../../styles/buttons'
+import { InputBox } from '../Input/styles'
+import { TextBox } from '../TextArea/styles'
 
 function opacityAnimation(colour: string) {
   return keyframes`
@@ -44,7 +47,7 @@ export const ModalHeader = styled(H2)`
   letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
 `
 
-export const ContentContainer = styled.section`
+export const ContentContainer = styled.section<{ reverse: boolean }>`
   min-height: 475px;
   min-width: 300px;
   width: 45%;
@@ -72,13 +75,47 @@ export const ContentContainer = styled.section`
     }
   }
 
-  blockquote {
-    ${blockQuoteStyle(true)};
-  }
+  ${({ reverse, theme: { colours } }) =>
+    reverse &&
+    css`
+      blockquote {
+        ${blockQuoteStyle(true)};
+      }
 
-  p {
-    ${pStyle(true)};
-  }
+      p {
+        ${pStyle(true)};
+      }
+
+      label {
+        color: ${colours.primary[1]};
+      }
+
+      ${ModalHeader} {
+        color: ${colours.primary[1]};
+      }
+
+      ${InputBox} {
+        border-bottom-color: ${colours.primary[1]};
+        &:focus {
+          border-bottom-color: ${colours.info[1]};
+        }
+      }
+
+      ${TextBox} {
+        border-color: ${colours.primary[1]};
+        &:focus {
+          border-color: ${colours.info[1]};
+        }
+
+        &::placeholder {
+          color: ${colours.primary[3]};
+        }
+      }
+
+      ${MainButton} {
+        ${mainButtonCss(true)}
+      }
+    `}
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     width: 62.5%;
@@ -98,7 +135,7 @@ export const ContentContainer = styled.section`
   }
 `
 
-export const Container = styled.div`
+export const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;

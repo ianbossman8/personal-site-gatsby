@@ -1,34 +1,42 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import encode from '../../util/encode'
+import TextArea from '../TextArea/TextArea'
+import Input from '../Input/Input'
 import ContactFormSchema from '../../schema/contactFormSchema'
 import { Form } from './styles'
-import Input from '../Input/Input'
-import TextArea from '../TextArea/TextArea'
 import { MainButton } from '../../styles/buttons'
 
-interface Props {
-  reverse: boolean
+const initialState = {
+  name: '',
+  email: '',
+  message: ''
 }
 
-export default function ContactForm(props: Props) {
+export default function ContactForm() {
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      message: ''
-    },
+    initialValues: initialState,
     validateOnBlur: true,
     validationSchema: ContactFormSchema,
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: (values, { resetForm }) => {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({})
+        body: encode({
+          'form-name': 'contact',
+          ...values
+        })
       })
-        .then((e) => console.log(e))
-        .catch((error) => alert(error))
+        .then((res) => {
+          const { status, statusText, ok } = res
+
+          if (ok && status === 200) {
+            resetForm()
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   })
 
@@ -39,8 +47,7 @@ export default function ContactForm(props: Props) {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={formik.handleSubmit}
-      noValidate
-      reverse={props.reverse}>
+      noValidate>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <Input
@@ -64,7 +71,9 @@ export default function ContactForm(props: Props) {
         value={formik.values.message}
         error={formik.errors.message}
       />
-      <MainButton type="submit">send</MainButton>
+      <MainButton type="submit" disabled={formik.isSubmitting}>
+        send
+      </MainButton>
     </Form>
   )
 }
