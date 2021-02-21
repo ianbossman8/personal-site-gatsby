@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import Base from '../components/Base/Base'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
-import { H1Style, H2Style, H3Style, pStyle } from '../styles/text'
+import { LINKS } from '../constants/links'
+import { DumpContainer } from './styles/dump.styles'
 
 interface Props {
   data: {
@@ -15,31 +15,6 @@ interface Props {
   }
   path: string
 }
-
-const Container = styled.div`
-  padding: 2rem;
-  color: ${({ theme: { colours } }) => colours.secondary[1]};
-
-  h1 {
-    ${H1Style}
-  }
-
-  h2 {
-    ${H2Style};
-  }
-
-  h3 {
-    ${H3Style};
-  }
-
-  p {
-    ${pStyle()};
-
-    a {
-      color: ${({ theme: { colours } }) => colours.info[3]};
-    }
-  }
-`
 
 export default function Dump(props: Props) {
   const {
@@ -57,12 +32,13 @@ export default function Dump(props: Props) {
           description: frontmatter.description,
           pathname: path
         }
+  const isContact = path === LINKS.INTERNAL_LINKS.ABOUT
 
   return (
     <Base pageSeo={{ ...pageSeo }}>
-      <Container>
+      <DumpContainer>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-      </Container>
+      </DumpContainer>
     </Base>
   )
 }

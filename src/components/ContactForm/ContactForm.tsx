@@ -1,60 +1,79 @@
 import React from 'react'
-import { SIZE } from '../../constants/font'
+import { useFormik } from 'formik'
+import encode from '../../util/encode'
+import TextArea from '../TextArea/TextArea'
+import Input from '../Input/Input'
+import ContactFormSchema from '../../schema/contactFormSchema'
+import { Form } from './styles'
+import { MainButton } from '../../styles/buttons'
 
-interface Props {
-  label: string
-  symbol: number
-  size?: SIZE
+const initialState = {
+  name: '',
+  email: '',
+  message: ''
 }
 
 export default function ContactForm() {
-  function encode(data: any) {
-    return Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
-  }
-
-  const handleSubmit = (event: any) => {
-    event.preventDefault()
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': event.target.getAttribute('name')
+  const formik = useFormik({
+    initialValues: initialState,
+    validateOnBlur: true,
+    validationSchema: ContactFormSchema,
+    onSubmit: (values, { resetForm }) => {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          ...values
+        })
       })
-    })
-      .then((e) => console.log(e))
-      .catch((error) => alert(error))
-  }
+        .then((res) => {
+          const { status, statusText, ok } = res
+
+          if (ok && status === 200) {
+            resetForm()
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  })
 
   return (
-    <form
+    <Form
       name="contact"
       method="post"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}>
+      onSubmit={formik.handleSubmit}
+      noValidate>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
-      <p>
-        <label>
-          Your Name: <input type="text" name="name" />
-        </label>
-      </p>
-      <p>
-        <label>
-          Your Email: <input type="email" name="email" />
-        </label>
-      </p>
-
-      <p>
-        <label>
-          Message: <textarea name="message"></textarea>
-        </label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
+      <Input
+        type="text"
+        name="name"
+        handleChange={formik.handleChange}
+        value={formik.values.name}
+        error={formik.errors.name}
+      />
+      <Input
+        type="email"
+        name="email"
+        handleChange={formik.handleChange}
+        value={formik.values.email}
+        error={formik.errors.email}
+        required
+      />
+      <TextArea
+        name="message"
+        handleChange={formik.handleChange}
+        value={formik.values.message}
+        error={formik.errors.message}
+      />
+      <MainButton type="submit" disabled={formik.isSubmitting}>
+        send
+      </MainButton>
+    </Form>
   )
 }

@@ -16,3 +16,7 @@ body {
   right: 0;
   top: 0;
 }
+
+textarea {
+  font-family: system-ui, ff-clan-web-pro, -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
+}

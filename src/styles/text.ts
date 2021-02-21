@@ -21,8 +21,10 @@ export function reverseFontColour(reverse: boolean | undefined = false) {
 
 export const blockQuoteStyle = (reverse?: boolean) => css`
   ${glassBackground};
+  max-width: 725px;
   padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
+  text-align: center;
 
   mark {
     ${reverseFontColour(reverse)};
