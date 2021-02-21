@@ -5,6 +5,7 @@ import ContactFormSchema from '../../schema/contactFormSchema'
 import { Form } from './styles'
 import Input from '../Input/Input'
 import TextArea from '../TextArea/TextArea'
+import { MainButton } from '../../styles/buttons'
 
 interface Props {
   reverse: boolean
@@ -63,7 +64,7 @@ export default function ContactForm(props: Props) {
         value={formik.values.message}
         error={formik.errors.message}
       />
-      <button type="submit">send</button>
+      <MainButton type="submit">send</MainButton>
     </Form>
   )
 }

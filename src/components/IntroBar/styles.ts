@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import { MainButton } from '../../styles/buttons'
 import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
 import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../../constants/styles'
+import { SIZE } from '../../constants/font'
 
 const opacityAnimation = keyframes`
  to {
@@ -14,11 +15,16 @@ export const Container = styled.div`
   justify-content: center;
 
   ${MainButton} {
-    border: 2px solid inherit;
+    border: 2px solid transparent;
     border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
     background: transparent;
     user-select: none;
-    ${fillBackgroundText}
+    font-size: ${({
+      theme: {
+        font: { size }
+      }
+    }) => size[SIZE.NL]};
+    ${fillBackgroundText};
 
     ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
       min-width: 240px;
