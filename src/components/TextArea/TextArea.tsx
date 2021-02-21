@@ -5,13 +5,17 @@ import { TextBox, TextInputContainer } from './styles'
 interface Props {
   name: string
   handleChange: (e: React.ChangeEvent<any>) => void
-  value: string | number
+  value: string
   error: string | number | undefined
   required?: boolean
 }
 
+const WORD_LIMIT = 75
+
 export default function TextArea(props: Props) {
   const { name, handleChange, value, error } = props
+
+  const wordsRemain = WORD_LIMIT - value.length
 
   return (
     <TextInputContainer>
@@ -21,8 +25,9 @@ export default function TextArea(props: Props) {
         onChange={handleChange}
         value={value}
         placeholder={`enter your ${name}`}
+        error={error}
       />
-      <ErrorText>{error}</ErrorText>
+      <ErrorText>{error || `words remaining ${wordsRemain}`}</ErrorText>
     </TextInputContainer>
   )
 }

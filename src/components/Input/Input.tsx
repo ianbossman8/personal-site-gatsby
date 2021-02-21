@@ -17,9 +17,9 @@ export default function Input(props: Props) {
     <InputContainer>
       <label htmlFor={name}>
         {name}
-        {required && '(required)'}
+        {required && ' (required)'}
       </label>
-      <InputBox type={type} name={name} onChange={handleChange} value={value} />
+      <InputBox type={type} name={name} onChange={handleChange} value={value} error={error} />
       <ErrorText>{error}</ErrorText>
     </InputContainer>
   )
