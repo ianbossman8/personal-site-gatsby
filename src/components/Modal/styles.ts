@@ -2,7 +2,8 @@ import styled, { css, keyframes } from 'styled-components'
 import { SIZE } from '../../constants/font'
 import {
   MEDIA_QUERY_MEDIUM_HEIGHT_RULE,
-  MEDIA_QUERY_MEDIUM_WIDTH_RULE
+  MEDIA_QUERY_MEDIUM_WIDTH_RULE,
+  MEDIA_QUERY_SMALL_WIDTH_RULE
 } from '../../constants/styles'
 import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
 import { colourfulBackground } from '../../styles/colours'
@@ -86,8 +87,13 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
         ${pStyle(true)};
       }
 
-      label {
+      label,
+      ${InputBox}, ${TextBox} {
         color: ${colours.primary[1]};
+      }
+
+      ${InputBox}, ${TextBox} {
+        caret-color: ${({ theme: { colours } }) => colours.secondary[1]};
       }
 
       ${ModalHeader} {
@@ -128,6 +134,11 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
         letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
       }
     }
+  }
+
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+    width: 90%;
+    padding: 1rem 0.5rem;
   }
 
   ${MEDIA_QUERY_MEDIUM_HEIGHT_RULE} {

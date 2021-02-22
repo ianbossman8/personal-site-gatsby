@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './styles'
+import { IntroBarContainer } from './styles'
 import { MainButton } from '../../styles/buttons'
 
 interface Props {
@@ -10,17 +10,28 @@ interface Props {
 export default function IntroBar(props: Props) {
   const { setModalContentTopic, items } = props
 
-  function handleButtonlick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    setModalContentTopic((event.target as HTMLButtonElement).value)
+  function handleButtonlick(
+    event: React.MouseEvent<HTMLButtonElement | HTMLSpanElement, MouseEvent>
+  ) {
+    const target = event.target as HTMLButtonElement | HTMLSpanElement
+    event.stopPropagation()
+
+    if (target.nodeName === 'SPAN') {
+      setModalContentTopic(target.title)
+    } else {
+      setModalContentTopic((target as HTMLButtonElement).value)
+    }
   }
 
   return (
-    <Container>
+    <IntroBarContainer>
       {items.map((item) => (
         <MainButton onClick={handleButtonlick} value={item.title} key={item.title}>
-          {item.text}
+          <span title={item.text} className={`intro-bar__${item.text}`}>
+            {item.text}
+          </span>
         </MainButton>
       ))}
-    </Container>
+    </IntroBarContainer>
   )
 }

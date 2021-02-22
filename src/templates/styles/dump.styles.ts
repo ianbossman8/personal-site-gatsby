@@ -6,6 +6,7 @@ export const CommonStyles = css`
   box-sizing: border-box;
   padding: 2rem;
   color: ${({ theme: { colours } }) => colours.secondary[1]};
+  word-break: break-word;
 
   h1 {
     ${H1Style}
@@ -32,7 +33,7 @@ export const CommonStyles = css`
   }
 
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0.25rem;
   }
 `
 
