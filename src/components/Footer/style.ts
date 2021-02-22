@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { H3, P } from '../../styles/text'
 import { fillBackgroundText } from '../../styles/colours'
 import { MEDIA_QUERY_SMALL_WIDTH_RULE, MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
-import { SIZE } from '../../constants/font'
 
 export const AppFooter = styled.footer`
   width: 100%;
@@ -10,16 +9,6 @@ export const AppFooter = styled.footer`
   justify-content: center;
   margin-top: 2rem;
   flex-direction: column;
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    li {
-      font-size: ${({
-        theme: {
-          font: { size }
-        }
-      }) => size[SIZE.XS]};
-    }
-  }
 `
 
 export const InfoBox = styled.div`

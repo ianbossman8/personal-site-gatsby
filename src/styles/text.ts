@@ -1,7 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import { fillBackgroundText, glassBackground } from './colours'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
 
 const textColourAnimation = keyframes`
   to {
@@ -52,22 +51,6 @@ export const H1Style = css`
     }
   }) => weight[SIZE.L]};
   text-transform: capitalize;
-
-  ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.L]};
-  }
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.NL]};
-  }
 `
 
 export const H1 = styled.h1<{ reverse?: boolean }>`
@@ -87,14 +70,6 @@ export const H2Style = css`
       font: { weight }
     }
   }) => weight[SIZE.N]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.N]};
-  }
 `
 
 export const H2 = styled.h2<{ reverse?: boolean }>`
@@ -114,14 +89,6 @@ export const H3Style = css`
       font: { weight }
     }
   }) => weight[SIZE.N]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.NS]};
-  }
 `
 
 export const H3 = styled.h3<{ reverse?: boolean }>`
@@ -136,14 +103,6 @@ export const pStyle = (reverse?: boolean) => css`
       font: { weight }
     }
   }) => weight[SIZE.S]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.XS]};
-  }
 
   a {
     text-decoration: none;

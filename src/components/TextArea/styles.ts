@@ -5,11 +5,11 @@ import { ErrorText } from '../Input/styles'
 
 export const TextInputContainer = styled.div`
   width: 100%;
-  min-width: 23rem;
+  min-width: 20rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 
   label {
     font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};
@@ -41,6 +41,8 @@ export const TextBox = styled.textarea<{ error: string | undefined }>`
   line-height: 1.5rem;
   outline: none;
   resize: none;
+  color: ${({ theme: { colours } }) => colours.secondary[3]};
+  caret-color: ${({ theme: { colours } }) => colours.secondary[3]};
 
   &:focus {
     border-color: ${({ theme: { colours } }) => colours.info[3]};

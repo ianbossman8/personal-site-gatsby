@@ -11,6 +11,8 @@ export const InputBox = styled.input<{ error: string | undefined }>`
   background-color: transparent;
   border-bottom: 2px solid ${({ theme: { colours } }) => colours.secondary[1]};
   outline: none;
+  color: ${({ theme: { colours } }) => colours.secondary[1]};
+  caret-color: ${({ theme: { colours } }) => colours.secondary[1]};
 
   &:focus {
     border-bottom-color: ${({ theme: { colours } }) => colours.info[3]};
@@ -29,11 +31,11 @@ export const InputBox = styled.input<{ error: string | undefined }>`
 
 export const InputContainer = styled.div`
   width: 100%;
-  min-width: 23rem;
+  min-width: 20rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 
   label {
     font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};

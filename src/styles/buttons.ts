@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
+import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../constants/styles'
 
 const commonButtonCssProperties = css`
   margin: 0.75rem 1rem;
@@ -21,14 +21,6 @@ const commonButtonCssProperties = css`
   &:disabled {
     background-color: ${({ theme: { colours } }) => colours.secondary.blur.light};
     cursor: not-allowed;
-  }
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.S]};
   }
 `
 
@@ -55,7 +47,6 @@ export const mainButtonCss = (reverse: boolean = false) =>
 
 export const MainButton = styled.button`
   min-height: 2.75rem;
-  border: none;
   ${mainButtonCss()};
   ${commonButtonCssProperties}
 `

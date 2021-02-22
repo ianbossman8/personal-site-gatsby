@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Base from '../components/Base/Base'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
-import { LINKS } from '../constants/links'
 import { DumpContainer } from './styles/dump.styles'
 
 interface Props {
@@ -32,13 +31,10 @@ export default function Dump(props: Props) {
           description: frontmatter.description,
           pathname: path
         }
-  const isContact = path === LINKS.INTERNAL_LINKS.ABOUT
 
   return (
     <Base pageSeo={{ ...pageSeo }}>
-      <DumpContainer>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </DumpContainer>
+      <DumpContainer dangerouslySetInnerHTML={{ __html: html }} />
     </Base>
   )
 }

@@ -1,5 +1,5 @@
 export const WIDTH_BOUNDARIES = {
-  S: 600,
+  S: 720,
   M: 1180
 }
 

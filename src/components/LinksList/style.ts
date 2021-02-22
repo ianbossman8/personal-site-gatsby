@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { SIZE } from '../../constants/font'
+import { MEDIA_QUERY_SMALL_WIDTH_RULE, MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
 
 export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE }>`
   margin: 0;
@@ -14,6 +15,19 @@ export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE 
     fontSize
   }) => size[fontSize]};
 
+  li {
+    margin: ${({ direction }) => (direction !== 'column' ? '0 0.375rem' : '0.175rem 0')};
+
+    span {
+      max-width: 20px;
+      margin-right: 0.5rem;
+    }
+
+    ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+      margin: 0.125rem 0;
+    }
+  }
+
   a {
     text-decoration: none;
     color: ${({ theme: { colours } }) => colours.secondary[1]};
@@ -21,15 +35,6 @@ export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE 
 
     &:hover {
       color: ${({ theme: { colours } }) => colours.info[3]};
-    }
-  }
-
-  li {
-    margin: ${({ direction }) => (direction !== 'column' ? '0 0.375rem' : '0')};
-
-    span {
-      max-width: 20px;
-      margin-right: 0.5rem;
     }
   }
 `
