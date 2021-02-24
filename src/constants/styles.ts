@@ -1,6 +1,6 @@
 export const WIDTH_BOUNDARIES = {
   S: 720,
-  M: 1180
+  M: 1280
 }
 
 export const HEIGHT_BOUNDARIES = {

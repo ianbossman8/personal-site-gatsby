@@ -49,13 +49,13 @@ export const ModalHeader = styled(H2)`
 `
 
 export const ContentContainer = styled.section<{ reverse: boolean }>`
-  min-height: 475px;
-  min-width: 300px;
+  min-height: 30rem;
+  min-width: 18.75rem;
   width: 45%;
   box-sizing: border-box;
   background: ${({ theme: { colours } }) => colourfulBackground(colours, 'toBottomRight')};
   background-size: 200% 200%;
-  box-shadow: ${({ theme: { colours } }) => `0 4px 16px 0 ${colours.secondary.blur.strong}`};
+  box-shadow: ${({ theme: { colours } }) => `0 0.25rem 1rem 0 ${colours.secondary.blur.strong}`};
   opacity: 0;
   padding: 1.5rem;
   overflow: scroll;
@@ -138,7 +138,7 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
 
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     width: 90%;
-    padding: 1rem 0.5rem;
+    padding: 1rem;
   }
 
   ${MEDIA_QUERY_MEDIUM_HEIGHT_RULE} {
@@ -152,8 +152,8 @@ export const Background = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(0.122rem);
+  backdrop-filter: blur(0.122rem);
   background-color: ${({ theme: { colours } }) => colours.primary.blur.zero};
   display: flex;
   align-items: center;

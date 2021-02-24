@@ -12,7 +12,8 @@ export const TextInputContainer = styled.div`
   padding: 0.5rem 0;
 
   label {
-    font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};
+    margin-bottom: 0.5rem;
+    font-size: ${({ theme: { font } }) => font.size[SIZE.N]};
     text-transform: capitalize;
   }
 
@@ -36,7 +37,7 @@ export const TextBox = styled.textarea<{ error: string | undefined }>`
   box-sizing: border-box;
   margin-top: 0.25rem;
   padding: 0.25rem;
-  border: 2px solid ${({ theme: { colours } }) => colours.secondary[3]};
+  border: 0.125rem solid ${({ theme: { colours } }) => colours.secondary[3]};
   background-color: transparent;
   line-height: 1.5rem;
   outline: none;

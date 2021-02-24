@@ -30,7 +30,7 @@ export const AppHeader = styled.header<{ isIndex: boolean }>`
             display: block;
             content: '';
             bottom: 0;
-            height: 4px;
+            height: 0.25rem;
             background-color: ${({ theme: { colours } }) => colours.info[2]};
           }
         }

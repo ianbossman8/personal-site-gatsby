@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function LinksList(props: Props) {
-  const { size = SIZE.S, direction = 'row', showIcons = true } = props
+  const { size = SIZE.N, direction = 'row', showIcons = true } = props
 
   return (
     <LinksListContainer direction={direction} fontSize={size}>

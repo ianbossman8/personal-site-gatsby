@@ -20,7 +20,7 @@ export function reverseFontColour(reverse: boolean | undefined = false) {
 
 export const blockQuoteStyle = (reverse?: boolean) => css`
   ${glassBackground};
-  max-width: 725px;
+  max-width: 42rem;
   padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -32,7 +32,7 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
       theme: {
         font: { size }
       }
-    }) => size[SIZE.N]};
+    }) => size[SIZE.L]};
     font-style: italic;
     letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
   }
@@ -40,11 +40,14 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
 
 export const H1Style = css`
   font-family: 'Garamond, Georgia, serif';
+  width: calc(100% - 2rem);
+  padding: 0 1rem;
+  box-sizing: border-box;
   font-size: ${({
     theme: {
       font: { size }
     }
-  }) => size[SIZE.EL]};
+  }) => size[SIZE.XXL]};
   font-weight: ${({
     theme: {
       font: { weight }
@@ -64,7 +67,7 @@ export const H2Style = css`
     theme: {
       font: { size }
     }
-  }) => size[SIZE.NL]};
+  }) => size[SIZE.XL]};
   font-weight: ${({
     theme: {
       font: { weight }
@@ -83,7 +86,7 @@ export const H3Style = css`
     theme: {
       font: { size }
     }
-  }) => size[SIZE.N]};
+  }) => size[SIZE.L]};
   font-weight: ${({
     theme: {
       font: { weight }

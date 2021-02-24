@@ -1,9 +1,8 @@
 export enum SIZE {
-  EL = 'el',
-  L = 'l',
-  NL = 'nl',
-  N = 'n',
-  NS = 'ns',
-  S = 's',
-  XS = 'xs'
+  XXL = 'XXL',
+  XL = 'XL',
+  L = 'L',
+  N = 'N',
+  S = 'S',
+  XS = 'XS'
 }

@@ -2,10 +2,6 @@ import styled from 'styled-components'
 
 export const BlogPage = styled.div`
   width: inherit;
-
-  a {
-    color: ${({ theme: { colours } }) => colours.info[2]};
-  }
 `
 
 export const BlogPostContainer = styled.section`
@@ -17,5 +13,5 @@ export const BlogPostContainer = styled.section`
 
 export const ImgHolder = styled.figure`
   width: 100%;
-  max-width: 960px;
+  max-width: 60rem;
 `

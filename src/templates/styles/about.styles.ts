@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { CommonStyles } from './dump.styles'
 
 export const AboutContainer = styled.div`
-  max-width: 54rem;
+  max-width: 50rem;
   display: flex;
   flex-direction: column;
 

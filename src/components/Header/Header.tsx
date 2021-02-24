@@ -33,7 +33,7 @@ export default function Header(props: Props) {
       <ThemeButton onClick={handleThemeButtonClick}>
         <Emoji label="switch colour theme" symbol={symbols[colourTheme].themeSwitch} />
       </ThemeButton>
-      <Menu linksMeta={linksMeta} isIndex={isIndex} size={SIZE.L} />
+      <Menu linksMeta={linksMeta} isIndex={isIndex} size={SIZE.XL} />
     </AppHeader>
   )
 }

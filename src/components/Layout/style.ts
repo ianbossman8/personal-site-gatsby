@@ -27,4 +27,8 @@ export const MainContainer = styled.main<{ isIndex: boolean | undefined }>`
       : css`
           align-self: flex-start;
         `}
+
+  a {
+    color: ${({ theme: { colours } }) => colours.info[2]};
+  }
 `

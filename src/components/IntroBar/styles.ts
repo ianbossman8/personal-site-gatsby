@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { MainButton } from '../../styles/buttons'
+import { commonButtonCssProperties } from '../../styles/buttons'
 import { colourfulBackground, fillBackgroundText } from '../../styles/colours'
 import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../../constants/styles'
 import { SIZE } from '../../constants/font'
@@ -10,25 +10,25 @@ const opacityAnimation = keyframes`
  }
 `
 
+export const IntroButton = styled.button`
+  ${commonButtonCssProperties};
+  border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
+  background: transparent;
+  user-select: none;
+  font-size: ${({
+    theme: {
+      font: { size }
+    }
+  }) => size[SIZE.L]};
+
+  span {
+    ${fillBackgroundText};
+  }
+`
+
 export const IntroBarContainer = styled.div`
   display: flex;
   justify-content: center;
-
-  ${MainButton} {
-    border: 2px solid inherit;
-    border-image: ${({ theme: { colours } }) => colourfulBackground(colours, 'toRight')} 5;
-    background: transparent;
-    user-select: none;
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.NL]};
-
-    span {
-      ${fillBackgroundText};
-    }
-  }
 
   button:nth-of-type(1) {
     opacity: 0;

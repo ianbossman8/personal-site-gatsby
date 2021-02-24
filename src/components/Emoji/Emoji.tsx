@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function Emoji(props: Props) {
-  const { label, symbol, size = SIZE.L } = props
+  const { label, symbol, size = SIZE.XL } = props
 
   return (
     <SymbolSpan role="img" aria-label={label} size={size}>

@@ -6,10 +6,10 @@ export const ErrorText = styled.p``
 export const InputBox = styled.input<{ error: string | undefined }>`
   margin: 0.25rem 0;
   padding: 0.25rem;
-  font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};
+  font-size: ${({ theme: { font } }) => font.size[SIZE.N]};
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid ${({ theme: { colours } }) => colours.secondary[1]};
+  border-bottom: 0.125rem solid ${({ theme: { colours } }) => colours.secondary[1]};
   outline: none;
   color: ${({ theme: { colours } }) => colours.secondary[1]};
   caret-color: ${({ theme: { colours } }) => colours.secondary[1]};
@@ -38,7 +38,8 @@ export const InputContainer = styled.div`
   padding: 0.5rem 0;
 
   label {
-    font-size: ${({ theme: { font } }) => font.size[SIZE.NS]};
+    margin-bottom: 0.5rem;
+    font-size: ${({ theme: { font } }) => font.size[SIZE.N]};
     text-transform: capitalize;
   }
 

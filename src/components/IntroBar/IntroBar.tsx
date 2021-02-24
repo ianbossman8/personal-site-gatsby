@@ -1,6 +1,5 @@
 import React from 'react'
-import { IntroBarContainer } from './styles'
-import { MainButton } from '../../styles/buttons'
+import { IntroBarContainer, IntroButton } from './styles'
 
 interface Props {
   setModalContentTopic: React.Dispatch<React.SetStateAction<string | undefined>>
@@ -26,11 +25,9 @@ export default function IntroBar(props: Props) {
   return (
     <IntroBarContainer>
       {items.map((item) => (
-        <MainButton onClick={handleButtonlick} value={item.title} key={item.title}>
-          <span title={item.text} className={`intro-bar__${item.text}`}>
-            {item.text}
-          </span>
-        </MainButton>
+        <IntroButton onClick={handleButtonlick} value={item.title} key={item.title}>
+          <span title={item.title}>{item.text}</span>
+        </IntroButton>
       ))}
     </IntroBarContainer>
   )
