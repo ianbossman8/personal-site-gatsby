@@ -6,11 +6,11 @@ export const LINKS = {
   },
   INTERNAL_LINKS: {
     ROOT: '/',
-    ABOUT: '/about',
-    BLOGS: '/blogs',
-    PROJECTS: '/projects',
-    PRIVACY: '/privacy',
-    PROMOTIONS: '/promotions',
+    ABOUT: '/about/',
+    BLOGS: '/blogs/',
+    PROJECTS: '/projects/',
+    PRIVACY: '/privacy/',
+    PROMOTIONS: '/promotions/',
     404: '404'
   }
 }

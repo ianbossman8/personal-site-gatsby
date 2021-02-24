@@ -16,21 +16,22 @@ export const InfoContainer = styled.div`
 `
 
 export const CardContainer = styled.div`
-  max-height: 425px;
-  width: 325px;
-  max-width: 325px;
+  max-height: 27rem;
+  width: 20rem;
+  max-width: 20rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { colours } }) => colours.primary[3]};
-  box-shadow: ${({ theme: { colours } }) => `0 1px 4px 0 ${colours.secondary.blur.light}`};
+  box-shadow: ${({ theme: { colours } }) =>
+    `0 0.0625rem 0.25rem 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
   margin: 0 0 1rem 1rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: ${({ theme: { colours } }) => `0 8px 16px 0 ${colours.secondary.blur.light}`};
-    transform: translateY(-10px);
+    box-shadow: ${({ theme: { colours } }) => `0 0.5rem 1rem 0 ${colours.secondary.blur.light}`};
+    transform: translateY(-0.5rem);
   }
 
   ${H3}, ${P} {
@@ -50,6 +51,6 @@ export const MetaContainer = styled.div`
     margin: 0;
     padding: 0.5rem;
     background-color: ${({ theme: { colours } }) => colours.main[1]};
-    clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0.625rem 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 `

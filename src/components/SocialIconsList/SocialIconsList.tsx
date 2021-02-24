@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaMedium, FaBlogger, FaGithub, FaTwitter, FaPrayingHands } from 'react-icons/fa'
-import { Container } from './styles'
+import { SocialIconsListContainer } from './styles'
 import SocialIcon from '../SocialIcon/SocialIcon'
 import { socialMedia } from '../../constants/socialMedia'
 
@@ -22,12 +22,12 @@ function iconGen(name: string, size = 24) {
 
 export default function SocialIconsList() {
   return (
-    <Container>
+    <SocialIconsListContainer>
       {socialMedia.map((media) => (
         <SocialIcon link={media.link} key={media.name} title={media.title}>
           {iconGen(media.name)}
         </SocialIcon>
       ))}
-    </Container>
+    </SocialIconsListContainer>
   )
 }

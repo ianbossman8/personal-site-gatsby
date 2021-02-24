@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const siteInfoResult = await graphql(`
     query {
-      siteInfo: allMarkdownRemark(filter: { fields: { slug: { eq: "/privacy/" } } }) {
+      siteInfo: allMarkdownRemark(filter: { fields: { contentType: { eq: "siteInfo" } } }) {
         edges {
           node {
             id
@@ -74,12 +74,22 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   siteInfoResult.data.siteInfo.edges.forEach(({ node }) => {
-    createPage({
-      path: '/privacy',
-      component: path.resolve(`./src/templates/Dump.tsx`),
-      context: {
-        slug: node.fields.slug
-      }
-    })
+    if (node.fields.slug !== '/about/') {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve('./src/templates/Dump.tsx'),
+        context: {
+          slug: node.fields.slug
+        }
+      })
+    } else {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve('./src/templates/About.tsx'),
+        context: {
+          slug: node.fields.slug
+        }
+      })
+    }
   })
 }

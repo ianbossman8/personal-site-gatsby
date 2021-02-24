@@ -4,19 +4,19 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   rules: {
     'no-empty-function': 'error',
@@ -26,6 +26,6 @@ module.exports = {
     'keyword-spacing': ['error', { before: true }],
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
+    '@typescript-eslint/no-explicit-any': 'off'
+  }
 }

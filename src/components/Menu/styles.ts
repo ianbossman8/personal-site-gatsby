@@ -11,8 +11,8 @@ export const MenuContainer = styled.div<{ showMenu: boolean }>`
         width: 100%;
         height: 100%;
         background: ${({ theme: { colours } }) => colours.primary.blur.strong};
-        -webkit-backdrop-filter: blur(1px);
-        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(0.0125rem);
+        backdrop-filter: blur(0.0125rem);
         display: ${showMenu ? 'flex' : 'none'};
         justify-content: center;
         z-index: 1;

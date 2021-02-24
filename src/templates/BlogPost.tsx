@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
@@ -9,6 +8,7 @@ import symbols from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
+import { BlogPage, BlogPostContainer, ImgHolder } from './styles/blogs.styles'
 
 interface Props {
   data: {
@@ -21,26 +21,6 @@ interface Props {
     }
   }
 }
-
-const Page = styled.div`
-  width: inherit;
-
-  a {
-    color: ${({ theme: { colours } }) => colours.info[2]};
-  }
-`
-
-const BlogPostContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-`
-
-const ImgHolder = styled.figure`
-  width: 100%;
-  max-width: 960px;
-`
 
 export default function BlogPost(props: Props) {
   const {
@@ -57,7 +37,7 @@ export default function BlogPost(props: Props) {
 
   return (
     <Base pageSeo={{ ...pageSEO }}>
-      <Page>
+      <BlogPage>
         <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
           <Emoji label="back page" symbol={symbols.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
@@ -71,7 +51,7 @@ export default function BlogPost(props: Props) {
           <P>{frontmatter.date}</P>
           <article dangerouslySetInnerHTML={{ __html: html }} />
         </BlogPostContainer>
-      </Page>
+      </BlogPage>
     </Base>
   )
 }

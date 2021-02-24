@@ -5,13 +5,12 @@ import THEME from '../constants/theme'
 const commonStyle = {
   font: {
     size: {
-      [SIZE.EL]: '3rem',
-      [SIZE.L]: '2.25rem',
-      [SIZE.NL]: '1.875rem',
-      [SIZE.N]: '1.5rem',
-      [SIZE.NS]: '1.25rem',
-      [SIZE.S]: '1rem',
-      [SIZE.XS]: '0.875rem'
+      [SIZE.XXL]: '2.5rem',
+      [SIZE.XL]: '2rem',
+      [SIZE.L]: '1.5rem',
+      [SIZE.N]: '1rem',
+      [SIZE.S]: '0.875rem',
+      [SIZE.XS]: '0.75rem'
     },
     weight: {
       [SIZE.L]: 500,
@@ -20,9 +19,9 @@ const commonStyle = {
     }
   },
   letterSpacing: {
-    [SIZE.L]: '4px',
-    [SIZE.N]: '2px',
-    [SIZE.S]: '1px'
+    [SIZE.L]: '0.25rem',
+    [SIZE.N]: '0.125rem',
+    [SIZE.S]: '0.0625rem'
   }
 }
 
@@ -72,7 +71,7 @@ const lightTheme: DefaultTheme = {
       3: '#434343',
       blur: {
         strong: 'rgba(0, 0, 0, 0.65)',
-        light: 'rgba(0, 0, 0, 0.25)'
+        light: 'rgba(0, 0, 0, 0.3)'
       }
     },
     brands: {

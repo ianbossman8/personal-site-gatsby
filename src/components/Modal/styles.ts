@@ -1,11 +1,15 @@
 import styled, { css, keyframes } from 'styled-components'
-import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
-import { colourfulBackground } from '../../styles/colours'
 import { SIZE } from '../../constants/font'
 import {
   MEDIA_QUERY_MEDIUM_HEIGHT_RULE,
-  MEDIA_QUERY_MEDIUM_WIDTH_RULE
+  MEDIA_QUERY_MEDIUM_WIDTH_RULE,
+  MEDIA_QUERY_SMALL_WIDTH_RULE
 } from '../../constants/styles'
+import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
+import { colourfulBackground } from '../../styles/colours'
+import { MainButton, mainButtonCss } from '../../styles/buttons'
+import { InputBox } from '../Input/styles'
+import { TextBox } from '../TextArea/styles'
 
 function opacityAnimation(colour: string) {
   return keyframes`
@@ -44,14 +48,14 @@ export const ModalHeader = styled(H2)`
   letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
 `
 
-export const ContentContainer = styled.section`
-  min-height: 475px;
-  min-width: 300px;
+export const ContentContainer = styled.section<{ reverse: boolean }>`
+  min-height: 30rem;
+  min-width: 18.75rem;
   width: 45%;
   box-sizing: border-box;
   background: ${({ theme: { colours } }) => colourfulBackground(colours, 'toBottomRight')};
   background-size: 200% 200%;
-  box-shadow: ${({ theme: { colours } }) => `0 4px 16px 0 ${colours.secondary.blur.strong}`};
+  box-shadow: ${({ theme: { colours } }) => `0 0.25rem 1rem 0 ${colours.secondary.blur.strong}`};
   opacity: 0;
   padding: 1.5rem;
   overflow: scroll;
@@ -72,13 +76,52 @@ export const ContentContainer = styled.section`
     }
   }
 
-  blockquote {
-    ${blockQuoteStyle(true)};
-  }
+  ${({ reverse, theme: { colours } }) =>
+    reverse &&
+    css`
+      blockquote {
+        ${blockQuoteStyle(true)};
+      }
 
-  p {
-    ${pStyle(true)};
-  }
+      p {
+        ${pStyle(true)};
+      }
+
+      label,
+      ${InputBox}, ${TextBox} {
+        color: ${colours.primary[1]};
+      }
+
+      ${InputBox}, ${TextBox} {
+        caret-color: ${({ theme: { colours } }) => colours.secondary[1]};
+      }
+
+      ${ModalHeader} {
+        color: ${colours.primary[1]};
+      }
+
+      ${InputBox} {
+        border-bottom-color: ${colours.primary[1]};
+        &:focus {
+          border-bottom-color: ${colours.info[1]};
+        }
+      }
+
+      ${TextBox} {
+        border-color: ${colours.primary[1]};
+        &:focus {
+          border-color: ${colours.info[1]};
+        }
+
+        &::placeholder {
+          color: ${colours.primary[3]};
+        }
+      }
+
+      ${MainButton} {
+        ${mainButtonCss(true)}
+      }
+    `}
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
     width: 62.5%;
@@ -93,19 +136,24 @@ export const ContentContainer = styled.section`
     }
   }
 
+  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
+    width: 90%;
+    padding: 1rem;
+  }
+
   ${MEDIA_QUERY_MEDIUM_HEIGHT_RULE} {
     height: 57.5%;
   }
 `
 
-export const Container = styled.div`
+export const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(0.122rem);
+  backdrop-filter: blur(0.122rem);
   background-color: ${({ theme: { colours } }) => colours.primary.blur.zero};
   display: flex;
   align-items: center;

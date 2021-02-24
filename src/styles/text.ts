@@ -1,7 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import { fillBackgroundText, glassBackground } from './colours'
 import { SIZE } from '../constants/font'
-import { MEDIA_QUERY_MEDIUM_WIDTH_RULE, MEDIA_QUERY_SMALL_WIDTH_RULE } from '../constants/styles'
 
 const textColourAnimation = keyframes`
   to {
@@ -21,8 +20,10 @@ export function reverseFontColour(reverse: boolean | undefined = false) {
 
 export const blockQuoteStyle = (reverse?: boolean) => css`
   ${glassBackground};
+  max-width: 42rem;
   padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
+  text-align: center;
 
   mark {
     ${reverseFontColour(reverse)};
@@ -31,7 +32,7 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
       theme: {
         font: { size }
       }
-    }) => size[SIZE.N]};
+    }) => size[SIZE.L]};
     font-style: italic;
     letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
   }
@@ -39,33 +40,20 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
 
 export const H1Style = css`
   font-family: 'Garamond, Georgia, serif';
+  width: calc(100% - 2rem);
+  padding: 0 1rem;
+  box-sizing: border-box;
   font-size: ${({
     theme: {
       font: { size }
     }
-  }) => size[SIZE.EL]};
+  }) => size[SIZE.XXL]};
   font-weight: ${({
     theme: {
       font: { weight }
     }
   }) => weight[SIZE.L]};
   text-transform: capitalize;
-
-  ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.L]};
-  }
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.NL]};
-  }
 `
 
 export const H1 = styled.h1<{ reverse?: boolean }>`
@@ -79,20 +67,12 @@ export const H2Style = css`
     theme: {
       font: { size }
     }
-  }) => size[SIZE.NL]};
+  }) => size[SIZE.XL]};
   font-weight: ${({
     theme: {
       font: { weight }
     }
   }) => weight[SIZE.N]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.N]};
-  }
 `
 
 export const H2 = styled.h2<{ reverse?: boolean }>`
@@ -106,20 +86,12 @@ export const H3Style = css`
     theme: {
       font: { size }
     }
-  }) => size[SIZE.N]};
+  }) => size[SIZE.L]};
   font-weight: ${({
     theme: {
       font: { weight }
     }
   }) => weight[SIZE.N]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.NS]};
-  }
 `
 
 export const H3 = styled.h3<{ reverse?: boolean }>`
@@ -134,14 +106,6 @@ export const pStyle = (reverse?: boolean) => css`
       font: { weight }
     }
   }) => weight[SIZE.S]};
-
-  ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.XS]};
-  }
 
   a {
     text-decoration: none;

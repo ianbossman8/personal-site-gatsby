@@ -5,11 +5,10 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     font: {
       size: {
-        [SIZE.EL]: string
+        [SIZE.XXL]: string
+        [SIZE.XL]: string
         [SIZE.L]: string
-        [SIZE.NL]: string
         [SIZE.N]: string
-        [SIZE.NS]: string
         [SIZE.S]: string
         [SIZE.XS]: string
       }

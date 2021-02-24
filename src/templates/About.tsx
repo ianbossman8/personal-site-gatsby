@@ -1,9 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Base from '../components/Base/Base'
+import ContactForm from '../components/ContactForm/ContactForm'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
-import { DumpContainer } from './styles/dump.styles'
+import { AboutContainer, HTMLContainer } from './styles/about.styles'
+import { H1, H2 } from '../styles/text'
 
 interface Props {
   data: {
@@ -18,23 +20,21 @@ interface Props {
 export default function Dump(props: Props) {
   const {
     data: {
-      markdownRemark: { html, frontmatter }
+      markdownRemark: { html }
     },
     path
   } = props
 
-  const pageSeo =
-    typeof pageMeta[path] !== 'undefined'
-      ? pageMeta[path]
-      : {
-          title: frontmatter.title,
-          description: frontmatter.description,
-          pathname: path
-        }
-
   return (
-    <Base pageSeo={{ ...pageSeo }}>
-      <DumpContainer dangerouslySetInnerHTML={{ __html: html }} />
+    <Base pageSeo={{ ...pageMeta[path] }}>
+      <AboutContainer>
+        <H1>about</H1>
+        <HTMLContainer dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="contact-form">
+          <H2>contact me</H2>
+          <ContactForm />
+        </div>
+      </AboutContainer>
     </Base>
   )
 }
@@ -43,10 +43,6 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      frontmatter {
-        title
-        description
-      }
     }
   }
 `

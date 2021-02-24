@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SIZE } from '../../constants/font'
 
 export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE }>`
@@ -14,22 +14,29 @@ export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE 
     fontSize
   }) => size[fontSize]};
 
-  a {
-    text-decoration: none;
-    color: ${({ theme: { colours } }) => colours.secondary[1]};
-    text-transform: capitalize;
+  li {
+    ${({ direction }) =>
+      direction !== 'column'
+        ? css`
+            margin: 0 0.375rem;
+          `
+        : css`
+            margin: 0.175rem 0;
+          `};
 
-    &:hover {
-      color: ${({ theme: { colours } }) => colours.info[3]};
+    span {
+      max-width: 1.25rem;
+      margin-right: 0.5rem;
     }
   }
 
-  li {
-    margin: ${({ direction }) => (direction !== 'column' ? '0 0.375rem' : '0')};
+  a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: ${({ theme: { colours } }) => colours.secondary[1]};
 
-    span {
-      max-width: 20px;
-      margin-right: 0.5rem;
+    &:hover {
+      color: ${({ theme: { colours } }) => colours.info[3]};
     }
   }
 `
