@@ -17,7 +17,7 @@ interface Props {
 
 export default function Menu(props: Props) {
   const { size, isIndex, linksMeta } = props
-
+  const curWidth = useWindowResizeHook('width')
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
   function handleMenuClick() {
@@ -30,13 +30,11 @@ export default function Menu(props: Props) {
 
   useModalEscapeKeyHooks(handleMenuClose)
 
-  const exceedBound = useWindowResizeHook(WIDTH_BOUNDARIES.M)
-
   useEffect(() => {
-    if (exceedBound) {
+    if (curWidth && curWidth >= WIDTH_BOUNDARIES.M) {
       setShowMenu(false)
     }
-  }, [exceedBound])
+  }, [curWidth])
 
   return (
     <>
