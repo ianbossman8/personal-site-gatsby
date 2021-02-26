@@ -30,7 +30,7 @@ export default function ScrollUpButton(props: Props) {
   }, [curHeight, ref.current])
 
   return (
-    <ToTopButton onClick={handleClick} ref={ref} showButton={showButton || !isIndex}>
+    <ToTopButton onClick={handleClick} ref={ref} showButton={showButton && !isIndex}>
       <Emoji label="to top" symbol={symbols.pointUp} />
     </ToTopButton>
   )
