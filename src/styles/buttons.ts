@@ -4,7 +4,7 @@ import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../constants/styles'
 
 export const commonButtonCssProperties = css`
   margin: 0.75rem 1rem;
-  padding: 0.75rem 1.75rem;
+  padding: 0.5rem 1.75rem;
   text-transform: capitalize;
   font-size: ${({
     theme: {
@@ -17,6 +17,7 @@ export const commonButtonCssProperties = css`
     }
   }) => weight[SIZE.S]};
   cursor: pointer;
+  box-shadow: ${({ theme: { colours } }) => `0 0.125rem 0.5rem 0 ${colours.secondary.blur.strong}`};
 
   &:disabled {
     background-color: ${({ theme: { colours } }) => colours.secondary.blur.light};

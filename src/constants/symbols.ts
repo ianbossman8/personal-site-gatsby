@@ -10,6 +10,7 @@ const symbols = {
   house: 0x1f3e1,
   pointLeft: 0x1f448,
   pointRight: 0x1f449,
+  pointUp: 0x1f446,
   party: 0x1f389,
   writingHand: 0x270d,
   tools: 0x1f528,

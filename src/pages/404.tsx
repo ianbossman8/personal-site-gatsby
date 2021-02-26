@@ -10,6 +10,7 @@ const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 0.5rem;
+  text-align: center;
 `
 
 export default function NotFoundPage() {

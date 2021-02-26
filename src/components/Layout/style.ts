@@ -13,6 +13,7 @@ export const PageContainer = styled.div<{ isIndex: boolean | undefined }>`
 `
 
 export const MainContainer = styled.main<{ isIndex: boolean | undefined }>`
+  position: relative;
   width: inherit;
   display: flex;
   flex-direction: column;

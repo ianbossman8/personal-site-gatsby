@@ -1,27 +1,31 @@
 import { useState, useEffect } from 'react'
 
-export default function useWindowResizeHook(boundary: number): boolean {
-  const [exceedBoundary, setIsExceedBoundary] = useState<boolean>(false)
+interface direction {
+  height: 'innerHeight'
+  width: 'innerWidth'
+}
+
+type ReturnType = number | undefined
+
+export default function useWindowResizeHook(direction: keyof direction): ReturnType {
+  const [curDimension, setCurDimension] = useState<ReturnType>(undefined)
+
+  const dirMap: direction = {
+    height: 'innerHeight',
+    width: 'innerWidth'
+  }
 
   useEffect(() => {
-    function setBound() {
-      if (window.innerWidth <= boundary) {
-        setIsExceedBoundary(true)
-      } else {
-        setIsExceedBoundary(false)
-      }
-    }
-
-    setBound()
+    setCurDimension(window[dirMap[direction]])
 
     function handleResize() {
-      setBound()
+      setCurDimension(window[dirMap[direction]])
     }
 
     window.addEventListener('resize', handleResize)
 
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [direction])
 
-  return exceedBoundary
+  return curDimension
 }
