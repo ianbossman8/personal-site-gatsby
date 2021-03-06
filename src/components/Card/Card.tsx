@@ -12,6 +12,8 @@ interface Props {
 
 export default function Card(props: Props) {
   const { blogDetail, link } = props
+
+  const { title, description, date } = blogDetail
   const thumbnail = getImage(blogDetail.thumbnail)
 
   return (
@@ -21,12 +23,12 @@ export default function Card(props: Props) {
       </Link>
       <InfoContainer>
         <Link to={link}>
-          <H3>{blogDetail.title}</H3>
+          <H3>{title}</H3>
         </Link>
-        <P>{blogDetail.description}</P>
+        <P>{description}</P>
       </InfoContainer>
       <MetaContainer>
-        <P>{blogDetail.date}</P>
+        <P>{date}</P>
       </MetaContainer>
     </CardContainer>
   )

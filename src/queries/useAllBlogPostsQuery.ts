@@ -37,7 +37,12 @@ export function useAllBlogPosts() {
                 ...CustomMarkdownRemarkFrontmatter
                 thumbnail {
                   childImageSharp {
-                    gatsbyImageData(width: 460, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                    gatsbyImageData(
+                      width: 645
+                      height: 400
+                      placeholder: BLURRED
+                      formats: [AUTO, WEBP, AVIF]
+                    )
                   }
                 }
               }

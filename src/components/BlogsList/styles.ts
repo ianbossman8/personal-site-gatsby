@@ -6,10 +6,7 @@ export const BlogsListContainer = styled.ul`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-
-  a {
-    text-decoration: none;
-  }
+  padding: 0;
 `
 
 export const BlogsContainer = styled.section`

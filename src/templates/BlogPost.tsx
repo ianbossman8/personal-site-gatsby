@@ -30,7 +30,7 @@ export default function BlogPost(props: Props) {
   } = props
 
   const thumbnail = getImage(frontmatter.thumbnail)
-  console.log(thumbnail)
+
   const pageSEO = {
     title: frontmatter.title,
     description: frontmatter.description,

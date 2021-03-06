@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -28,21 +28,27 @@ function Layout(props: Props) {
   }
 
   const ref = useRef<HTMLElement>(null)
-  const curHeight = useWindowResizeHook('height')
+  const [sectionHeight, setSectionHeight] = useState(0)
+  const curWindowHeight = useWindowResizeHook('height')
+  const curWindowWidth = useWindowResizeHook('width')
   const [showButton, setShowButton] = useState(false)
 
-  useEffect(() => {
-    if (curHeight && ref.current) {
-      const elementHeight = ref.current.offsetHeight
-      const heightLimit = curHeight * 0.925
+  useLayoutEffect(() => {
+    if (curWindowHeight) {
+      const heightLimit = curWindowHeight * 0.925
 
-      if (heightLimit <= elementHeight) {
+      if (heightLimit <= sectionHeight) {
         setShowButton(true)
+        return
       }
-    } else {
-      setShowButton(false)
     }
-  }, [curHeight, ref.current])
+
+    setShowButton(false)
+  }, [sectionHeight, curWindowHeight])
+
+  useLayoutEffect(() => {
+    setSectionHeight(ref.current?.offsetHeight!)
+  }, [curWindowHeight, curWindowWidth, ref.current])
 
   return (
     <ThemeProvider theme={styleTheme[colourTheme]}>
