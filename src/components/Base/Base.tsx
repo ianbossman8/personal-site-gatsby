@@ -5,7 +5,6 @@ import Layout from '../Layout/Layout'
 import Modal from '../Modal/Modal'
 import { pageMeta } from '../../constants/meta'
 import Location from '../../util/location'
-import ScrollUpButton from '../ScrollUpButton/ScrollUpButton'
 
 interface Props {
   pageSeo: SeoProps
@@ -34,7 +33,6 @@ export default function Base(props: Props) {
           reverse={reverse}
         />
       )}
-      <ScrollUpButton isIndex={isIndex} />
     </Layout>
   )
 }
