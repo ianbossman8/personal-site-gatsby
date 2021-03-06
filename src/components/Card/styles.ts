@@ -2,11 +2,6 @@ import styled from 'styled-components'
 import { MEDIA_QUERY_SMALL_WIDTH_RULE } from '../../constants/styles'
 import { H3, P } from '../../styles/text'
 
-export const ImgHolder = styled.figure`
-  width: 100%;
-  margin: 0;
-`
-
 export const InfoContainer = styled.div`
   box-sizing: padding;
   display: flex;
