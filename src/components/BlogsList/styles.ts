@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const BlogsListContainer = styled.div`
+export const BlogsListContainer = styled.ul`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -12,6 +12,6 @@ export const BlogsListContainer = styled.div`
   }
 `
 
-export const BlogsContainer = styled.div`
+export const BlogsContainer = styled.section`
   margin: 1rem 0;
 `
