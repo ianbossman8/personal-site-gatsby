@@ -21,7 +21,7 @@ export const CardContainer = styled.div`
   box-shadow: ${({ theme: { colours } }) =>
     `0 0.0625rem 0.25rem 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
-  margin: 0 0 1rem 1rem;
+  margin: 0.5rem;
   transition: all 0.2s ease-in-out;
 
   ${H3}, ${P} {
@@ -47,7 +47,6 @@ export const CardContainer = styled.div`
     max-height: 45rem;
     width: inherit;
     max-width: inherit;
-    margin: 1rem 0;
 
     ${H3}, ${P} {
       margin: 0.625rem 0.375rem;
