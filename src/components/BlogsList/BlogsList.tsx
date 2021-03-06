@@ -21,12 +21,12 @@ export default function BlogsList(props: Props) {
       <BlogsListContainer>
         {blogsDesc.length > 0 ? (
           blogsDesc.map(({ node: { id, frontmatter, fields } }) => (
-            <Link to={fields.slug} key={id}>
-              <Card blogDetail={frontmatter} />
-            </Link>
+            <li key={id}>
+              <Card blogDetail={frontmatter} link={fields.slug} />
+            </li>
           ))
         ) : (
-          <P>no post found</P>
+          <P>exciting posts coming soon!!</P>
         )}
       </BlogsListContainer>
     </BlogsContainer>

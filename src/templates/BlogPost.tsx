@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
@@ -29,6 +29,8 @@ export default function BlogPost(props: Props) {
     }
   } = props
 
+  const thumbnail = getImage(frontmatter.thumbnail)
+
   const pageSEO = {
     title: frontmatter.title,
     description: frontmatter.description,
@@ -43,7 +45,7 @@ export default function BlogPost(props: Props) {
         </Link>
         <BlogPostContainer>
           <ImgHolder>
-            <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} />
+            <GatsbyImage image={thumbnail!} alt="" title="" />
             <figcaption>caption</figcaption>
           </ImgHolder>
           <H1>{frontmatter.title}</H1>
@@ -64,9 +66,7 @@ export const query = graphql`
         ...CustomMarkdownRemarkFrontmatter
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 1280, quality: 100) {
-              ...CustomGatsbyImageSharpFluid
-            }
+            gatsbyImageData(width: 1280, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
       }

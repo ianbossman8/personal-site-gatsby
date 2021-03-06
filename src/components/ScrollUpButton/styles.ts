@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-export const ToTopButton = styled.button<{ showButton: boolean }>`
+export const ToTopButton = styled.button`
   position: absolute;
   right: 2rem;
   bottom: 0;
-  visibility: ${({ showButton }) => (showButton ? 'visible' : 'hidden')};
   outline: none;
   border: none;
   border-radius: 50%;

@@ -93,7 +93,7 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
       }
 
       ${InputBox}, ${TextBox} {
-        caret-color: ${({ theme: { colours } }) => colours.secondary[1]};
+        caret-color: ${({ theme: { colours } }) => colours.primary[1]};
       }
 
       ${ModalHeader} {

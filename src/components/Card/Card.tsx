@@ -1,31 +1,35 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import { CardContainer, ImgHolder, InfoContainer, MetaContainer } from './styles'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { CardContainer, InfoContainer, MetaContainer } from './styles'
 import { NodeData } from '../../queries/useAllBlogPostsQuery'
 import { P, H3 } from '../../styles/text'
+import { Link } from 'gatsby'
 
 interface Props {
   blogDetail: NodeData['frontmatter']
+  link: string
 }
 
-function Card(props: Props) {
-  const { blogDetail } = props
-  const thumbnail = blogDetail.thumbnail
+export default function Card(props: Props) {
+  const { blogDetail, link } = props
+
+  const { title, description, date } = blogDetail
+  const thumbnail = getImage(blogDetail.thumbnail)
 
   return (
     <CardContainer>
-      <ImgHolder>
-        <Img fluid={thumbnail.childImageSharp.fluid} alt="" title="" />
-      </ImgHolder>
+      <Link to={link}>
+        <GatsbyImage image={thumbnail!} alt="" title="" />
+      </Link>
       <InfoContainer>
-        <H3>{blogDetail.title}</H3>
-        <P>{blogDetail.description}</P>
+        <Link to={link}>
+          <H3>{title}</H3>
+        </Link>
+        <P>{description}</P>
       </InfoContainer>
       <MetaContainer>
-        <P>{blogDetail.date}</P>
+        <P>{date}</P>
       </MetaContainer>
     </CardContainer>
   )
 }
-
-export default Card

@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { FluidObject } from 'gatsby-image'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export type NodeData = {
   frontmatter: {
@@ -9,13 +9,7 @@ export type NodeData = {
     tags: string[]
     categories: string[]
     author: string
-    thumbnail: {
-      relativePath: string
-      childImageSharp: {
-        id: string
-        fluid: FluidObject
-      }
-    }
+    thumbnail: IGatsbyImageData
   }
   id: string
   fields: {
@@ -43,9 +37,12 @@ export function useAllBlogPosts() {
                 ...CustomMarkdownRemarkFrontmatter
                 thumbnail {
                   childImageSharp {
-                    fluid(maxWidth: 460, quality: 80) {
-                      ...CustomGatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(
+                      width: 645
+                      height: 400
+                      placeholder: BLURRED
+                      formats: [AUTO, WEBP, AVIF]
+                    )
                   }
                 }
               }

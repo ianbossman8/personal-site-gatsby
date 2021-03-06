@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 interface direction {
   height: 'innerHeight'
@@ -15,7 +15,7 @@ export default function useWindowResizeHook(direction: keyof direction): ReturnT
     width: 'innerWidth'
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setCurDimension(window[dirMap[direction]])
 
     function handleResize() {

@@ -6,7 +6,6 @@ date: 2021-02-14T01:27:47.285Z
 description: this is a testing post
 categories:
   - blogs
-  - ""
 tags:
   - life
 ---
