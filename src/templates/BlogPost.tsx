@@ -51,6 +51,7 @@ export default function BlogPost(props: Props) {
           <H1>{frontmatter.title}</H1>
           <P>{frontmatter.author}</P>
           <P>{frontmatter.date}</P>
+          <P>{frontmatter.edited_date}</P>
           <article dangerouslySetInnerHTML={{ __html: html }} />
         </BlogPostContainer>
       </BlogPage>

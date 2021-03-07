@@ -6,6 +6,7 @@ export type NodeData = {
     title: string
     description: string
     date: Date
+    edited_date: Date
     tags: string[]
     categories: string[]
     author: string
