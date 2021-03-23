@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { NodeData } from '../queries/useAllBlogPostsQuery'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
 import symbols from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
-import { BlogPage, BlogPostContainer, ImgHolder } from './styles/blogs.styles'
+import { BlogPage, ImgHolder } from './styles/blogs.styles'
+import { NodeData } from './Blogs'
 
 interface Props {
   data: {
@@ -81,7 +81,7 @@ export default function BlogPost(props: Props) {
   )
 }
 
-export const query = graphql`
+export const blogPostQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
