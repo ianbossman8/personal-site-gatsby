@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { CommonDumpStyles } from './dump.styles'
 
 export const BlogPage = styled.div`
-  width: inherit;
+  ${CommonDumpStyles};
 `
 
 export const BlogPostContainer = styled.section`

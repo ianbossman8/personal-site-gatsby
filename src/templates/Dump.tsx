@@ -4,6 +4,7 @@ import Base from '../components/Base/Base'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
 import { DumpContainer } from './styles/dump.styles'
+import { H1 } from '../styles/text'
 
 interface Props {
   data: {
@@ -34,7 +35,10 @@ export default function Dump(props: Props) {
 
   return (
     <Base pageSeo={{ ...pageSeo }}>
-      <DumpContainer dangerouslySetInnerHTML={{ __html: html }} />
+      <DumpContainer>
+        <H1>{frontmatter.title}</H1>
+        <article dangerouslySetInnerHTML={{ __html: html }} />
+      </DumpContainer>
     </Base>
   )
 }

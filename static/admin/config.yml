@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: dev
+  branch: blogs
+
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -9,6 +10,7 @@ backend:
     deleteMedia: '[skip ci] Delete “{{path}}”'
 media_folder: static/assets
 public_folder: /assets
+publish_mode: editorial_workflow
 collections:
   - name: 'blogs'
     label: 'Blogs'
@@ -18,8 +20,9 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image', required: false }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Edited Date', name: 'edited_date', widget: 'datetime', required: false }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Categories', name: 'categories', widget: 'list' }
       - { label: 'Tags', name: 'tags', widget: 'list' }

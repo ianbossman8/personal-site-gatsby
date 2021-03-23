@@ -11,9 +11,9 @@ import { ColourFulHeader } from '../styles/text'
 
 const introItems = [
   { title: PAGE_NAMES.ABOUT, text: PAGE_NAMES.ABOUT },
-  { title: PAGE_NAMES.CONTACT, text: 'contact me' },
   { title: PAGE_NAMES.BLOGS, text: PAGE_NAMES.BLOGS },
   { title: PAGE_NAMES.PROJECTS, text: PAGE_NAMES.PROJECTS },
+  { title: PAGE_NAMES.CONTACT, text: 'contact me' },
   { title: PAGE_NAMES.PROMOTIONS, text: 'support people in need' }
 ]
 

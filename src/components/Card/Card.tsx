@@ -14,13 +14,25 @@ export default function Card(props: Props) {
   const { blogDetail, link } = props
 
   const { title, description, date } = blogDetail
-  const thumbnail = getImage(blogDetail.thumbnail)
+
+  const { name, childImageSharp } = blogDetail.thumbnail
+  const thumbnail = getImage(childImageSharp)
 
   return (
     <CardContainer>
-      <Link to={link}>
-        <GatsbyImage image={thumbnail!} alt="" title="" />
-      </Link>
+      {thumbnail && (
+        <Link to={link}>
+          <GatsbyImage
+            image={thumbnail!}
+            alt={name}
+            title={name}
+            backgroundColor={
+              typeof thumbnail.backgroundColor !== 'undefined' ? thumbnail.backgroundColor : 'white'
+            }
+          />
+        </Link>
+      )}
+
       <InfoContainer>
         <Link to={link}>
           <H3>{title}</H3>

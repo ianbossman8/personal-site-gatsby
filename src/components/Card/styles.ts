@@ -6,18 +6,28 @@ export const InfoContainer = styled.div`
   box-sizing: padding;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.75rem;
   padding: 0.75rem;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      ${H3} {
+        color: ${({ theme: { colours } }) => colours.info[2]};
+        text-decoration: underline;
+        text-decoration-color: ${({ theme: { colours } }) => colours.info[2]};
+      }
+    }
+  }
 `
 
 export const CardContainer = styled.div`
-  max-height: 30rem;
-  width: 20rem;
-  max-width: 20rem;
+  width: 24rem;
+  max-width: 24rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { colours } }) => colours.primary[3]};
+  background-color: ${({ theme: { colours } }) => colours.primary[1]};
   box-shadow: ${({ theme: { colours } }) =>
     `0 0.0625rem 0.25rem 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
@@ -28,13 +38,16 @@ export const CardContainer = styled.div`
     margin: 0.45rem 0.25rem;
   }
 
+  ${P} {
+    line-height: 1.375rem;
+  }
+
   &:hover {
     box-shadow: ${({ theme: { colours } }) => `0 0.5rem 1rem 0 ${colours.secondary.blur.light}`};
     transform: translateY(-0.5rem);
   }
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
-    max-height: 33rem;
     width: 26rem;
     max-width: 26rem;
 
@@ -44,7 +57,6 @@ export const CardContainer = styled.div`
   }
 
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
-    max-height: 45rem;
     width: inherit;
     max-width: inherit;
 
@@ -61,7 +73,7 @@ export const MetaContainer = styled.div`
   ${CardContainer}, ${P} {
     margin: 0;
     padding: 0.5rem;
-    background-color: ${({ theme: { colours } }) => colours.main[1]};
+    background-color: ${({ theme: { colours } }) => colours.info[2]};
     clip-path: polygon(0.625rem 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 `

@@ -1,5 +1,5 @@
 ---
-title: about
+title: About
 description: A clear description of myself
 date: 2021-02-14T18:36:07.892Z
 ---

@@ -6,10 +6,14 @@ export type NodeData = {
     title: string
     description: string
     date: Date
+    edited_date: Date | string
     tags: string[]
     categories: string[]
     author: string
-    thumbnail: IGatsbyImageData
+    thumbnail: {
+      childImageSharp: IGatsbyImageData
+      name: string
+    }
   }
   id: string
   fields: {
@@ -40,6 +44,7 @@ export function useAllBlogPosts() {
                     gatsbyImageData(
                       width: 645
                       height: 400
+                      backgroundColor: "#f5f5f5"
                       placeholder: BLURRED
                       formats: [AUTO, WEBP, AVIF]
                     )
