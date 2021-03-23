@@ -1,6 +1,6 @@
 {
   "name": "personal-site-gatsby",
-  "version": "2.2.2",
+  "version": "1.0.1",
   "description": "A personal site build with the JAM stack and Gatsby",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,6 @@
     "babel-plugin-styled-components": "^1.12.0",
     "formik": "^2.2.6",
     "gatsby": "^3.0.4",
-    "gatsby-image": "^3.0.0",
     "gatsby-plugin-google-gtag": "^3.0.0",
     "gatsby-plugin-image": "^1.0.1",
     "gatsby-plugin-manifest": "^3.0.0",
@@ -44,7 +43,8 @@
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-transformer-remark": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
-    "netlify-cms-app": "^2.14.29",
+    "netlify-cms-app": "^2.14.32",
+    "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
@@ -59,7 +59,6 @@
     "eslint": "^7.22.0",
     "gatsby-plugin-typescript": "^3.0.0",
     "prettier": "^2.2.1",
-    "react": "^17.0.1",
     "typescript": "^4.2.3"
   }
 }

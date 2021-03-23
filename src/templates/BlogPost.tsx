@@ -29,12 +29,39 @@ export default function BlogPost(props: Props) {
     }
   } = props
 
-  const thumbnail = getImage(frontmatter.thumbnail)
+  const {
+    title,
+    description,
+    author,
+    date,
+    edited_date,
+    thumbnail: { name, childImageSharp }
+  } = frontmatter
+
+  const thumbnail = getImage(childImageSharp)
 
   const pageSEO = {
-    title: frontmatter.title,
-    description: frontmatter.description,
+    title: title,
+    description: description,
     pathname: fields.slug
+  }
+
+  function showImage() {
+    return (
+      thumbnail && (
+        <ImgHolder>
+          <GatsbyImage
+            image={thumbnail}
+            alt={name}
+            title={name}
+            backgroundColor={
+              typeof thumbnail.backgroundColor !== 'undefined' ? thumbnail.backgroundColor : 'white'
+            }
+          />
+          <figcaption>{name}</figcaption>
+        </ImgHolder>
+      )
+    )
   }
 
   return (
@@ -43,17 +70,12 @@ export default function BlogPost(props: Props) {
         <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
           <Emoji label="back page" symbol={symbols.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
-        <BlogPostContainer>
-          <ImgHolder>
-            <GatsbyImage image={thumbnail!} alt="" title="" />
-            <figcaption>caption</figcaption>
-          </ImgHolder>
-          <H1>{frontmatter.title}</H1>
-          <P>{frontmatter.author}</P>
-          <P>{frontmatter.date}</P>
-          <P>{frontmatter.edited_date}</P>
-          <article dangerouslySetInnerHTML={{ __html: html }} />
-        </BlogPostContainer>
+        {showImage()}
+        <H1>{title}</H1>
+        <P>By- {author}</P>
+        <P>First Published- {date}</P>
+        {edited_date && edited_date !== 'Invalid date' && <P>Last Edited- {edited_date}</P>}
+        <article dangerouslySetInnerHTML={{ __html: html }} />
       </BlogPage>
     </Base>
   )
@@ -67,8 +89,14 @@ export const query = graphql`
         ...CustomMarkdownRemarkFrontmatter
         thumbnail {
           childImageSharp {
-            gatsbyImageData(width: 1280, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              width: 875
+              placeholder: BLURRED
+              backgroundColor: "#ffffff"
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
+          name
         }
       }
       fields {

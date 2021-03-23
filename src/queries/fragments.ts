@@ -4,8 +4,8 @@ export const queryMarkdownRemarkFrontmatter = graphql`
   fragment CustomMarkdownRemarkFrontmatter on MarkdownRemarkFrontmatter {
     title
     description
-    date(formatString: "MMMM Do, YYYY")
-    edited_date(formatString: "MMMM Do, YYYY")
+    date(formatString: "Do MMM, YYYY")
+    edited_date(formatString: "Do MMM, YYYY")
     tags
     categories
     author

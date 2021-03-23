@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { AllBlogPostsInfoQuery } from '../../queries/useAllBlogPostsQuery'
 import Card from '../Card/Card'
-import { BlogsListContainer, BlogsContainer } from './styles'
+import { BlogsListContainer, BlogsContainer, BlogHeader } from './styles'
 import { Divider } from '../../styles/divider'
-import { P } from '../../styles/text'
+import { H1, P } from '../../styles/text'
 
 interface Props {
   totalBlogs: number
@@ -16,8 +15,12 @@ export default function BlogsList(props: Props) {
 
   return (
     <BlogsContainer>
-      <P>Number of articles- {totalBlogs}</P>
+      <BlogHeader>
+        <H1>Blogs</H1>
+        <P>Here is where you find wisdom</P>
+      </BlogHeader>
       <Divider />
+      <P>Number of articles- {totalBlogs}</P>
       <BlogsListContainer>
         {blogsDesc.length > 0 ? (
           blogsDesc.map(({ node: { id, frontmatter, fields } }) => (
