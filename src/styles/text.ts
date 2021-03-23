@@ -40,8 +40,6 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
 
 export const H1Style = css`
   font-family: 'Garamond, Georgia, serif';
-  width: calc(100% - 2rem);
-  padding: 0 1rem;
   box-sizing: border-box;
   font-size: ${({
     theme: {
@@ -53,7 +51,6 @@ export const H1Style = css`
       font: { weight }
     }
   }) => weight[SIZE.L]};
-  text-transform: capitalize;
 `
 
 export const H1 = styled.h1<{ reverse?: boolean }>`
@@ -117,13 +114,14 @@ export const P = styled.p<{ reverse?: boolean }>`
 `
 
 export const ColourFulHeader = styled(H1)`
+  max-width: calc(100% - 2rem);
+  text-align: center;
   font-family: system-ui, -apple-system, sans-serif;
   font-weight: ${({
     theme: {
       font: { weight }
     }
   }) => weight[SIZE.N]};
-  text-align: center;
   text-transform: uppercase;
   user-select: none;
   ${fillBackgroundText}

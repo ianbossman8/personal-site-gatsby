@@ -1,11 +1,8 @@
 ---
-title: privacy
+title: Privacy Policy
 description: A declaration of privacy and cookies policy
 date: 2021-02-15T01:05:34.900Z
 ---
-
-# Privacy Policy
-
 By visiting this site, you are consenting to our privacy policy.
 
 This Site is committed to protecting your privacy online. This Privacy Policy describes the information we collect through this website (the “Site”), and how we collect and use such information.

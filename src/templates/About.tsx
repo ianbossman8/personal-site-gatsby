@@ -4,7 +4,7 @@ import Base from '../components/Base/Base'
 import ContactForm from '../components/ContactForm/ContactForm'
 import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
-import { AboutContainer, HTMLContainer } from './styles/about.styles'
+import { AboutContainer, SectionContainer } from './styles/about.styles'
 import { H1, H2 } from '../styles/text'
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   path: string
 }
 
-export default function Dump(props: Props) {
+export default function About(props: Props) {
   const {
     data: {
       markdownRemark: { html }
@@ -28,12 +28,14 @@ export default function Dump(props: Props) {
   return (
     <Base pageSeo={{ ...pageMeta[path] }}>
       <AboutContainer>
-        <H1>about</H1>
-        <HTMLContainer dangerouslySetInnerHTML={{ __html: html }} />
-        <div className="contact-form">
+        <header>
+          <H1>About</H1>
+        </header>
+        <SectionContainer dangerouslySetInnerHTML={{ __html: html }} />
+        <section className="contact-form">
           <H2>contact me</H2>
           <ContactForm />
-        </div>
+        </section>
       </AboutContainer>
     </Base>
   )

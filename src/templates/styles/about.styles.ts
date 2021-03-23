@@ -1,19 +1,18 @@
 import styled from 'styled-components'
-import { CommonStyles } from './dump.styles'
+import { CommonDumpStyles } from './dump.styles'
 
 export const AboutContainer = styled.div`
-  max-width: 50rem;
   display: flex;
   flex-direction: column;
 
-  ${CommonStyles}
+  ${CommonDumpStyles}
 
   .contact-form {
     align-self: center;
   }
 `
 
-export const HTMLContainer = styled.div`
+export const SectionContainer = styled.section`
   margin-bottom: 2rem;
 
   blockquote {
@@ -22,6 +21,6 @@ export const HTMLContainer = styled.div`
   }
 
   p {
-    line-height: 1.5;
+    line-height: 1.5rem;
   }
 `

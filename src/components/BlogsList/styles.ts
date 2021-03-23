@@ -33,3 +33,7 @@ export const BlogsContainer = styled.section`
     padding: 0;
   }
 `
+
+export const BlogHeader = styled.div`
+  margin-bottom: 1rem;
+`

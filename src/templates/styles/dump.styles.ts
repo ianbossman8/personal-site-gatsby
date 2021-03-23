@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components'
+import { SIZE } from '../../constants/font'
 import { MEDIA_QUERY_SMALL_WIDTH_RULE } from '../../constants/styles'
 import { blockQuoteStyle, H1Style, H2Style, H3Style, pStyle } from '../../styles/text'
 
-export const CommonStyles = css`
+export const CommonDumpStyles = css`
+  max-width: 50rem;
   box-sizing: border-box;
   padding: 2rem;
   color: ${({ theme: { colours } }) => colours.secondary[1]};
@@ -22,9 +24,17 @@ export const CommonStyles = css`
 
   p {
     ${pStyle()};
+    line-height: 1.5rem;
 
     a {
       color: ${({ theme: { colours } }) => colours.info[3]};
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    li {
+      margin: 0.375rem 0;
     }
   }
 
@@ -32,11 +42,16 @@ export const CommonStyles = css`
     ${blockQuoteStyle()};
   }
 
+  figcaption {
+    font-size: ${({ theme: { font } }) => font.size[SIZE.XS]};
+    color: ${({ theme: { colours } }) => colours.secondary[3]};
+  }
+
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     padding: 0.75rem 0.25rem;
   }
 `
 
-export const DumpContainer = styled.div`
-  ${CommonStyles};
+export const DumpContainer = styled.section`
+  ${CommonDumpStyles};
 `
