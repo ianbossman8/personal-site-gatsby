@@ -1,13 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Base from '../components/Base/Base'
 import ContactForm from '../components/ContactForm/ContactForm'
-import { NodeData } from '../queries/useAllBlogPostsQuery'
 import { pageMeta } from '../constants/meta'
 import { AboutContainer, SectionContainer } from './styles/about.styles'
 import { H1, H2 } from '../styles/text'
+import { NodeData } from './Blogs'
 
-interface Props {
+interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string

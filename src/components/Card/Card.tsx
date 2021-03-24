@@ -1,9 +1,9 @@
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { CardContainer, InfoContainer, MetaContainer } from './styles'
-import { NodeData } from '../../queries/useAllBlogPostsQuery'
 import { P, H3 } from '../../styles/text'
 import { Link } from 'gatsby'
+import { NodeData } from '../../templates/Blogs'
 
 interface Props {
   blogDetail: NodeData['frontmatter']

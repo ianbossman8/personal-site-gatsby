@@ -26,7 +26,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogsResult = await graphql(`
+  const blogsResultQuery = graphql(`
     query {
       blogs: allMarkdownRemark(filter: { fields: { contentType: { eq: "blogs" } } }) {
         edges {
@@ -41,24 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  blogsResult.data.blogs.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/BlogPost.tsx`),
-      context: {
-        slug: node.fields.slug
-      }
-    })
-  })
-
-  Array.from({ length: 1 }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? '/blogs' : `/blogs/${i + 1}`,
-      component: path.resolve('./src/templates/Blogs.tsx')
-    })
-  })
-
-  const siteInfoResult = await graphql(`
+  const siteInfoResultQuery = graphql(`
     query {
       siteInfo: allMarkdownRemark(filter: { fields: { contentType: { eq: "siteInfo" } } }) {
         edges {
@@ -73,23 +56,59 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  siteInfoResult.data.siteInfo.edges.forEach(({ node }) => {
-    if (node.fields.slug !== '/about/') {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve('./src/templates/Dump.tsx'),
-        context: {
-          slug: node.fields.slug
+  await Promise.all([
+    (async function () {
+      const blogsResult = await blogsResultQuery
+
+      blogsResult.data.blogs.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve(`./src/templates/BlogPost.tsx`),
+          context: {
+            slug: node.fields.slug
+          }
+        })
+      })
+
+      const blogPosts = blogsResult.data.blogs.edges
+      const blogPostsPerPage = 1
+      const numBlogPages = Math.ceil(blogPosts.length / blogPostsPerPage)
+
+      Array.from({ length: numBlogPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? '/blogs' : `/blogs/page/${i + 1}`,
+          component: path.resolve('./src/templates/Blogs.tsx'),
+          context: {
+            limit: blogPostsPerPage,
+            skip: i * blogPostsPerPage,
+            numBlogPages,
+            currentPage: i + 1
+          }
+        })
+      })
+    })(),
+    (async function () {
+      const siteInfoResult = await siteInfoResultQuery
+
+      siteInfoResult.data.siteInfo.edges.forEach(({ node }) => {
+        if (node.fields.slug !== '/about/') {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve('./src/templates/Dump.tsx'),
+            context: {
+              slug: node.fields.slug
+            }
+          })
+        } else {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve('./src/templates/About.tsx'),
+            context: {
+              slug: node.fields.slug
+            }
+          })
         }
       })
-    } else {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve('./src/templates/About.tsx'),
-        context: {
-          slug: node.fields.slug
-        }
-      })
-    }
-  })
+    })()
+  ])
 }
