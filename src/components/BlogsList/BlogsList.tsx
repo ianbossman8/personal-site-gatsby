@@ -1,18 +1,20 @@
 import React from 'react'
 import Card from '../Card/Card'
+import Pagination from '../Pagination/Pagination'
 import { BlogsListContainer, BlogsContainer, BlogHeader } from './styles'
 import { Divider } from '../../styles/divider'
 import { H1, P } from '../../styles/text'
 import { AllBlogPostsInfoQuery } from '../../templates/Blogs'
-import { Link } from 'gatsby'
 
 interface Props {
   totalBlogs: number
+  currentPage: number
+  numBlogPages: number
   blogsMeta: AllBlogPostsInfoQuery['allMarkdownRemark']['edges']
 }
 
 export default function BlogsList(props: Props) {
-  const { totalBlogs, blogsMeta } = props
+  const { totalBlogs, blogsMeta, currentPage, numBlogPages } = props
 
   return (
     <BlogsContainer>
@@ -33,7 +35,7 @@ export default function BlogsList(props: Props) {
           <P>exciting posts coming soon!!</P>
         )}
       </BlogsListContainer>
-      <Link to={'1'}> 2</Link>
+      <Pagination currentPage={currentPage} numBlogPages={numBlogPages} />
     </BlogsContainer>
   )
 }

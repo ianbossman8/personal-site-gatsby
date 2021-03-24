@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import Base from '../components/Base/Base'
 import BlogsList from '../components/BlogsList/BlogsList'
@@ -35,16 +35,26 @@ export type AllBlogPostsInfoQuery = {
   }
 }
 
-interface Props {
+interface Props extends PageProps {
   data: AllBlogPostsInfoQuery
+  pageContext: {
+    numBlogPages: number
+    currentPage: number
+  }
 }
 
 export default function Blogs(props: Props) {
   const allBlogPostsInfo = props.data.allMarkdownRemark
+  const { numBlogPages, currentPage } = props.pageContext
 
   return (
     <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.BLOGS] }}>
-      <BlogsList totalBlogs={allBlogPostsInfo.totalCount} blogsMeta={allBlogPostsInfo.edges} />
+      <BlogsList
+        numBlogPages={numBlogPages}
+        currentPage={currentPage}
+        totalBlogs={allBlogPostsInfo.totalCount}
+        blogsMeta={allBlogPostsInfo.edges}
+      />
     </Base>
   )
 }

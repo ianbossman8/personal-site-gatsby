@@ -1,12 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Base from '../components/Base/Base'
 import { pageMeta } from '../constants/meta'
 import { DumpContainer } from './styles/dump.styles'
 import { H1 } from '../styles/text'
 import { NodeData } from './Blogs'
 
-interface Props {
+interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string

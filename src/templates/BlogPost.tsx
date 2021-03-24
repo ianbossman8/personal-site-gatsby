@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
@@ -10,7 +10,7 @@ import { H1, P } from '../styles/text'
 import { BlogPage, ImgHolder } from './styles/blogs.styles'
 import { NodeData } from './Blogs'
 
-interface Props {
+interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string
