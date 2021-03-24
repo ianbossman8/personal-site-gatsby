@@ -1,6 +1,6 @@
 {
   "name": "personal-site-gatsby",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "A personal site build with the JAM stack and Gatsby",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "jam-stack",
     "blog"
   ],
-  "author": "ian",
+  "author": "Yick Chan (Ian)",
   "license": "ISC",
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",

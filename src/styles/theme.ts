@@ -5,7 +5,7 @@ import THEME from '../constants/theme'
 const commonStyle = {
   font: {
     size: {
-      [SIZE.XXL]: '2.5rem',
+      [SIZE.XXL]: '2.75rem',
       [SIZE.XL]: '2rem',
       [SIZE.L]: '1.5rem',
       [SIZE.N]: '1rem',

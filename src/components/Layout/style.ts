@@ -18,6 +18,7 @@ export const MainContainer = styled.main<{ isIndex: boolean | undefined }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem 0;
   padding: 1rem 0;
 
   ${({ isIndex }) =>

@@ -4,6 +4,7 @@ export const ToTopButton = styled.button`
   position: absolute;
   right: 2rem;
   bottom: 0;
+  margin-bottom: -1rem;
   outline: none;
   border: none;
   border-radius: 50%;
