@@ -2,7 +2,8 @@
 title: "An Easy to Understand Visual Guide for JavaScript- Promise.all,
   Promise.race, Promise.allSettled, Promise.any "
 author: Yick Chan (Ian)
-thumbnail: /assets/promise-in-javascript.png
+thumbnail: /assets/promise-pinkies.png
+thumbnail-description: Keeping our Promises simple and easy to understand
 date: 2021-03-13T15:00:08.104Z
 edited_date: ""
 description: JavaScript's Promise- Two more new methods .any(ES2021) and
