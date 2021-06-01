@@ -6,20 +6,22 @@ import BlogsList from '../components/BlogsList/BlogsList'
 import { pageMeta } from '../constants/meta'
 import { LINKS } from '../constants/links'
 
-export type NodeData = {
-  frontmatter: {
-    title: string
-    description: string
-    date: Date
-    edited_date: Date | string
-    tags: string[]
-    categories: string[]
-    author: string
-    thumbnail: {
-      childImageSharp: IGatsbyImageData
-      name: string
-    }
-  }
+export type Frontmatter = {
+  title: string
+  description: string
+  date: Date
+  edited_date: Date | string
+  tags: string[]
+  categories: string[]
+  author: string
+  thumbnail_description: string | null
+  thumbnail: {
+    childImageSharp: IGatsbyImageData
+  } | null
+}
+
+type NodeData = {
+  frontmatter: Frontmatter
   id: string
   fields: {
     slug: string

@@ -38,11 +38,11 @@ export const TextBox = styled.textarea<{ error: string | undefined }>`
   margin-top: 0.25rem;
   padding: 0.25rem;
   border: 0.125rem solid ${({ theme: { colours } }) => colours.secondary[3]};
-  background-color: transparent;
+  background-color: transparent !important;
   line-height: 1.5rem;
   outline: none;
   resize: none;
-  color: ${({ theme: { colours } }) => colours.secondary[3]};
+  color: ${({ theme: { colours } }) => colours.secondary[3]} !important;
   caret-color: ${({ theme: { colours } }) => colours.secondary[3]};
 
   &:focus {
