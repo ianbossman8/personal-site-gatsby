@@ -1,34 +1,27 @@
 import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { CardContainer, InfoContainer, MetaContainer } from './styles'
-import { P, H3 } from '../../styles/text'
 import { Link } from 'gatsby'
-import { NodeData } from '../../templates/Blogs'
+import { Frontmatter } from '../../templates/Blogs'
+import CustomGatsbyImage from '../CustomGatsbyImage/CustomGatsbyImage'
+import { P, H3 } from '../../styles/text'
+import { CardContainer, InfoContainer, MetaContainer } from './styles'
 
 interface Props {
-  blogDetail: NodeData['frontmatter']
+  blogDetail: Frontmatter
   link: string
 }
 
 export default function Card(props: Props) {
   const { blogDetail, link } = props
 
-  const { title, description, date } = blogDetail
-
-  const { name, childImageSharp } = blogDetail.thumbnail
-  const thumbnail = getImage(childImageSharp)
+  const { title, description, date, thumbnail_description, thumbnail } = blogDetail
 
   return (
     <CardContainer>
       {thumbnail && (
         <Link to={link}>
-          <GatsbyImage
-            image={thumbnail!}
-            alt={name}
-            title={name}
-            backgroundColor={
-              typeof thumbnail.backgroundColor !== 'undefined' ? thumbnail.backgroundColor : 'white'
-            }
+          <CustomGatsbyImage
+            imageDetail={thumbnail.childImageSharp}
+            description={thumbnail_description}
           />
         </Link>
       )}

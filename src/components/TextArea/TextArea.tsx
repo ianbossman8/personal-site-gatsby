@@ -8,13 +8,14 @@ interface Props {
   handleChange: (e: React.ChangeEvent<any>) => void
   value: string
   error: string | undefined
+  disabled: boolean
   required?: boolean
 }
 
 const WORD_LIMIT = 75
 
-export default function TextArea(props: Props) {
-  const { name, handleChange, value, error } = props
+export default React.memo(function TextArea(props: Props) {
+  const { name, handleChange, value, error, disabled } = props
 
   const wordsRemain = WORD_LIMIT - value.length
 
@@ -27,8 +28,9 @@ export default function TextArea(props: Props) {
         value={value}
         placeholder={`enter your ${name}`}
         error={error}
+        disabled={disabled}
       />
       {error ? <ErrorText>{error}</ErrorText> : <P>{`words remaining ${wordsRemain}`}</P>}
     </TextInputContainer>
   )
-}
+})

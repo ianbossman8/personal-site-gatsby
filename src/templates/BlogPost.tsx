@@ -1,20 +1,21 @@
 import React from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
+import CustomGatsbyImage from '../components/CustomGatsbyImage/CustomGatsbyImage'
 import symbols from '../constants/symbols'
 import { SIZE } from '../constants/font'
 import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
 import { BlogPage, ImgHolder } from './styles/blogs.styles'
-import { NodeData } from './Blogs'
+import { Frontmatter } from './Blogs'
 
 interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string
-      frontmatter: NodeData['frontmatter']
+      frontmatter: Frontmatter
       fields: {
         slug: string
       }
@@ -35,10 +36,9 @@ export default function BlogPost(props: Props) {
     author,
     date,
     edited_date,
-    thumbnail: { name, childImageSharp }
+    thumbnail_description,
+    thumbnail
   } = frontmatter
-
-  const thumbnail = getImage(childImageSharp)
 
   const pageSEO = {
     title: title,
@@ -50,15 +50,11 @@ export default function BlogPost(props: Props) {
     return (
       thumbnail && (
         <ImgHolder>
-          <GatsbyImage
-            image={thumbnail}
-            alt={name}
-            title={name}
-            backgroundColor={
-              typeof thumbnail.backgroundColor !== 'undefined' ? thumbnail.backgroundColor : 'white'
-            }
+          <CustomGatsbyImage
+            imageDetail={thumbnail.childImageSharp}
+            description={thumbnail_description}
           />
-          <figcaption>{name}</figcaption>
+          <figcaption>{thumbnail_description}</figcaption>
         </ImgHolder>
       )
     )
@@ -96,7 +92,6 @@ export const blogPostQuery = graphql`
               formats: [AUTO, WEBP, AVIF]
             )
           }
-          name
         }
       }
       fields {
