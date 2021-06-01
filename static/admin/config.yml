@@ -8,6 +8,7 @@ backend:
     delete: 'Delete {{collection}} “{{slug}}”'
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
+local_backend: true
 media_folder: static/assets
 public_folder: /assets
 publish_mode: editorial_workflow
@@ -21,6 +22,12 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Thumbnail', name: 'thumbnail', widget: 'image', required: false }
+      - {
+          label: 'Thumbnail Description',
+          name: 'thumbnail_description',
+          widget: 'string',
+          required: false
+        }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Edited Date', name: 'edited_date', widget: 'datetime', required: false }
       - { label: 'Description', name: 'description', widget: 'string' }

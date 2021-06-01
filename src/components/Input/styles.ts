@@ -18,6 +18,18 @@ export const InputBox = styled.input<{ error: string | undefined }>`
     border-bottom-color: ${({ theme: { colours } }) => colours.info[3]};
   }
 
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 50px ${({ theme: { colours } }) => colours.bg} inset;
+    -webkit-box-shadow: 0 0 0 50px ${({ theme: { colours } }) => colours.bg} inset;
+    -webkit-text-fill-color: ${({ theme: { colours } }) => colours.secondary[1]};
+  }
+
+  &:-webkit-autofill:focus {
+    box-shadow: 0 0 0 50px ${({ theme: { colours } }) => colours.bg} inset;
+    -webkit-box-shadow: 0 0 0 50px ${({ theme: { colours } }) => colours.bg} inset;
+    -webkit-text-fill-color: ${({ theme: { colours } }) => colours.secondary[1]};
+  }
+
   ${({ theme: { colours }, error }) =>
     error &&
     css`

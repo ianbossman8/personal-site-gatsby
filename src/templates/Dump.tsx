@@ -4,13 +4,13 @@ import Base from '../components/Base/Base'
 import { pageMeta } from '../constants/meta'
 import { DumpContainer } from './styles/dump.styles'
 import { H1 } from '../styles/text'
-import { NodeData } from './Blogs'
+import { Frontmatter } from './Blogs'
 
 interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string
-      frontmatter: NodeData['frontmatter']
+      frontmatter: Pick<Frontmatter, 'title' | 'description'>
     }
   }
   path: string
