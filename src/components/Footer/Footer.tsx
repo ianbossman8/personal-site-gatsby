@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialIconsList from '../SocialIconsList/SocialIconsList'
+import IconsList from '../IconsList/IconsList'
 import LinksList from '../LinksList/LinksList'
 import linksGen from '../../util/linksGen'
 import { PageMeta } from '../../constants/meta'
@@ -14,7 +14,7 @@ import {
 import { Divider } from '../../styles/divider'
 import { H3, P } from '../../styles/text'
 import { PAGE_NAMES } from '../../constants/pageNames'
-import { SIZE } from '../../constants/font'
+import { socialMediaIcons } from '../../constants/socialMediaIcons'
 
 interface Props {
   isIndex: boolean
@@ -25,6 +25,9 @@ export default function Footer(props: Props) {
   const { isIndex, pageMeta } = props
 
   const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.HOME])
+
+  const socialIcons = <IconsList icons={socialMediaIcons} />
+  const currentYear = new Date().getFullYear()
 
   return (
     <AppFooter>
@@ -46,20 +49,18 @@ export default function Footer(props: Props) {
             </SecondContainer>
             <FirstContainer>
               <P>This is my blog</P>
-              <SocialIconsList />
+              {socialIcons}
             </FirstContainer>
           </InfoBox>
         </>
       ) : (
         <Container>
           <LinksList linksMeta={linksMeta} showIcons={false} />
-          <SocialIconsList />
+          {socialIcons}
         </Container>
       )}
       <Divider />
-      <MainFooterText>
-        © {new Date().getFullYear()} produced and designed by Ian Chan
-      </MainFooterText>
+      <MainFooterText>© {currentYear} produced and designed by Ian Chan</MainFooterText>
     </AppFooter>
   )
 }

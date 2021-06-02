@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { GrClose } from 'react-icons/gr'
 import useModalEscapeKeyHooks from '../../customHooks/useModalEscapeKeyHooks'
-import SocialIconsList from '../SocialIconsList/SocialIconsList'
+import IconsList from '../IconsList/IconsList'
 import { Background, ContentContainer, ModalHeader } from './styles'
 
 interface Props {
@@ -32,7 +32,7 @@ export default function Modal(props: Props) {
         ) : (
           modalContent
         )}
-        <SocialIconsList />
+        <IconsList />
       </ContentContainer>
     </Background>
   )

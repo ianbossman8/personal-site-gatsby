@@ -65,10 +65,7 @@ declare module 'styled-components' {
         }
       }
       brands: {
-        twitter: string
-        github: string
-        medium: string
-        blogger: string
+        [key: string]: string
       }
     }
   }
