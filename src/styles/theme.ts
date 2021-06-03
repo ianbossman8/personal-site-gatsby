@@ -28,7 +28,15 @@ const commonStyle = {
 const brandColour = {
   twitter: '#1da1f2',
   medium: '#00ab6c',
-  blogger: '#f57d00'
+  blogger: '#f57d00',
+  linktree: '#13c2c2',
+  react: '#00d8ff',
+  gatsby: '#663399',
+  graphql: '#e535ab',
+  typescript: '#007acc',
+  netlify: '#00AD9F',
+  webpack: '#8ed6fb',
+  'styled-components': '#ffde34'
 }
 
 const lightTheme: DefaultTheme = {

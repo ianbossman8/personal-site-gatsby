@@ -5,13 +5,14 @@ interface Props {
   children: ReactNode
   link: string
   title: string
+  brand: string
 }
 
-export default function SocialIcon(props: Props) {
-  const { children, link, title } = props
+export default function Icon(props: Props) {
+  const { children, link, title, brand } = props
 
   return (
-    <IconLink href={link} target="blank" title={title}>
+    <IconLink href={link} target="blank" title={title} brand={brand}>
       <i>{children}</i>
     </IconLink>
   )
