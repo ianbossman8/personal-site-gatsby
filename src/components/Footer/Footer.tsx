@@ -14,7 +14,7 @@ import {
 import { Divider } from '../../styles/divider'
 import { H3, P } from '../../styles/text'
 import { PAGE_NAMES } from '../../constants/pageNames'
-import { socialMediaIcons } from '../../constants/socialMediaIcons'
+import { socialMediaIcons, techIcons } from '../../constants/icons'
 
 interface Props {
   isIndex: boolean
@@ -49,7 +49,10 @@ export default function Footer(props: Props) {
             </SecondContainer>
             <FirstContainer>
               <P>This is my blog</P>
+              <P>Connect with me:</P>
               {socialIcons}
+              <P>Site Powered By:</P>
+              <IconsList icons={techIcons} />
             </FirstContainer>
           </InfoBox>
         </>

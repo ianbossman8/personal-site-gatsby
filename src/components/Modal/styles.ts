@@ -5,7 +5,7 @@ import {
   MEDIA_QUERY_MEDIUM_WIDTH_RULE,
   MEDIA_QUERY_SMALL_WIDTH_RULE
 } from '../../constants/styles'
-import { blockQuoteStyle, H2, pStyle } from '../../styles/text'
+import { blockQuoteStyle, H2, P, pStyle } from '../../styles/text'
 import { colourfulBackground } from '../../styles/colours'
 import { MainButton, mainButtonCss } from '../../styles/buttons'
 import { InputBox } from '../Input/styles'
@@ -63,6 +63,13 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
   animation: ${modalOpacityAnimation} 0.8s ease-out forwards,
     ${changeBackgroundPosition} 6s ease-in infinite;
   will-change: background-position, opacity;
+
+  &:last-child {
+    margin-top: 1rem;
+    ${P} {
+      text-align: center;
+    }
+  }
 
   svg.modal--close-button {
     position: sticky;
