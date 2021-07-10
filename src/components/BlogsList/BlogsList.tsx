@@ -28,7 +28,7 @@ export default function BlogsList(props: Props) {
         {blogsMeta.length > 0 ? (
           blogsMeta.map(({ node: { id, frontmatter, fields } }) => (
             <li key={id}>
-              <Card blogDetail={frontmatter} link={fields.slug} />
+              <Card cardDetail={frontmatter} link={fields.slug} />
             </li>
           ))
         ) : (

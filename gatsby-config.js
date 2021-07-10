@@ -63,6 +63,13 @@ const plugins = [
     }
   },
   {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'projects',
+      path: `${__dirname}/contents/projects`
+    }
+  },
+  {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
       resolveEnv: () => NETLIFY_ENV,
@@ -72,13 +79,13 @@ const plugins = [
         },
         'branch-deploy': {
           policy: [{ userAgent: '*', disallow: ['/'] }],
-          sitemap: '',
-          host: 'https://example.com'
+          sitemap: null,
+          host: null
         },
         'deploy-preview': {
           policy: [{ userAgent: '*', disallow: ['/'] }],
-          sitemap: '',
-          host: 'https://example.com'
+          sitemap: null,
+          host: null
         }
       }
     }
