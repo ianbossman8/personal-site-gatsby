@@ -5,7 +5,7 @@ repo link: https://github.com/ianbossman8/personal-site-gatsby
 external link: https://ianbossman.me
 main language: TypeScript
 other languages:
-  - JavasScript
+  - JavaScript
   - CSS
   - HTML
 main tech: JAM
