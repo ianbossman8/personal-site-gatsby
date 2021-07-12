@@ -5,7 +5,7 @@ interface Props {
   children: ReactNode
   link: string
   title: string
-  brand: string
+  brand?: string
 }
 
 export default function Icon(props: Props) {

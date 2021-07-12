@@ -2,6 +2,7 @@ export const LINKS = {
   EXTERNAL_LINKS: {
     LINKTREE: 'https://linktr.ee/ianbossman',
     GITHUB: 'https://github.com/ianbossman8',
+    GITLAB: 'https://gitlab.com/',
     MEDIUM: 'https://ianbossman.medium.com/',
     REACT: 'https://reactjs.org/',
     TYPESCRIPT: 'https://www.typescriptlang.org/',

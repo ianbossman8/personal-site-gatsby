@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: blogs
+  branch: content-management
 
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
@@ -44,3 +44,18 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'projects'
+    label: 'Projects'
+    folder: 'contents/projects'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Repo Link', name: 'repo link', widget: 'string' }
+      - { label: 'External Link', name: 'external link', widget: 'string', required: false }
+      - { label: 'Main Language', name: 'main language', widget: 'string' }
+      - { label: 'Other Languages', name: 'other languages', widget: 'list', required: false }
+      - { label: 'Main Tech', name: 'main tech', widget: 'string', required: false }
+      - { label: 'Other Techs', name: 'other techs', widget: 'list', required: false }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: false }

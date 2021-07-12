@@ -96,6 +96,22 @@ export const H3 = styled.h3<{ reverse?: boolean }>`
   ${H3Style};
 `
 
+export const H4 = styled.h4<{ reverse?: boolean }>`
+  ${({ reverse }) => reverseFontColour(reverse)};
+  margin: 0.25rem;
+  text-transform: capitalize;
+  font-size: ${({
+    theme: {
+      font: { size }
+    }
+  }) => size[SIZE.N]};
+  font-weight: ${({
+    theme: {
+      font: { weight }
+    }
+  }) => weight[SIZE.L]};
+`
+
 export const pStyle = (reverse?: boolean) => css`
   ${reverseFontColour(reverse)};
   font-weight: ${({

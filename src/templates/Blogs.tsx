@@ -5,6 +5,10 @@ import Base from '../components/Base/Base'
 import BlogsList from '../components/BlogsList/BlogsList'
 import { pageMeta } from '../constants/meta'
 import { LINKS } from '../constants/links'
+import { PostsContainer } from './styles/generic.styles'
+import { PageHeader } from '../styles/pageHeader'
+import { H1, P } from '../styles/text'
+import { Divider } from '../styles/divider'
 
 export type Frontmatter = {
   title: string
@@ -51,18 +55,25 @@ export default function Blogs(props: Props) {
 
   return (
     <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.BLOGS] }}>
-      <BlogsList
-        numBlogPages={numBlogPages}
-        currentPage={currentPage}
-        totalBlogs={allBlogPostsInfo.totalCount}
-        blogsMeta={allBlogPostsInfo.edges}
-      />
+      <PostsContainer>
+        <PageHeader>
+          <H1>Blogs</H1>
+          <P>Here is where you find wisdom</P>
+        </PageHeader>
+        <Divider />
+        <BlogsList
+          numBlogPages={numBlogPages}
+          currentPage={currentPage}
+          totalBlogs={allBlogPostsInfo.totalCount}
+          blogsMeta={allBlogPostsInfo.edges}
+        />
+      </PostsContainer>
     </Base>
   )
 }
 
 export const blogsQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query ($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       filter: { fields: { contentType: { eq: "blogs" } } }
       sort: { fields: [frontmatter___date], order: DESC }
