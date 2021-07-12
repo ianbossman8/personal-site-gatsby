@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
-import { getImage } from 'gatsby-plugin-image'
 import Emoji from '../components/Emoji/Emoji'
 import Base from '../components/Base/Base'
 import CustomGatsbyImage from '../components/CustomGatsbyImage/CustomGatsbyImage'
@@ -30,15 +29,8 @@ export default function BlogPost(props: Props) {
     }
   } = props
 
-  const {
-    title,
-    description,
-    author,
-    date,
-    edited_date,
-    thumbnail_description,
-    thumbnail
-  } = frontmatter
+  const { title, description, author, date, edited_date, thumbnail_description, thumbnail } =
+    frontmatter
 
   const pageSEO = {
     title: title,
@@ -78,7 +70,7 @@ export default function BlogPost(props: Props) {
 }
 
 export const blogPostQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

@@ -1,29 +1,46 @@
 import React from 'react'
-import { P, H3 } from '../../styles/text'
+import { P, H4 } from '../../styles/text'
 import { Frontmatter } from '../../templates/Projects'
-import { CardContainer } from './styles'
+import { CardContainer, LeftDiv, RightDiv, BottomDiv } from './styles'
 
 interface Props {
-  cardDetail: Frontmatter
+  cardDetail: Partial<Frontmatter>
+  repoIcon: JSX.Element
+  siteIcon: JSX.Element
+  languageLogo: JSX.Element
+}
+
+function stringArrayLooper(arr: string[] = []) {
+  return <span>{arr.join(', ')}</span>
 }
 
 export default function LargeCard(props: Props) {
-  const { cardDetail } = props
-  const {
-    title,
-    description,
-    date,
-    edited_date,
-    external_link,
-    repo_link,
-    main_language,
-    other_languages,
-    main_tech
-  } = cardDetail
+  const { cardDetail, repoIcon, siteIcon, languageLogo } = props
+  const { title, description, other_techs, other_languages, main_tech, main_language, date } =
+    cardDetail
 
   return (
     <CardContainer>
-      <H3>{title}</H3>
+      <LeftDiv>
+        <H4>{title}</H4>
+        <P>{description}</P>
+        <P>
+          {main_language}, {stringArrayLooper(other_languages)}
+        </P>
+      </LeftDiv>
+      <RightDiv>
+        <div>
+          <P>{date}</P>
+          {React.cloneElement(repoIcon)}
+          {React.cloneElement(siteIcon)}
+        </div>
+        {React.cloneElement(languageLogo)}
+      </RightDiv>
+      <BottomDiv>
+        <P>
+          Stack{stringArrayLooper(other_techs)} {main_tech}
+        </P>
+      </BottomDiv>
     </CardContainer>
   )
 }

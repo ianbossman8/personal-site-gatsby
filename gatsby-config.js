@@ -79,13 +79,13 @@ const plugins = [
         },
         'branch-deploy': {
           policy: [{ userAgent: '*', disallow: ['/'] }],
-          sitemap: null,
-          host: null
+          sitemap: '',
+          host: 'https://example.com'
         },
         'deploy-preview': {
           policy: [{ userAgent: '*', disallow: ['/'] }],
-          sitemap: null,
-          host: null
+          sitemap: '',
+          host: 'https://example.com'
         }
       }
     }
