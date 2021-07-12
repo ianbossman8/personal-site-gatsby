@@ -6,14 +6,13 @@ import { P, H3 } from '../../styles/text'
 import { CardContainer, InfoContainer, MetaContainer } from './styles'
 
 interface Props {
-  blogDetail: Frontmatter
+  cardDetail: Frontmatter
   link: string
 }
 
 export default function Card(props: Props) {
-  const { blogDetail, link } = props
-
-  const { title, description, date, thumbnail_description, thumbnail } = blogDetail
+  const { cardDetail, link } = props
+  const { title, description, date, thumbnail_description, thumbnail } = cardDetail
 
   return (
     <CardContainer>

@@ -63,6 +63,13 @@ const plugins = [
     }
   },
   {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'projects',
+      path: `${__dirname}/contents/projects`
+    }
+  },
+  {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
       resolveEnv: () => NETLIFY_ENV,

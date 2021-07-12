@@ -5,6 +5,7 @@ import ContactForm from '../components/ContactForm/ContactForm'
 import { pageMeta } from '../constants/meta'
 import { AboutContainer, SectionContainer } from './styles/about.styles'
 import { H1, H2 } from '../styles/text'
+import { PageHeader } from '../styles/pageHeader'
 
 interface Props extends PageProps {
   data: {
@@ -26,9 +27,9 @@ export default function About(props: Props) {
   return (
     <Base pageSeo={{ ...pageMeta[path] }}>
       <AboutContainer>
-        <header>
+        <PageHeader>
           <H1>About</H1>
-        </header>
+        </PageHeader>
         <SectionContainer dangerouslySetInnerHTML={{ __html: html }} />
         <section className="contact-form">
           <H2>contact me</H2>
@@ -40,7 +41,7 @@ export default function About(props: Props) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
     }
