@@ -15,4 +15,5 @@ other techs:
   - GraphQL
   - Netlify
 date: 2021-01-01T18:54:24.933Z
+pin: true
 ---
