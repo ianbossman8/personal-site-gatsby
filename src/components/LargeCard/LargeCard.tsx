@@ -1,10 +1,10 @@
 import React from 'react'
 import { P, H4 } from '../../styles/text'
-import { Frontmatter } from '../../templates/Projects'
+import { ProjectsFrontmatter } from '../../types'
 import { CardContainer, LeftDiv, RightDiv, BottomDiv } from './styles'
 
 interface Props {
-  cardDetail: Partial<Frontmatter>
+  cardDetail: Partial<ProjectsFrontmatter>
   repoIcon: JSX.Element
   siteIcon: JSX.Element
   languageLogo: JSX.Element
@@ -31,10 +31,10 @@ export default function LargeCard(props: Props) {
       <RightDiv>
         <div>
           <P>{date}</P>
-          {React.cloneElement(repoIcon)}
-          {React.cloneElement(siteIcon)}
+          {repoIcon}
+          {siteIcon}
         </div>
-        {React.cloneElement(languageLogo)}
+        {languageLogo}
       </RightDiv>
       <BottomDiv>
         <P>

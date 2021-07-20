@@ -29,10 +29,11 @@ collections:
           required: false
         }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Edited Date', name: 'edited_date', widget: 'datetime', required: false }
+      - { label: 'Edited Date', name: 'edited_date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Categories', name: 'categories', widget: 'list' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Pin', name: 'pin', widget: 'boolean', default: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'siteInfo'
     label: 'Site Info'
@@ -59,3 +60,4 @@ collections:
       - { label: 'Main Tech', name: 'main tech', widget: 'string', required: false }
       - { label: 'Other Techs', name: 'other techs', widget: 'list', required: false }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', required: false }
+      - { label: 'Pin', name: 'pin', widget: 'boolean', default: false }

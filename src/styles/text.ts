@@ -129,7 +129,7 @@ export const P = styled.p<{ reverse?: boolean }>`
   ${({ reverse }) => pStyle(reverse)};
 `
 
-export const ColourFulHeader = styled(H1)`
+export const ColourfulHeader = styled(H1)`
   max-width: calc(100% - 2rem);
   text-align: center;
   font-family: system-ui, -apple-system, sans-serif;
