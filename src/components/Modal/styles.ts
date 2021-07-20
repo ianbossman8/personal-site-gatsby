@@ -88,6 +88,7 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
     css`
       blockquote {
         ${blockQuoteStyle(true)};
+        margin: 2rem auto;
       }
 
       p {
@@ -139,7 +140,6 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
 
     blockquote {
       padding: 0.15rem 0.5rem;
-      margin: 0 0 2rem 0;
 
       mark {
         letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.S]};
