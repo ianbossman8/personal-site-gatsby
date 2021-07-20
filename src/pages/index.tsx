@@ -7,7 +7,7 @@ import { pageMeta } from '../constants/meta'
 import { PAGE_NAMES } from '../constants/pageNames'
 import { LINKS } from '../constants/links'
 import symbols from '../constants/symbols'
-import { ColourFulHeader } from '../styles/text'
+import { ColourfulHeader } from '../styles/text'
 
 const introItems = [
   { title: PAGE_NAMES.ABOUT, text: PAGE_NAMES.ABOUT },
@@ -31,7 +31,7 @@ export default function SiteIndex() {
       modalProps={{ modalContent, handleModalReset }}
       reverse>
       <Emoji symbol={symbols.party} label="welcome image" />
-      <ColourFulHeader>wagwan, this is bossman's life</ColourFulHeader>
+      <ColourfulHeader>wagwan, this is bossman's life</ColourfulHeader>
       <IntroBar setModalContentTopic={setModalContentTopic} items={introItems} />
     </Base>
   )

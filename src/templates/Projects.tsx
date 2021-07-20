@@ -12,30 +12,13 @@ import { PostsContainer } from './styles/generic.styles'
 import { ProjectListContainer } from './styles/project.stles'
 import { H1, P } from '../styles/text'
 import { Divider } from '../styles/divider'
-
-export type Frontmatter = {
-  title: string
-  description: string
-  date: Date
-  external_link: string
-  repo_link: string
-  main_language: string
-  other_languages: string[]
-  other_techs: string[]
-  main_tech: string
-}
-
-type NodeData = {
-  frontmatter: Frontmatter
-  id: string
-}
+import { NodeData, ProjectsFrontmatter } from '../types'
 
 type AllProjectsInfoQuery = {
   allMarkdownRemark: {
     edges: {
-      node: NodeData
+      node: NodeData<ProjectsFrontmatter>
     }[]
-    totalCount: number
   }
 }
 

@@ -1,11 +1,11 @@
 ---
-title: 'An Easy to Understand Visual Guide for JavaScript- Promise.all,
-  Promise.race, Promise.allSettled, Promise.any '
+title: "An Easy to Understand Visual Guide for JavaScript- Promise.all,
+  Promise.race, Promise.allSettled, Promise.any "
 author: Yick Chan (Ian)
 thumbnail: /assets/promise-pinkies.png
 thumbnail_description: Keeping our Promises simple and easy to understand
 date: 2021-03-13T15:00:08.104Z
-edited_date: ''
+edited_date: 2021-03-30T23:00:00.000Z
 description: JavaScript's Promise- Two more new methods .any(ES2021) and
   .allSettled(ES2020) had joined, let’s debunk their key features, and show how
   to use them.
@@ -19,6 +19,7 @@ tags:
   - ES5
   - ES2020
   - ES2021
+pin: true
 ---
 
 ## Introduction

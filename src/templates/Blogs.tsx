@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 import Base from '../components/Base/Base'
 import BlogsList from '../components/BlogsList/BlogsList'
 import { pageMeta } from '../constants/meta'
@@ -9,33 +8,12 @@ import { PostsContainer } from './styles/generic.styles'
 import { PageHeader } from '../styles/pageHeader'
 import { H1, P } from '../styles/text'
 import { Divider } from '../styles/divider'
-
-export type Frontmatter = {
-  title: string
-  description: string
-  date: Date
-  edited_date: Date | string
-  tags: string[]
-  categories: string[]
-  author: string
-  thumbnail_description: string | null
-  thumbnail: {
-    childImageSharp: IGatsbyImageData
-  } | null
-}
-
-type NodeData = {
-  frontmatter: Frontmatter
-  id: string
-  fields: {
-    slug: string
-  }
-}
+import { BlogsFrontmatter, NodeData } from '../types'
 
 export type AllBlogPostsInfoQuery = {
   allMarkdownRemark: {
     edges: {
-      node: NodeData
+      node: NodeData<BlogsFrontmatter>
     }[]
     totalCount: number
   }
