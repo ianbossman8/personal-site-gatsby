@@ -8,16 +8,17 @@ import { SIZE } from '../constants/font'
 import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
 import { BlogPage, ImgHolder } from './styles/blogs.styles'
-import { Frontmatter } from './Blogs'
+import { BlogsFrontmatter } from '../types'
 
 interface Props extends PageProps {
   data: {
     markdownRemark: {
       html: string
-      frontmatter: Frontmatter
+      frontmatter: BlogsFrontmatter
       fields: {
         slug: string
       }
+      timeToRead: number
     }
   }
 }
@@ -25,7 +26,7 @@ interface Props extends PageProps {
 export default function BlogPost(props: Props) {
   const {
     data: {
-      markdownRemark: { html, frontmatter, fields }
+      markdownRemark: { html, frontmatter, fields, timeToRead }
     }
   } = props
 
@@ -62,6 +63,7 @@ export default function BlogPost(props: Props) {
         <H1>{title}</H1>
         <P>By- {author}</P>
         <P>First Published- {date}</P>
+        <P>Time to Read- {timeToRead} mins</P>
         {edited_date && edited_date !== 'Invalid date' && <P>Last Edited- {edited_date}</P>}
         <article dangerouslySetInnerHTML={{ __html: html }} />
       </BlogPage>
@@ -89,6 +91,7 @@ export const blogPostQuery = graphql`
       fields {
         slug
       }
+      timeToRead
     }
   }
 `

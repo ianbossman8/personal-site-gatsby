@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Frontmatter } from '../../templates/Blogs'
 import CustomGatsbyImage from '../CustomGatsbyImage/CustomGatsbyImage'
 import { P, H3 } from '../../styles/text'
 import { CardContainer, InfoContainer, MetaContainer } from './styles'
+import { BlogsFrontmatter } from '../../types'
 
 interface Props {
-  cardDetail: Frontmatter
+  cardDetail: BlogsFrontmatter
   link: string
 }
 

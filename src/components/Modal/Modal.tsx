@@ -34,7 +34,7 @@ export default function Modal(props: Props) {
         ) : (
           modalContent
         )}
-        <div>
+        <div className="modal__contact">
           <P>Connect with me:</P>
           <IconsList icons={socialMediaIcons} />
           <P>Site Powered By:</P>

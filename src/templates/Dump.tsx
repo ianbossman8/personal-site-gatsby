@@ -4,7 +4,7 @@ import Base from '../components/Base/Base'
 import { pageMeta } from '../constants/meta'
 import { DumpContainer } from './styles/dump.styles'
 import { H1 } from '../styles/text'
-import { Frontmatter } from './Blogs'
+import { Frontmatter } from '../types'
 
 interface Props extends PageProps {
   data: {
@@ -44,7 +44,7 @@ export default function Dump(props: Props) {
 }
 
 export const dumpQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

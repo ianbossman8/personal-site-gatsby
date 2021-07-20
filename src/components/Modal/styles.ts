@@ -5,7 +5,7 @@ import {
   MEDIA_QUERY_MEDIUM_WIDTH_RULE,
   MEDIA_QUERY_SMALL_WIDTH_RULE
 } from '../../constants/styles'
-import { blockQuoteStyle, H2, P, pStyle } from '../../styles/text'
+import { blockQuoteStyle, H2, H3, P, pStyle } from '../../styles/text'
 import { colourfulBackground } from '../../styles/colours'
 import { MainButton, mainButtonCss } from '../../styles/buttons'
 import { InputBox } from '../Input/styles'
@@ -64,8 +64,8 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
     ${changeBackgroundPosition} 6s ease-in infinite;
   will-change: background-position, opacity;
 
-  &:last-child {
-    margin-top: 1rem;
+  .modal__contact {
+    margin-top: 2rem;
     ${P} {
       text-align: center;
     }
@@ -103,8 +103,12 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
         caret-color: ${({ theme: { colours } }) => colours.primary[1]};
       }
 
-      ${ModalHeader} {
+      ${ModalHeader}, ${H3} {
         color: ${colours.primary[1]};
+      }
+
+      ${H3} {
+        margin-bottom: 0.25rem;
       }
 
       ${InputBox} {
