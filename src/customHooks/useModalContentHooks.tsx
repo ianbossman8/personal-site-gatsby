@@ -19,7 +19,7 @@ export default function useModalContentHooks(topic: string | undefined): HooksRe
   const aboutMe = useAboutContentQuery()
   const blogsSnapshot = useBlogsQuery()
   const projectsSnapshot = useProjectsQuery()
-  console.log(projectsSnapshot)
+
   const [modalContent, setModalContent] = useState<HooksReturnType>(undefined)
 
   const introItems = {
