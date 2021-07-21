@@ -12,16 +12,17 @@ export const InfoBox = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-left: 1rem;
 
   ${P} {
+    margin-top: 0;
     padding-bottom: 0.25rem;
     text-align: left;
   }
 `
 
 export const ItemContainer = styled.li`
-  max-height: 8rem;
   padding: 0.5rem;
   margin: 0 0 1rem 0;
   box-sizing: border-box;

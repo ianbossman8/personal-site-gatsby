@@ -49,6 +49,7 @@ export const CardContainer = styled.div`
   ${MEDIA_QUERY_SMALL_WIDTH_RULE} {
     width: inherit;
     max-width: inherit;
+    margin: 0;
   }
 `
 
