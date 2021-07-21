@@ -9,8 +9,12 @@ import { LINKS } from '../constants/links'
 import { H1, P } from '../styles/text'
 import { BlogPage, ImgHolder } from './styles/blogs.styles'
 import { BlogsFrontmatter } from '../types'
+import location from '../util/location'
 
-interface Props extends PageProps {
+type LocationState = {
+  origin: string
+}
+interface Props extends PageProps<object, object, LocationState> {
   data: {
     markdownRemark: {
       html: string
@@ -32,6 +36,11 @@ export default function BlogPost(props: Props) {
 
   const { title, description, author, date, edited_date, thumbnail_description, thumbnail } =
     frontmatter
+
+  const originPath =
+    location.isLocationAvailable && props.location.state?.origin
+      ? props.location.state.origin
+      : LINKS.INTERNAL_LINKS.BLOGS
 
   const pageSEO = {
     title: title,
@@ -56,7 +65,7 @@ export default function BlogPost(props: Props) {
   return (
     <Base pageSeo={{ ...pageSEO }}>
       <BlogPage>
-        <Link to={LINKS.INTERNAL_LINKS.BLOGS}>
+        <Link to={originPath}>
           <Emoji label="back page" symbol={symbols.pointLeft} size={SIZE.S} /> back to all blogs
         </Link>
         {showImage()}

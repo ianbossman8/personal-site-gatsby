@@ -10,10 +10,11 @@ interface Props {
   currentPage: number
   numBlogPages: number
   blogsMeta: AllBlogPostsInfoQuery['allMarkdownRemark']['edges']
+  origin: string
 }
 
 export default function BlogsList(props: Props) {
-  const { totalBlogs, blogsMeta, currentPage, numBlogPages } = props
+  const { totalBlogs, blogsMeta, currentPage, numBlogPages, origin } = props
 
   return (
     <>
@@ -22,7 +23,7 @@ export default function BlogsList(props: Props) {
         {blogsMeta.length > 0 ? (
           blogsMeta.map(({ node: { id, frontmatter, fields } }) => (
             <li key={id}>
-              <Card cardDetail={frontmatter} link={fields.slug} />
+              <Card cardDetail={frontmatter} link={fields.slug} origin={origin} />
             </li>
           ))
         ) : (
