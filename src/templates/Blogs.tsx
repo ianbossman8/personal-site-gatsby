@@ -30,6 +30,7 @@ interface Props extends PageProps {
 export default function Blogs(props: Props) {
   const allBlogPostsInfo = props.data.allMarkdownRemark
   const { numBlogPages, currentPage } = props.pageContext
+  const { path } = props
 
   return (
     <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.BLOGS] }}>
@@ -44,6 +45,7 @@ export default function Blogs(props: Props) {
           currentPage={currentPage}
           totalBlogs={allBlogPostsInfo.totalCount}
           blogsMeta={allBlogPostsInfo.edges}
+          origin={path}
         />
       </PostsContainer>
     </Base>
