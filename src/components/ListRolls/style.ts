@@ -45,7 +45,13 @@ export const ItemContainer = styled.li`
     min-height: 5rem;
     height: 5rem;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
     align-self: center;
+
+    img {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+    }
   }
 `
 
