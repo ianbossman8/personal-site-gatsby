@@ -58,6 +58,7 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
   box-shadow: ${({ theme: { colours } }) => `0 0.25rem 1rem 0 ${colours.secondary.blur.strong}`};
   opacity: 0;
   padding: 1.5rem;
+  border-radius: 1rem;
   overflow: scroll;
   z-index: 3;
   animation: ${modalOpacityAnimation} 0.8s ease-out forwards,
@@ -76,11 +77,20 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
     top: 0;
     float: right;
     z-index: 4;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 50%;
     cursor: pointer;
 
     path {
       stroke: ${({ theme: { colours } }) => colours.primary[1]};
     }
+
+    &:hover {
+      background-color: ${({ theme: { colours } }) => colours.primary.blur.light};
+    }
+
+    transition: 0.2s background-color ease-out;
   }
 
   ${({ reverse, theme: { colours } }) =>
@@ -127,6 +137,18 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
 
         &::placeholder {
           color: ${colours.primary[3]};
+        }
+      }
+
+      a {
+        color: ${({ theme: { colours } }) => colours.info[1]};
+      }
+
+      .modal__important-link {
+        font-size: ${({ theme: { font } }) => font.size[SIZE.L]};
+
+        &:hover {
+          color: ${({ theme: { colours } }) => colours.info[3]};
         }
       }
 

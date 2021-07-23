@@ -24,6 +24,16 @@ export const IntroButton = styled.button`
   span {
     ${fillBackgroundText};
   }
+
+  &:hover {
+    box-shadow: ${({ theme: { colours } }) =>
+      `inset 0.175rem 0.25rem 0.375rem ${colours.secondary.blur.light}`};
+  }
+
+  &:active {
+    box-shadow: ${({ theme: { colours } }) =>
+      `inset 0.175rem 0.25rem 0.25rem ${colours.secondary.blur.light}`};
+  }
 `
 
 export const IntroBarContainer = styled.div`
