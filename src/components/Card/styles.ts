@@ -28,6 +28,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { colours } }) => colours.primary[1]};
+  border-radius: 0.75rem;
   box-shadow: ${({ theme: { colours } }) =>
     `0 0.0625rem 0.25rem 0 ${colours.secondary.blur.light}`};
   letter-spacing: 0;
@@ -40,6 +41,10 @@ export const CardContainer = styled.div`
 
   ${P} {
     line-height: 1.375rem;
+  }
+
+  .gatsby-image-wrapper {
+    border-radius: 0.75rem 0.75rem 0 0;
   }
 
   &:hover {
@@ -69,11 +74,13 @@ export const CardContainer = styled.div`
 export const MetaContainer = styled.div`
   display: flex;
   align-self: flex-end;
+  padding: 0.5rem;
+  border-radius: 0 0 0.75rem 0;
+  background-color: ${({ theme: { colours } }) => colours.info[2]};
+  clip-path: polygon(0.625rem 0%, 100% 0%, 100% 100%, 0% 100%);
 
-  ${CardContainer}, ${P} {
+  ${P} {
     margin: 0;
-    padding: 0.5rem;
-    background-color: ${({ theme: { colours } }) => colours.info[2]};
-    clip-path: polygon(0.625rem 0%, 100% 0%, 100% 100%, 0% 100%);
+    padding-left: 0.5rem;
   }
 `

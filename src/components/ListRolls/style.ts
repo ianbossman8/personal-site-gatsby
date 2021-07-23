@@ -29,6 +29,7 @@ export const ItemContainer = styled.li`
   cursor: pointer;
 
   &:hover {
+    border-radius: 0.5rem;
     background-color: ${({ theme: { colours } }) => colours.primary.blur.light};
     box-shadow: 0px 1px 20px 0px ${({ theme: { colours } }) => colours.secondary.blur.light} inset;
     transition: all 0.1s ease-out;

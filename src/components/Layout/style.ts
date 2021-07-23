@@ -31,6 +31,7 @@ export const MainContainer = styled.main<{ isIndex: boolean | undefined }>`
         `}
 
   a {
-    color: ${({ theme: { colours } }) => colours.info[2]};
+    color: ${({ theme: { colours } }) => colours.secondary[1]};
+    text-decoration: none;
   }
 `

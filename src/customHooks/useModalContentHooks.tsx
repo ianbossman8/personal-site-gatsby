@@ -29,7 +29,9 @@ export default function useModalContentHooks(topic: string | undefined): HooksRe
       title: PAGE_NAMES.BLOGS,
       body: (
         <>
-          <Link to={LINKS.INTERNAL_LINKS.BLOGS}>See all blogs</Link>
+          <Link to={LINKS.INTERNAL_LINKS.BLOGS} className="modal__important-link">
+            See all blogs
+          </Link>
           <ListRolls
             pinnedContent={blogsSnapshot.pinnedBlogs}
             latestContent={blogsSnapshot.latestBlogs}
@@ -41,7 +43,9 @@ export default function useModalContentHooks(topic: string | undefined): HooksRe
       title: PAGE_NAMES.PROJECTS,
       body: (
         <>
-          <Link to={LINKS.INTERNAL_LINKS.PROJECTS}>See all projects</Link>
+          <Link to={LINKS.INTERNAL_LINKS.PROJECTS} className="modal__important-link">
+            See all projects
+          </Link>
           <ListRolls
             pinnedContent={projectsSnapshot.pinnedProjects}
             latestContent={projectsSnapshot.latestProjects}

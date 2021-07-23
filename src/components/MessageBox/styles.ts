@@ -26,5 +26,11 @@ export const Message = styled.div<{ state: string | undefined; messageState: MES
     cursor: pointer;
     right: 0.25rem;
     top: 0.25rem;
+
+    svg {
+      path {
+        stroke: ${({ theme: { colours } }) => colours.secondary[1]};
+      }
+    }
   }
 `

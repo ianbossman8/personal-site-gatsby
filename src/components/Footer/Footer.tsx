@@ -48,7 +48,7 @@ export default function Footer(props: Props) {
               </div>
             </SecondContainer>
             <FirstContainer>
-              <P>This is my blog</P>
+              <P>Human Made</P>
               <P>Connect with me:</P>
               {socialIcons}
               <P>Site Powered By:</P>

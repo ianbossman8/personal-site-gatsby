@@ -17,7 +17,7 @@ export const commonButtonCssProperties = css`
     }
   }) => weight[SIZE.S]};
   cursor: pointer;
-  box-shadow: ${({ theme: { colours } }) => `0 0.125rem 0.5rem 0 ${colours.secondary.blur.strong}`};
+  box-shadow: ${({ theme: { colours } }) => `0 0.125rem 0.5rem ${colours.secondary.blur.strong}`};
 
   &:disabled {
     background-color: ${({ theme: { colours } }) => colours.secondary.blur.light};
@@ -53,12 +53,16 @@ export const MainButton = styled.button`
   ${commonButtonCssProperties}
   min-height: 2.75rem;
   border: none;
+  border-radius: 0.25rem;
 `
 
 export const MenuButton = styled.button`
   display: none;
+  color: ${({ theme: { colours } }) => colours.secondary[1]};
 
   ${MEDIA_QUERY_MEDIUM_WIDTH_RULE} {
+    width: 3rem;
+    height: 3rem;
     display: block;
     position: fixed;
     top: 0.5rem;
@@ -66,8 +70,21 @@ export const MenuButton = styled.button`
     padding: 0;
     background: transparent;
     border: none;
-    color: ${({ theme: { colours } }) => colours.secondary[1]};
+    border-radius: 50%;
+
     z-index: 2;
     cursor: pointer;
+
+    svg {
+      path {
+        stroke: ${({ theme: { colours } }) => colours.secondary[1]};
+      }
+    }
+
+    &:hover {
+      background-color: ${({ theme: { colours } }) => colours.secondary.blur.light};
+    }
+
+    transition: background-color 0.2s ease-out;
   }
 `
