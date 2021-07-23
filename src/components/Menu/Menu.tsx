@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IoIosMenu } from 'react-icons/io'
+import { GrClose } from 'react-icons/gr'
 import LinksList from '../LinksList/LinksList'
 import useModalEscapeKeyHooks from '../../customHooks/useModalEscapeKeyHooks'
 import { LinksObj } from '../../util/linksGen'
@@ -44,7 +45,11 @@ export default function Menu(props: Props) {
             <LinksList linksMeta={linksMeta} size={size} />
           </MenuContainer>
           <MenuButton>
-            <IoIosMenu size={48} onClick={handleMenuClick} title="menu" />
+            {!showMenu ? (
+              <IoIosMenu size={48} onClick={handleMenuClick} title="menu" />
+            ) : (
+              <GrClose size={42} onClick={handleMenuClick} title="close" />
+            )}
           </MenuButton>
         </>
       )}

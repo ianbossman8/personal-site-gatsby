@@ -38,6 +38,7 @@ export const TextBox = styled.textarea<{ error: string | undefined }>`
   margin-top: 0.25rem;
   padding: 0.25rem;
   border: 0.125rem solid ${({ theme: { colours } }) => colours.secondary[3]};
+  border-radius: 0.375rem;
   background-color: transparent !important;
   line-height: 1.5rem;
   outline: none;

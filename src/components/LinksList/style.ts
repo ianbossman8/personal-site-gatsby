@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SIZE } from '../../constants/font'
+import { anchorStyle } from '../../styles/text'
 
 export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE }>`
   margin: 0;
@@ -31,12 +32,6 @@ export const LinksListContainer = styled.ul<{ direction: string; fontSize: SIZE 
   }
 
   a {
-    text-decoration: none;
-    text-transform: capitalize;
-    color: ${({ theme: { colours } }) => colours.secondary[1]};
-
-    &:hover {
-      color: ${({ theme: { colours } }) => colours.info[3]};
-    }
+    ${anchorStyle}
   }
 `

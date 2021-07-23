@@ -23,6 +23,7 @@ export const blockQuoteStyle = (reverse?: boolean) => css`
   max-width: 42rem;
   padding: 0.25rem 0.75rem;
   margin-bottom: 2rem;
+  border-radius: 0.5rem;
   text-align: center;
 
   mark {
@@ -142,4 +143,18 @@ export const ColourfulHeader = styled(H1)`
   user-select: none;
   ${fillBackgroundText}
   animation: ${textColourAnimation} 0.8s ease-in-out forwards;
+`
+
+export const anchorStyle = css`
+  text-decoration: none;
+  text-transform: capitalize;
+  color: ${({ theme: { colours } }) => colours.secondary[1]};
+
+  &:hover {
+    color: ${({ theme: { colours } }) => colours.info[2]};
+  }
+
+  &:active {
+    color: ${({ theme: { colours } }) => colours.info[3]};
+  }
 `
