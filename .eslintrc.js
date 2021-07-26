@@ -15,7 +15,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended'
   ],
   rules: {
@@ -26,6 +25,8 @@ module.exports = {
     'keyword-spacing': ['error', { before: true }],
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    'typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-var-requires': 'off'
   }
 }

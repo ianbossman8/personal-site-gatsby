@@ -9,8 +9,9 @@
     "build": "npm run clean && gatsby build",
     "serve": "gatsby serve",
     "serve:local": "npm run build && npm run serve",
+    "test": "jest",
     "prepare": "node ./prepare.js",
-    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint": "eslint \"**/*.{ts,tsx,js}\"",
     "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [
@@ -64,6 +65,8 @@
     "babel-jest": "^27.0.6",
     "babel-preset-gatsby": "^1.10.0",
     "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "gatsby-plugin-typescript": "^3.8.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.24",
     "husky": "^7.0.1",

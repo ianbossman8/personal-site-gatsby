@@ -1,0 +1,17 @@
+# Project dependencies
+.cache
+node_modules
+
+# Build directory
+public
+
+# Other
+.DS_Store
+notes.md
+.vscode
+
+contents
+__mocks__
+prepare.js
+jest-preprocess.js
+static
