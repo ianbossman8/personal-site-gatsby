@@ -18,6 +18,7 @@ const siteMetadata = {
 }
 
 const plugins = [
+  'gatsby-plugin-webpack-bundle-analyser-v2',
   'gatsby-plugin-sharp',
   'gatsby-transformer-sharp',
   'gatsby-plugin-netlify-cms',
