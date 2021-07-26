@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import THEME from '../constants/theme'
 
-export default function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void) {
+export default function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void): void {
   useEffect(() => {
     const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
 

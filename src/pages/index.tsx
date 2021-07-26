@@ -17,7 +17,7 @@ const introItems = [
   { title: PAGE_NAMES.PROMOTIONS, text: 'support people in need' }
 ]
 
-export default function SiteIndex() {
+export default function SiteIndex(): JSX.Element {
   const [modalContentTopic, setModalContentTopic] = useState<string | undefined>(undefined)
   const modalContent = useModalContentHooks(modalContentTopic)
 
@@ -31,7 +31,7 @@ export default function SiteIndex() {
       modalProps={{ modalContent, handleModalReset }}
       reverse>
       <Emoji symbol={symbols.party} label="welcome image" />
-      <ColourfulHeader>wagwan, this is bossman's life</ColourfulHeader>
+      <ColourfulHeader>wagwan, this is bossman&apos;s life</ColourfulHeader>
       <IntroBar setModalContentTopic={setModalContentTopic} items={introItems} />
     </Base>
   )

@@ -17,7 +17,7 @@ interface Props {
   setColourTheme: (theme: THEME) => void
 }
 
-export default function Header(props: Props) {
+export default function Header(props: Props): JSX.Element {
   const { pageMeta, colourTheme, setColourTheme, isIndex } = props
 
   const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.PRIVACY])

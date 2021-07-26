@@ -3,7 +3,7 @@ import symbols from '../../constants/symbols'
 import Emoji from '../Emoji/Emoji'
 import { ToTopButton } from './styles'
 
-export default function ScrollUpButton() {
+export default function ScrollUpButton(): JSX.Element {
   function handleClick() {
     window.scroll({
       top: 0,

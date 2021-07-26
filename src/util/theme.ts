@@ -1,26 +1,26 @@
 import THEME from '../constants/theme'
 
-export default function initialTheme() {
-  let initialTheme
+export default function initialTheme(): THEME {
+  let currentTheme
 
   if (typeof localStorage !== 'undefined' && typeof matchMedia !== 'undefined') {
     const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches
     const curlocalTheme = localStorage.getItem('colourTheme')
 
     if (curlocalTheme) {
-      initialTheme = curlocalTheme as THEME
+      currentTheme = curlocalTheme as THEME
     } else {
       if (systemTheme) {
-        initialTheme = THEME.DARK
+        currentTheme = THEME.DARK
       } else {
-        initialTheme = THEME.LIGHT
+        currentTheme = THEME.LIGHT
       }
     }
   } else {
-    initialTheme = THEME.LIGHT
+    currentTheme = THEME.LIGHT
   }
 
-  localStorage.setItem('colourTheme', initialTheme)
+  localStorage.setItem('colourTheme', currentTheme)
 
-  return initialTheme
+  return currentTheme
 }

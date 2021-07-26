@@ -11,7 +11,7 @@ interface Props {
   }[]
 }
 
-export default function IconsList(props: Props) {
+export default function IconsList(props: Props): JSX.Element {
   return (
     <IconsListContainer>
       {props.icons.map((icon) => (

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme, FlattenInterpolation, ThemeProps } from 'styled-components'
 import { SIZE } from '../constants/font'
 import { MEDIA_QUERY_MEDIUM_WIDTH_RULE } from '../constants/styles'
 
@@ -33,8 +33,8 @@ export const ThemeButton = styled.button`
   cursor: pointer;
 `
 
-export const mainButtonCss = (reverse: boolean = false) =>
-  !reverse
+export function mainButtonCss(reverse = false): FlattenInterpolation<ThemeProps<DefaultTheme>> {
+  return !reverse
     ? css`
         background-color: ${({ theme: { colours } }) => colours.info[3]};
         color: ${({ theme: { colours } }) => colours.primary[1]};
@@ -47,6 +47,7 @@ export const mainButtonCss = (reverse: boolean = false) =>
         box-shadow: ${({ theme: { colours } }) =>
           `0 0.125rem 0.5rem 0 ${colours.primary.blur.strong}`};
       `
+}
 
 export const MainButton = styled.button`
   ${mainButtonCss()};

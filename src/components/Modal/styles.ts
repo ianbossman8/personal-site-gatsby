@@ -111,7 +111,7 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
       }
 
       ${InputBox}, ${TextBox} {
-        caret-color: ${({ theme: { colours } }) => colours.primary[1]};
+        caret-color: ${colours.primary[1]};
       }
 
       ${ModalHeader}, ${H3} {
@@ -141,14 +141,14 @@ export const ContentContainer = styled.section<{ reverse: boolean }>`
       }
 
       a {
-        color: ${({ theme: { colours } }) => colours.info[1]};
+        color: ${colours.info[1]};
       }
 
       .modal__important-link {
         font-size: ${({ theme: { font } }) => font.size[SIZE.L]};
 
         &:hover {
-          color: ${({ theme: { colours } }) => colours.info[3]};
+          color: ${colours.info[3]};
         }
       }
 

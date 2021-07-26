@@ -6,7 +6,7 @@ type AboutQueryResponse = {
   }
 }
 
-export function useAboutContentQuery() {
+export function useAboutContentQuery(): string {
   const { markdownRemark } = useStaticQuery<AboutQueryResponse>(
     graphql`
       query {

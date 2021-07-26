@@ -1,4 +1,10 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  keyframes,
+  ThemeProps
+} from 'styled-components'
 import { fillBackgroundText, glassBackground } from './colours'
 import { SIZE } from '../constants/font'
 
@@ -8,7 +14,9 @@ const textColourAnimation = keyframes`
   }
 `
 
-export function reverseFontColour(reverse: boolean | undefined = false) {
+export function reverseFontColour(
+  reverse: boolean | undefined = false
+): FlattenInterpolation<ThemeProps<DefaultTheme>> {
   return reverse
     ? css`
         color: ${({ theme: { colours } }) => colours.primary[1]};
@@ -18,26 +26,28 @@ export function reverseFontColour(reverse: boolean | undefined = false) {
       `
 }
 
-export const blockQuoteStyle = (reverse?: boolean) => css`
-  ${glassBackground};
-  max-width: 42rem;
-  padding: 0.25rem 0.75rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
-  text-align: center;
+export function blockQuoteStyle(reverse?: boolean): FlattenInterpolation<ThemeProps<DefaultTheme>> {
+  return css`
+    ${glassBackground};
+    max-width: 42rem;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
 
-  mark {
-    ${reverseFontColour(reverse)};
-    background-color: transparent;
-    font-size: ${({
-      theme: {
-        font: { size }
-      }
-    }) => size[SIZE.L]};
-    font-style: italic;
-    letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
-  }
-`
+    mark {
+      ${reverseFontColour(reverse)};
+      background-color: transparent;
+      font-size: ${({
+        theme: {
+          font: { size }
+        }
+      }) => size[SIZE.L]};
+      font-style: italic;
+      letter-spacing: ${({ theme: { letterSpacing } }) => letterSpacing[SIZE.L]};
+    }
+  `
+}
 
 export const H1Style = css`
   font-family: 'Garamond, Georgia, serif';
@@ -113,18 +123,20 @@ export const H4 = styled.h4<{ reverse?: boolean }>`
   }) => weight[SIZE.L]};
 `
 
-export const pStyle = (reverse?: boolean) => css`
-  ${reverseFontColour(reverse)};
-  font-weight: ${({
-    theme: {
-      font: { weight }
-    }
-  }) => weight[SIZE.S]};
+export function pStyle(reverse?: boolean): FlattenInterpolation<ThemeProps<DefaultTheme>> {
+  return css`
+    ${reverseFontColour(reverse)};
+    font-weight: ${({
+      theme: {
+        font: { weight }
+      }
+    }) => weight[SIZE.S]};
 
-  a {
-    text-decoration: none;
-  }
-`
+    a {
+      text-decoration: none;
+    }
+  `
+}
 
 export const P = styled.p<{ reverse?: boolean }>`
   ${({ reverse }) => pStyle(reverse)};

@@ -21,7 +21,7 @@ interface Props {
   pageMeta: PageMeta
 }
 
-export default function Footer(props: Props) {
+export default function Footer(props: Props): JSX.Element {
   const { isIndex, pageMeta } = props
 
   const linksMeta = linksGen(pageMeta, [PAGE_NAMES[404], PAGE_NAMES.HOME])

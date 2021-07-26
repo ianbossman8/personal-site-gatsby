@@ -8,7 +8,7 @@ interface Props {
   brand?: string
 }
 
-export default function Icon(props: Props) {
+export default function Icon(props: Props): JSX.Element {
   const { children, link, title, brand } = props
 
   return (

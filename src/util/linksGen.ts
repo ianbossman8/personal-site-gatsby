@@ -17,7 +17,7 @@ const iconMapper = {
   [PAGE_NAMES.PROMOTIONS]: symbols.gift
 }
 
-export default function linksGen(pageMeta: PageMeta, filter: string[]) {
+export default function linksGen(pageMeta: PageMeta, filter: string[]): LinksObj[] {
   return Object.keys(pageMeta).reduce((acc, cur) => {
     const pathname = pageMeta[cur].pathname
 

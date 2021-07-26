@@ -19,7 +19,7 @@ const MESSAGE_STATE: MESSAGE_STATE = {
   INFO: 'INFO'
 }
 
-export default function MessageBox(props: Props) {
+export default function MessageBox(props: Props): JSX.Element {
   const { state = MESSAGE_STATE.INFO, message } = props
 
   function handleCloseButton() {

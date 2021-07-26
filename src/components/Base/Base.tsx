@@ -16,7 +16,7 @@ interface Props {
   reverse?: boolean
 }
 
-export default function Base(props: Props) {
+export default function Base(props: Props): JSX.Element {
   const { pageSeo, modalProps, children, reverse = false } = props
 
   const isIndex = Location.isIndexPath(pageSeo.pathname)

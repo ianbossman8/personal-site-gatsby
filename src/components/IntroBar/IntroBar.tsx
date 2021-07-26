@@ -6,7 +6,7 @@ interface Props {
   items: { title: string; text: string }[]
 }
 
-export default function IntroBar(props: Props) {
+export default function IntroBar(props: Props): JSX.Element {
   const { setModalContentTopic, items } = props
 
   function handleButtonlick(

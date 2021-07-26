@@ -3,20 +3,19 @@ import THEME from '../constants/theme'
 import initialTheme from '../util/theme'
 
 type ThemeContextType = {
-  colourTheme: THEME
+  colourTheme: THEME.DARK | THEME.LIGHT
   setColourTheme: (theme: THEME) => void
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  colourTheme: THEME.LIGHT,
-  setColourTheme: (theme: THEME) => {}
-})
+  colourTheme: THEME.LIGHT
+} as ThemeContextType)
 
 interface Props {
   children: ReactNode
 }
 
-function ThemeProvider(props: Props) {
+function ThemeProvider(props: Props): JSX.Element {
   const [colourTheme, setColourTheme] = useState<THEME>(THEME.LIGHT)
 
   useEffect(() => {
@@ -37,4 +36,8 @@ function ThemeProvider(props: Props) {
   return <ThemeContext.Provider value={themeValue}>{props.children}</ThemeContext.Provider>
 }
 
-export default ({ element }: { element: ReactNode }) => <ThemeProvider>{element}</ThemeProvider>
+function themeWrapper({ element }: { element: ReactNode }) {
+  return <ThemeProvider>{element}</ThemeProvider>
+}
+
+export default themeWrapper

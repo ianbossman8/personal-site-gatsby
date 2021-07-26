@@ -27,7 +27,7 @@ type ProjectsQueryResponse = {
   }
 }
 
-export function useProjectsQuery() {
+export function useProjectsQuery(): ProjectsQueryResponse {
   const { pinnedProjects, latestProjects } = useStaticQuery<ProjectsQueryResponse>(
     graphql`
       query {

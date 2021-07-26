@@ -13,7 +13,7 @@ type SiteMetaDataQueryResponse = {
   }
 }
 
-export function useSiteMetaDataQuery() {
+export function useSiteMetaDataQuery(): SiteMetaDataQueryResponse['site']['siteMetadata'] {
   const { site } = useStaticQuery<SiteMetaDataQueryResponse>(
     graphql`
       query {

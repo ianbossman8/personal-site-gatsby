@@ -21,7 +21,7 @@ type BlogsQueryResponse = {
   }
 }
 
-export function useBlogsQuery() {
+export function useBlogsQuery(): BlogsQueryResponse {
   const { pinnedBlogs, latestBlogs } = useStaticQuery<BlogsQueryResponse>(
     graphql`
       query {

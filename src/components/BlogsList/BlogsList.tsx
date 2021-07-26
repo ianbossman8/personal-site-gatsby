@@ -13,7 +13,7 @@ interface Props {
   origin: string
 }
 
-export default function BlogsList(props: Props) {
+export default function BlogsList(props: Props): JSX.Element {
   const { totalBlogs, blogsMeta, currentPage, numBlogPages, origin } = props
 
   return (

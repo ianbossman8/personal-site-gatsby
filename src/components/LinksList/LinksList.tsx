@@ -12,7 +12,7 @@ interface Props {
   showIcons?: boolean
 }
 
-export default function LinksList(props: Props) {
+export default function LinksList(props: Props): JSX.Element {
   const { size = SIZE.N, direction = 'row', showIcons = true } = props
 
   return (

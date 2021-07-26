@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { ReactNode, useContext, useLayoutEffect, useRef, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -17,7 +17,7 @@ interface Props {
   pageMeta: PageMeta
 }
 
-function Layout(props: Props) {
+function Layout(props: Props): JSX.Element {
   const { children, isIndex, pageMeta } = props
 
   const { colourTheme, setColourTheme } = useContext(ThemeContext)
@@ -47,7 +47,7 @@ function Layout(props: Props) {
   }, [sectionHeight, curWindowHeight])
 
   useLayoutEffect(() => {
-    setSectionHeight(ref.current?.offsetHeight!)
+    setSectionHeight(ref.current?.offsetHeight || 0)
   }, [curWindowHeight, curWindowWidth, ref.current])
 
   return (

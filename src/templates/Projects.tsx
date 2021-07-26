@@ -26,7 +26,7 @@ interface Props extends PageProps {
   data: AllProjectsInfoQuery
 }
 
-export default function Projects(props: Props) {
+export default function Projects(props: Props): JSX.Element {
   const allProjectsInfo = props.data.allMarkdownRemark
 
   function renderProjectList() {

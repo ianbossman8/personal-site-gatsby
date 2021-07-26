@@ -6,7 +6,7 @@ interface Props {
   imageDetail: IGatsbyImageData
 }
 
-export default function CustomGatsbyImage(props: Props) {
+export default function CustomGatsbyImage(props: Props): JSX.Element {
   const { description, imageDetail } = props
 
   const thumbnail = getImage(imageDetail)

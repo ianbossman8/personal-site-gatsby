@@ -129,7 +129,7 @@ exports.createPages = async ({ graphql, actions }) => {
   async function projectsQuery(query) {
     const projectsResult = await query
 
-    projectsResult.data.projects.edges.forEach(({ node }) => {
+    projectsResult.data.projects.edges.forEach(({}) => {
       createPage({
         path: '/projects',
         component: path.resolve('./src/templates/Projects.tsx')
