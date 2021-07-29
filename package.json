@@ -56,6 +56,8 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.24",
     "@types/react-helmet": "^6.1.1",
     "@types/react-test-renderer": "^17.0.1",
@@ -64,6 +66,7 @@
     "@typescript-eslint/parser": "^4.28.1",
     "babel-jest": "^27.0.6",
     "babel-preset-gatsby": "^1.10.0",
+    "cypress": "^8.1.0",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -72,9 +75,11 @@
     "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
+    "jest-styled-components": "^7.0.5",
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",
     "react-test-renderer": "^17.0.2",
+    "start-server-and-test": "^1.13.1",
     "typescript": "^4.3.5"
   }
 }

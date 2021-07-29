@@ -36,7 +36,7 @@ function ThemeProvider(props: Props): JSX.Element {
   return <ThemeContext.Provider value={themeValue}>{props.children}</ThemeContext.Provider>
 }
 
-function themeWrapper({ element }: { element: ReactNode }) {
+function themeWrapper({ element }: { element: ReactNode }): JSX.Element {
   return <ThemeProvider>{element}</ThemeProvider>
 }
 

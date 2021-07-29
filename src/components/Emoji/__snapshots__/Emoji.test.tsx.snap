@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Emoji snapshot should render a house emoji 1`] = `
+.c0 {
+  font-size: 2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<span
+  aria-label="testing"
+  className="c0"
+  role="img"
+  size="XL"
+>
+  🏡
+</span>
+`;

@@ -10,8 +10,12 @@ public
 notes.md
 .vscode
 
+# Files
 contents
 __mocks__
 prepare.js
 jest-preprocess.js
 static
+testingTools
+tests
+*.test.*
