@@ -3,6 +3,17 @@ language: node_js
 install:
   - npm ci
 
-script:
-  - npm audit
-  - npm run build
+jobs:
+  include:
+    - stage: 'Audit'
+      name: 'npm audit'
+      script: npm audit
+    - stage: 'Lint'
+      name: 'lint'
+      script: 'npm run lint'
+    - stage: 'Test'
+      name: 'unit test'
+      script: npm run test
+    - stage: 'Build'
+      name: 'build'
+      script: npm run build
