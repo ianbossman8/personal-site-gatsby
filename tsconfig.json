@@ -13,5 +13,5 @@
     "esModuleInterop": true
   },
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.*", "node_modules", ".cache", "public", "dist", "static"]
+  "exclude": ["src/**/*.test.*", "node_modules", ".cache", "public", "dist", "static", "cypress"]
 }

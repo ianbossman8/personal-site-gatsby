@@ -13,6 +13,7 @@ notes.md
 # Files
 contents
 __mocks__
+cypress
 prepare.js
 jest-preprocess.js
 static
