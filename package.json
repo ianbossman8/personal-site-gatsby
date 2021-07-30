@@ -1,6 +1,6 @@
 {
   "name": "personal-site-gatsby",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A personal site build with the JAM stack and Gatsby",
   "main": "index.js",
   "scripts": {
