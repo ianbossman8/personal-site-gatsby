@@ -14,7 +14,7 @@ function stringArrayLooper(arr: string[] = []) {
   return <span>{arr.join(', ')}</span>
 }
 
-export default function LargeCard(props: Props) {
+export default function LargeCard(props: Props): JSX.Element {
   const { cardDetail, repoIcon, siteIcon, languageLogo } = props
   const { title, description, other_techs, other_languages, main_tech, main_language, date } =
     cardDetail

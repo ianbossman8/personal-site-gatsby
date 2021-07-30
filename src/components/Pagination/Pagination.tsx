@@ -7,7 +7,7 @@ interface Props {
   numBlogPages: number
 }
 
-export default function Pagination(props: Props) {
+export default function Pagination(props: Props): JSX.Element {
   const { numBlogPages, currentPage } = props
 
   const isLastPage = currentPage === numBlogPages

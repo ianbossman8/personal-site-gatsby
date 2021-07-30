@@ -12,7 +12,7 @@ interface Props {
   origin?: string
 }
 
-export default function Card(props: Props) {
+export default function Card(props: Props): JSX.Element {
   const { cardDetail, link, origin = LINKS.INTERNAL_LINKS.ROOT } = props
   const { title, description, date, thumbnail_description, thumbnail } = cardDetail
 

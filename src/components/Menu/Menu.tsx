@@ -16,13 +16,13 @@ interface Props {
   isIndex: boolean
 }
 
-export default function Menu(props: Props) {
+export default function Menu(props: Props): JSX.Element {
   const { size, isIndex, linksMeta } = props
   const curWidth = useWindowResizeHook('width')
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
   function handleMenuClick() {
-    setShowMenu((showMenu) => !showMenu)
+    setShowMenu((prevShowMenu) => !prevShowMenu)
   }
 
   function handleMenuClose() {

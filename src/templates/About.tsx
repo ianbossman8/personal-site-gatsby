@@ -16,7 +16,7 @@ interface Props extends PageProps {
   path: string
 }
 
-export default function About(props: Props) {
+export default function About(props: Props): JSX.Element {
   const {
     data: {
       markdownRemark: { html }

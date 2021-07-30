@@ -14,7 +14,9 @@ import location from '../util/location'
 type LocationState = {
   origin: string
 }
-interface Props extends PageProps<object, object, LocationState> {
+
+type PlaceholderObj = Record<string, unknown>
+interface Props extends PageProps<PlaceholderObj, PlaceholderObj, LocationState> {
   data: {
     markdownRemark: {
       html: string
@@ -27,7 +29,7 @@ interface Props extends PageProps<object, object, LocationState> {
   }
 }
 
-export default function BlogPost(props: Props) {
+export default function BlogPost(props: Props): JSX.Element {
   const {
     data: {
       markdownRemark: { html, frontmatter, fields, timeToRead }

@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu snapshot should not render the menu 1`] = `null`;
+
+exports[`Menu snapshot should render the menu 1`] = `
+Array [
+  <div
+    className="sc-fujyAs jbPEWQ"
+    onClick={[Function]}
+  >
+    <ul
+      className="sc-iCoGMd kzyMyM"
+      direction="row"
+      fontSize="N"
+    >
+      <li>
+        <span
+          aria-label="Home"
+          className="sc-bdnxRM hHhLGM"
+          role="img"
+          size="N"
+        >
+          🏡
+        </span>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <span
+          aria-label="About"
+          className="sc-bdnxRM hHhLGM"
+          role="img"
+          size="N"
+        >
+          🐵
+        </span>
+        <a
+          href="/about/"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <span
+          aria-label="Blogs"
+          className="sc-bdnxRM hHhLGM"
+          role="img"
+          size="N"
+        >
+          ✍
+        </span>
+        <a
+          href="/blogs/"
+        >
+          Blogs
+        </a>
+      </li>
+      <li>
+        <span
+          aria-label="Projects"
+          className="sc-bdnxRM hHhLGM"
+          role="img"
+          size="N"
+        >
+          🔨
+        </span>
+        <a
+          href="/projects/"
+        >
+          Projects
+        </a>
+      </li>
+      <li>
+        <span
+          aria-label="Promotions"
+          className="sc-bdnxRM hHhLGM"
+          role="img"
+          size="N"
+        >
+          🎁
+        </span>
+        <a
+          href="/promotions/"
+        >
+          Promotions
+        </a>
+      </li>
+    </ul>
+  </div>,
+  <button
+    className="sc-kEqXSa gmvYaa"
+  >
+    <svg
+      fill="currentColor"
+      height={48}
+      onClick={[Function]}
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 512 512"
+      width={48}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>
+        menu
+      </title>
+      <path
+        d="M432 176H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 272H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 368H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16z"
+      />
+    </svg>
+  </button>,
+]
+`;

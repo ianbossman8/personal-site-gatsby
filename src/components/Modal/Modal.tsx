@@ -13,7 +13,7 @@ interface Props {
   reverse: boolean
 }
 
-export default function Modal(props: Props) {
+export default function Modal(props: Props): JSX.Element {
   const { topic, modalContent, reverse, handleModalClose } = props
 
   useModalEscapeKeyHooks(handleModalClose)

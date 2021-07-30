@@ -8,7 +8,7 @@ interface Props {
   size?: SIZE
 }
 
-export default function Emoji(props: Props) {
+export default function Emoji(props: Props): JSX.Element {
   const { label, symbol, size = SIZE.XL } = props
 
   return (

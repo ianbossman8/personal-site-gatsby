@@ -4,7 +4,7 @@ import { pageMeta } from '../constants/meta'
 import { LINKS } from '../constants/links'
 import { P } from '../styles/text'
 
-export default function Promotions() {
+export default function Promotions(): JSX.Element {
   return (
     <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS.PROMOTIONS] }}>
       <P>coming soon</P>

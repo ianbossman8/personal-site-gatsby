@@ -27,7 +27,7 @@ interface Props extends PageProps {
   }
 }
 
-export default function Blogs(props: Props) {
+export default function Blogs(props: Props): JSX.Element {
   const allBlogPostsInfo = props.data.allMarkdownRemark
   const { numBlogPages, currentPage } = props.pageContext
   const { path } = props

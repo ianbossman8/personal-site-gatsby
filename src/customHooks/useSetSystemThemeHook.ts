@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import THEME from '../constants/theme'
 
-export default function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void) {
+export default function useSetSystemThemeHook(setColourTheme: (theme: THEME) => void): void {
   useEffect(() => {
-    const isSystemDark = matchMedia('(prefers-color-scheme: dark)')
+    const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)')
 
     function handleSystemChange(event: MediaQueryListEvent) {
       const localTheme = localStorage.getItem('colourTheme')

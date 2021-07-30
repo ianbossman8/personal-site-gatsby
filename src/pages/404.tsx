@@ -13,7 +13,7 @@ const Container = styled.div`
   text-align: center;
 `
 
-export default function NotFoundPage() {
+export default function NotFoundPage(): JSX.Element {
   return (
     <Base pageSeo={{ ...pageMeta[LINKS.INTERNAL_LINKS[404]] }}>
       <Container>

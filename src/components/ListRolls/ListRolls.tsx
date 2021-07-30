@@ -28,7 +28,7 @@ interface ItemsProps {
   }[]
 }
 
-function Items(props: ItemsProps) {
+function Items(props: ItemsProps): JSX.Element {
   return (
     <>
       {props.items.map(({ node }) => {
@@ -85,7 +85,7 @@ function Items(props: ItemsProps) {
   )
 }
 
-export default function ListRolls(props: Props) {
+export default function ListRolls(props: Props): JSX.Element {
   const { pinnedContent, latestContent } = props
 
   return (

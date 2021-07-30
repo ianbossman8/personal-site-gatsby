@@ -9,7 +9,7 @@ export interface Props {
   pathname: string
 }
 
-export default function SEO(props: Props) {
+export default function SEO(props: Props): JSX.Element {
   const siteMetadata = useSiteMetaDataQuery()
   const {
     description = siteMetadata.description,
